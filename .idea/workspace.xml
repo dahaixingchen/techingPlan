@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49b92e67-c135-4f1e-ba19-86022a374aba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/user.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teachingPlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/teachingPlan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/user/UserApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/test/java/com/xinwei/teachingplan/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/xinwei/teachingplan/user/UserApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/UserApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/META-INF/user.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/xinwei/teachingplan/UserApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/xinwei/teachingplan/controller/HelloController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/test-classes/com/xinwei/teachingplan/user/UserApplicationTests.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/UserApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="290">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/controller/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
+            <state relative-caret-position="234">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -81,12 +82,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/pom.xml">
           <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+            <state relative-caret-position="609">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -139,10 +140,10 @@
     <option name="jreName" value="#JAVA_INTERNAL" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-239" />
-    <option name="y" value="68" />
-    <option name="width" value="1348" />
-    <option name="height" value="913" />
+    <option name="x" value="255" />
+    <option name="y" value="354" />
+    <option name="width" value="1074" />
+    <option name="height" value="847" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -193,6 +194,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="teachingplan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingPlan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teachingPlan" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="teachingplan" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teachingPlan" type="b2602c69:ProjectViewProjectNode" />
@@ -328,11 +339,18 @@
       <option name="project" value="LOCAL" />
       <updated>1591874403886</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修复pom文件中导致的项目报错">
+      <created>1592396847672</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592396847672</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3806000" />
+    <option name="totallyTimeSpent" value="4082000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -344,10 +362,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="482" y="244" width="1348" height="913" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23524845" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16151386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -358,7 +375,7 @@
       <window_info id="Image Layers" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7166149" visible="true" weight="0.3902439" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.71695095" visible="true" weight="0.31127983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -368,7 +385,7 @@
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Sequence" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.2833851" side_tool="true" visible="true" weight="0.3902439" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.28304905" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49946696" weight="0.40563992" />
@@ -477,7 +494,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目初步构建，用户系统构建" />
-    <option name="LAST_COMMIT_MESSAGE" value="项目初步构建，用户系统构建" />
+    <MESSAGE value="修复pom文件中导致的项目报错" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复pom文件中导致的项目报错" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/teachingPlan.iml">
@@ -529,18 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/controller/HelloController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/src/test/java/com/xinwei/teachingplan/user/UserApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -566,21 +572,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/user/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/UserApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="290">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    <entry file="file://$PROJECT_DIR$/user/src/main/java/com/xinwei/teachingplan/controller/HelloController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="234">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
