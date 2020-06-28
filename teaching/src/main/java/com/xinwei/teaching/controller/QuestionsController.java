@@ -36,14 +36,14 @@ public class QuestionsController {
 
     @ApiOperation(value="查看试题")
     @PostMapping("/query-questions")
-    public ApiMessage queryQuestions(@RequestBody QuestionsBo questions){
+    public ApiMessage<List<QuestionBaseEntity>> queryQuestions(@RequestBody QuestionsBo questions){
         List<QuestionBaseEntity> questionList = questionsService.queryQuestions(questions);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS,questionList);
     }
 
     @ApiOperation(value="查看答案")
     @GetMapping("/query-answer")
-    public ApiMessage queryAnswer(Long questionsId){
+    public ApiMessage<List<QuestionAnswer>> queryAnswer(Long questionsId){
         List<QuestionAnswer> answerList = questionsService.queryAnswer(questionsId);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS,answerList);
     }

@@ -1,6 +1,7 @@
 package com.xinwei.teaching.entity;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 /**
  * @ClassName: QuestionAnswer
@@ -9,6 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  * @Description: TODO
  **/
+@Data
 public class QuestionAnswer {
 
     @ApiModelProperty(value = "试题答案",required = true)
