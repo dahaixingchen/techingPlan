@@ -35,5 +35,5 @@ public class QuestionAnswer {
     private String questionsExplain;
 
     @ApiModelProperty(value = "试题解答对应图片")
-    private String QuestionsExplainImage;
+    private String questionsExplainImage;
 }
