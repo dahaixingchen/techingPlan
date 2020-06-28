@@ -1,4 +1,4 @@
-package com.xinwei.teachingplan;
+package com.xinwei.teaching;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -23,14 +23,14 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.xinwei.teachingplan"))
+                .apis(RequestHandlerSelectors.basePackage("com.xinwei.teaching"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("教案程序开发 人员管理系统的接口  APIs")
+                .title("教案程序开发 教案的接口 APIs")
                 .version("0.1.1")
                 .build();
     }
