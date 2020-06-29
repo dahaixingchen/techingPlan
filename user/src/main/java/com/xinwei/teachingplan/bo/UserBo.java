@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class UserBo {
 
-    @ApiModelProperty(value = "名称" ,required = true)
+    @ApiModelProperty(value = "名称")
     private String name;
     @ApiModelProperty(value = "手机号",required = true)
     private String phone;

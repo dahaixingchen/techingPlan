@@ -20,7 +20,7 @@ import java.util.List;
  * @Version 1.0
  * @Description: 试卷模块
  **/
-@Api("用户管理")
+@Api("试卷模块")
 @RestController
 @RequestMapping("/questions")
 public class QuestionsController {
