@@ -51,7 +51,7 @@ public class PublicController {
     @ApiOperation(value="查询所有标签")
     @GetMapping("/label")
     public ApiMessage<List<String>> label(String label){
-        List<String> labels = publicService.course(label);
+        List<String> labels = publicService.label(label);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS,labels);
     }
 
@@ -59,7 +59,7 @@ public class PublicController {
     @ApiOperation(value="查询所有知识点")
     @GetMapping("/label")
     public ApiMessage<List<String>> knowledge(String knowledge){
-        List<String> knowledges = publicService.course(knowledge);
+        List<String> knowledges = publicService.knowledge(knowledge);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS,knowledges);
     }
 }
