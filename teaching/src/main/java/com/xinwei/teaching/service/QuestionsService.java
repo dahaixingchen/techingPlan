@@ -1,7 +1,7 @@
 package com.xinwei.teaching.service;
 
 import com.xinwei.teaching.bo.QuestionsBo;
-import com.xinwei.teaching.entity.QuestionAnswer;
+import com.xinwei.teaching.entity.QuestionAnswerEntity;
 import com.xinwei.teaching.entity.QuestionBaseEntity;
 import com.xinwei.teaching.mapper.QuestionsMapper;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class QuestionsService {
         return null;
     }
 
-    public List<QuestionAnswer> queryAnswer(Long questionsId) {
+    public List<QuestionAnswerEntity> queryAnswer(Long questionsId) {
         return null;
     }
 

@@ -11,7 +11,7 @@ import lombok.Data;
  * @Description: TODO
  **/
 @Data
-public class QuestionAnswer {
+public class QuestionAnswerEntity {
 
     @ApiModelProperty(value = "试题答案",required = true)
     private String questionsAnswer;

@@ -1,7 +1,7 @@
 package com.xinwei.teaching.controller;
 
 import com.xinwei.teaching.bo.QuestionsBo;
-import com.xinwei.teaching.entity.QuestionAnswer;
+import com.xinwei.teaching.entity.QuestionAnswerEntity;
 import com.xinwei.teaching.entity.QuestionBaseEntity;
 import com.xinwei.teaching.service.QuestionsService;
 import com.xinwei.teaching.util.ApiMessage;
@@ -43,8 +43,8 @@ public class QuestionsController {
 
     @ApiOperation(value="查看答案")
     @GetMapping("/query-answer")
-    public ApiMessage<List<QuestionAnswer>> queryAnswer(Long questionsId){
-        List<QuestionAnswer> answerList = questionsService.queryAnswer(questionsId);
+    public ApiMessage<List<QuestionAnswerEntity>> queryAnswer(Long questionsId){
+        List<QuestionAnswerEntity> answerList = questionsService.queryAnswer(questionsId);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS,answerList);
     }
 
