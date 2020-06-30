@@ -1,6 +1,11 @@
 package com.xinwei.teaching.service;
 
+import com.xinwei.teaching.bo.TeachBo;
+import com.xinwei.teaching.mapper.TeachMapper;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName: TeachService
@@ -11,4 +16,18 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class TeachService {
+
+    @Resource
+    private TeachMapper teachMapper;
+
+    public void addTeach(TeachBo teachBo) {
+    }
+
+    public List<String> queryTeach(TeachBo teachBo) {
+        return null;
+    }
+
+    public void updateTeach(TeachBo teachBo) {
+
+    }
 }
