@@ -1,0 +1,5 @@
+server:
+  port: 18660
+spring:
+  profiles:
+    active: dev
