@@ -37,10 +37,10 @@ public class UserController {
     @PostMapping("/login")
     public ApiMessage login(@RequestBody UserBo userBo) {
         Map<String, Object> result = userService.doLogin(userBo);
-        if ("error".equals(result.get("status").toString())) {
+        if (result == null) {
             return ApiMessage.error(result.get("data").toString());
         } else {
-            return ApiMessage.success(MessageConstant.LOGIN_SUCESS, result.get("data"));
+            return ApiMessage.success(MessageConstant.LOGIN_SUCESS, result);
         }
     }
 

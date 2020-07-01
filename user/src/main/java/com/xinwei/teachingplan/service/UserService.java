@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public Map<String, Object> doLogin(UserBo userBo) {
-        return null;
+        return userMapper.doLogin(userBo);
     }
 
     public Map<String, Object> updatePassword(UserBo user) {

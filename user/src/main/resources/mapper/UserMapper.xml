@@ -14,4 +14,11 @@
             #{password}
         )
     </insert>
+    <select id="doLogin" resultType="java.util.Map">
+        select
+            name,
+            phone
+        from user
+        where phone = #{phone} and password = #{password}
+    </select>
 </mapper>

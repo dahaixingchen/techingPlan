@@ -1,0 +1,58 @@
+package com.xinwei.teachingplan.controller;
+
+import com.xinwei.teachingplan.bo.QuestionsBo;
+import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
+import com.xinwei.teachingplan.entity.QuestionBaseEntity;
+import com.xinwei.teachingplan.service.QuestionsService;
+import com.xinwei.teachingplan.util.ApiMessage;
+import com.xinwei.teachingplan.util.MessageConstant;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * @ClassName: QuestionsController
+ * @Author chengfei
+ * @Date 2020/6/28 16:39
+ * @Version 1.0
+ * @Description: 试卷模块
+ **/
+@Api("试卷模块")
+@RestController
+@RequestMapping("/questions")
+public class QuestionsController {
+    @Autowired
+    private QuestionsService questionsService;
+
+    @ApiOperation(value="添加试题")
+    @PostMapping("/add-questions")
+    public ApiMessage addQuestions(@RequestBody QuestionsBo questions){
+        questionsService.addQuestions(questions);
+        return ApiMessage.success(MessageConstant.LOGIN_SUCESS);
+    }
+
+    @ApiOperation(value="查看试题")
+    @PostMapping("/query-questions")
+    public ApiMessage<List<QuestionBaseEntity>> queryQuestions(@RequestBody QuestionsBo questions){
+        List<QuestionBaseEntity> questionList = questionsService.queryQuestions(questions);
+        return ApiMessage.success(MessageConstant.LOGIN_SUCESS,questionList);
+    }
+
+    @ApiOperation(value="查看答案")
+    @GetMapping("/query-answer")
+    public ApiMessage<List<QuestionAnswerEntity>> queryAnswer(Long questionsId){
+        List<QuestionAnswerEntity> answerList = questionsService.queryAnswer(questionsId);
+        return ApiMessage.success(MessageConstant.LOGIN_SUCESS,answerList);
+    }
+
+    @ApiOperation(value="添加到我")
+    @GetMapping("/add-me")
+    public ApiMessage addMe(Long questionsId){
+        questionsService.addMe(questionsId);
+        return ApiMessage.success(MessageConstant.LOGIN_SUCESS);
+    }
+
+}
