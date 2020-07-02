@@ -14,7 +14,7 @@
             #{password}
         )
     </insert>
-    <select id="doLogin" resultType="java.util.Map">
+    <select id="doLogin" resultType="com.xinwei.teachingplan.bo.UserBo">
         select
             name,
             phone

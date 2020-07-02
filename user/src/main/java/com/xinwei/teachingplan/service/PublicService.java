@@ -12,13 +12,13 @@ import java.util.List;
  * @Description: TODO
  **/
 public interface PublicService {
-    public List<String> grade(String grade);
+    public List<String> grade(String dataType);
 
-    public List<String> course(String course) ;
+    public List<String> course(String dataType) ;
 
-    public List<String> year(String yearType) ;
+    public List<String> year(String dataType) ;
 
-    List<String> label(String label);
+    List<String> label(String dataType);
 
-    List<String> knowledge(String knowledge);
+    List<String> knowledge(String dataType);
 }

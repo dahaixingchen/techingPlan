@@ -28,47 +28,39 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    /**
-      * @Authon: chengfei
-      * @Date: 2020/6/22 20:04
-      * @Description: 登录
-      **/
+
+
     @ApiOperation(value="登录")
     @PostMapping("/login")
-    public ApiMessage login(@RequestBody UserBo userBo) {
-        Map<String, Object> result = userService.doLogin(userBo);
+    public ApiMessage<UserBo> login(@RequestBody UserBo userBo) {
+        UserBo result = userService.doLogin(userBo);
         if (result == null) {
-            return ApiMessage.error(result.get("data").toString());
+            return ApiMessage.error(MessageConstant.LOGIN_ERROR);
         } else {
             return ApiMessage.success(MessageConstant.LOGIN_SUCESS, result);
         }
     }
 
-    /**
-     * 修改密码
-     * @param
-     * @return
-     */
     @ApiOperation(value="忘记密码", notes = "基本请求")
     @PostMapping("/updatePassword")
-    public ApiMessage updatePassword(@RequestBody UserBo user) {
-        Map<String, Object> result = userService.updatePassword(user);
-        if ("error".equals(result.get("status").toString())) {
-            return ApiMessage.error(result.get("data").toString());
+    public ApiMessage<UserBo> updatePassword(@RequestBody UserBo user) {
+        Integer result = userService.updatePassword(user);
+        if (result != null && result >= 0) {
+            return ApiMessage.success("密码修改成功");
         } else {
-            return ApiMessage.success(MessageConstant.UPDATE_SUCCESS_MESSAGE);
+            return ApiMessage.error("密码修改失败");
         }
     }
 
-    /**
-      * @Authon: chengfei
-      * @Date: 2020/6/17 20:32
-      * @Description: 创建账号
-      **/
     @ApiOperation("创建账号")
     @PostMapping("/add-user")
-    public void addUser(@RequestBody UserBo user){
-        userService.addUser(user);
+    public ApiMessage<Integer> addUser(@RequestBody UserBo user){
+        Integer count = userService.addUser(user);
+        if (count == 1){
+            return ApiMessage.success("创建账号成功");
+        }else {
+            return ApiMessage.error("创建账号失败");
+        }
     }
 
 

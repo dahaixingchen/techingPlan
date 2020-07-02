@@ -18,4 +18,6 @@ public class UserBo {
     private String phone;
     @ApiModelProperty(value = "密码",required = true)
     private String password;
+    @ApiModelProperty(value = "确认密码，在创建账号和忘记密码，修改密码的时候用")
+    private String confirmPassword;
 }
