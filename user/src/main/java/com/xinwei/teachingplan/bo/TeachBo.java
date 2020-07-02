@@ -84,4 +84,7 @@ public class TeachBo {
 
     @ApiModelProperty(value = "家长签字",required = true)
     private String signature;
+
+    @ApiModelProperty(value = "是否查看全部，默认传0表示不看全部,只在查询教案的接口中使用")
+    private Integer isAll;
 }

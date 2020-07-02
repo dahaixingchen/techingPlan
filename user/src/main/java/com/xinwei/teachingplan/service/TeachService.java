@@ -20,14 +20,28 @@ public class TeachService {
     @Resource
     private TeachMapper teachMapper;
 
-    public void addTeach(TeachBo teachBo) {
-    }
-
-    public List<String> queryTeach(TeachBo teachBo) {
+    public Integer addTeach(TeachBo teachBo) {
         return null;
     }
 
-    public void updateTeach(TeachBo teachBo) {
+    public List<TeachBo> queryTeach(TeachBo teachBo) {
+        return null;
+    }
 
+    public Integer updateTeach(TeachBo teachBo) {
+
+        return null;
+    }
+
+    public void download(String teachId) {
+
+    }
+
+    public Integer delete(String teachId) {
+        return null;
+    }
+
+    public Integer addMe(Long questionsId) {
+        return null;
     }
 }

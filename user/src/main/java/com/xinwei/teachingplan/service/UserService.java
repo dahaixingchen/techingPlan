@@ -5,7 +5,6 @@ import com.xinwei.teachingplan.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 /**
  * @ClassName: UserService
@@ -21,15 +20,16 @@ public class UserService {
     private UserMapper userMapper;
 
 
-    public void addUser(UserBo user) {
-        userMapper.addUser(user);
+    public Integer addUser(UserBo user) {
+        Integer count = userMapper.addUser(user);
+        return count;
     }
 
-    public Map<String, Object> doLogin(UserBo userBo) {
+    public UserBo doLogin(UserBo userBo) {
         return userMapper.doLogin(userBo);
     }
 
-    public Map<String, Object> updatePassword(UserBo user) {
+    public Integer updatePassword(UserBo user) {
         return null;
     }
 }

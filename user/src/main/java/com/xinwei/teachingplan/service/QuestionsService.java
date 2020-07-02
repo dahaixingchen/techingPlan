@@ -25,9 +25,11 @@ public class QuestionsService {
       * @Authon: chengfei
       * @Date: 2020/6/28 18:21
       * @Description: 添加试题
-      **/
-    public void addQuestions(QuestionsBo questions) {
+      *
+     * @return*/
+    public Integer addQuestions(QuestionsBo questions) {
         questionsMapper.addQuestions(questions);
+        return null;
     }
 
     /**
@@ -43,7 +45,8 @@ public class QuestionsService {
         return null;
     }
 
-    public void addMe(Long questionsId) {
+    public Integer addMe(Long questionsId) {
 
+        return null;
     }
 }
