@@ -759,6 +759,12 @@
     <MESSAGE value="个人中心模块，前端开发文档修改" />
     <option name="LAST_COMMIT_MESSAGE" value="个人中心模块，前端开发文档修改" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="351" y="58" key="MultipleFileMergeDialog" timestamp="1593699685936">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="351" y="58" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1593699685936" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/teaching/src/main/java/com/xinwei/teaching/controller/QuestionsController.java">
       <provider selected="true" editor-type-id="text-editor">
