@@ -1,5 +1,6 @@
 package com.xinwei.teachingplan.service;
 
+import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
 import com.xinwei.teachingplan.mapper.TeachMapper;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class TeachService {
         return null;
     }
 
-    public List<TeachBo> queryTeach(TeachBo teachBo) {
+    public List<TeachBo> queryTeach(QueryTeachBo teachBo) {
         return null;
     }
 

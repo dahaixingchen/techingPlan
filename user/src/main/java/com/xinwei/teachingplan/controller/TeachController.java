@@ -1,5 +1,6 @@
 package com.xinwei.teachingplan.controller;
 
+import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
 import com.xinwei.teachingplan.service.TeachService;
 import com.xinwei.teachingplan.util.ApiMessage;
@@ -42,8 +43,8 @@ public class TeachController {
     @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”"+
             " ，“约分”，“知识点”)都会触发这个接口")
     @PostMapping("/query-teach")
-    public ApiMessage<List<String>> queryTeach(@RequestBody TeachBo teachBo){
-        List<TeachBo> Teachs = teachService.queryTeach(teachBo);
+    public ApiMessage<List<String>> queryTeach(@RequestBody QueryTeachBo queryTeachBo){
+        List<TeachBo> Teachs = teachService.queryTeach(queryTeachBo);
         if (Teachs != null){
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
         }else{
