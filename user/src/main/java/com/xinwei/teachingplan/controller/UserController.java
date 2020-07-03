@@ -54,9 +54,9 @@ public class UserController {
 
     @ApiOperation("创建账号")
     @PostMapping("/add-user")
-    public ApiMessage<Integer> addUser(@RequestBody UserBo user){
-        Integer count = userService.addUser(user);
-        if (count == 1){
+    public ApiMessage<String> addUser(@RequestBody UserBo user){
+        String  message = userService.addUser(user);
+        if (message.length() == 1 && Integer.parseInt(message) >= 1){
             return ApiMessage.success("创建账号成功");
         }else {
             return ApiMessage.error("创建账号失败");

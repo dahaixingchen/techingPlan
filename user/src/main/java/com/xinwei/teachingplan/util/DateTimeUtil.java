@@ -400,7 +400,7 @@ public class DateTimeUtil {
 	 */
 	public static Map<String,Object> getLastMonthTimeFrame(String date){
 		try {
-			Map<String,Object> map = new HashMap<>();
+			Map<String,Object> map = new HashMap<String,Object>();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(dateFormat.parse(date));
@@ -503,7 +503,7 @@ public class DateTimeUtil {
 	 */
 	public static List<String> getDateIntervalList(Date startDate, Date endDate) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		List<String> dateList = new ArrayList<>();
+		List<String> dateList = new ArrayList<String>();
 
 		Calendar calBegin = Calendar.getInstance();
 		// 使用给定的 Date 设置此 Calendar 的时间

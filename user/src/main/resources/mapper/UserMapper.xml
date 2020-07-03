@@ -21,4 +21,12 @@
         from user
         where phone = #{phone} and password = #{password}
     </select>
+
+<!--    校验手机号是否重复-->
+    <select id="queryPhone" resultType="java.lang.String">
+        select
+        phone
+        from user
+        where phone = #{phone}
+    </select>
 </mapper>
