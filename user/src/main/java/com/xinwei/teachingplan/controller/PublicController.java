@@ -82,10 +82,6 @@ public class PublicController {
 
 
     @ApiOperation(value = "查询所有标签，在试卷，教案，个人中心三个模块中有标签出现的地方")
-    @ApiImplicitParam(name = "dataType"
-            , value = "查询分试卷和教案模块，如果为试题模块dataType传“questions”,反之传“teach”"
-            , required = true
-            ,paramType = "query")
     @GetMapping("/label")
     public ApiMessage<List<String>> label(String dataType) {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
@@ -100,10 +96,6 @@ public class PublicController {
 
 
     @ApiOperation(value = "查询所有知识点，在试卷，教案，个人中心三个模块中有知识点出现的地方")
-    @ApiImplicitParam(name = "dataType"
-            , value = "查询分试卷和教案模块，如果为试题模块dataType传“questions”,反之传“teach”"
-            , required = true
-            ,paramType = "query")
     @GetMapping("/knowledges")
     public ApiMessage<List<String>> knowledge(String dataType) {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
@@ -117,10 +109,6 @@ public class PublicController {
     }
 
     @ApiOperation(value = "查询所有知识点，在试卷，教案，个人中心三个模块中有知识点出现的地方")
-    @ApiImplicitParam(name = "dataType"
-            , value = "查询分试卷和教案模块，如果为试题模块dataType传“questions”,反之传“teach”"
-            , required = true
-            ,paramType = "query")
     @GetMapping("/teachTopic")
     public ApiMessage<List<String>> teachTopic() {
         PublicTeachImpl TeachImpl = pubilcFactory.getImpl("teach");
