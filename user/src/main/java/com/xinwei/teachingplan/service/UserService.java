@@ -3,7 +3,6 @@ package com.xinwei.teachingplan.service;
 import com.xinwei.teachingplan.bo.UserBo;
 import com.xinwei.teachingplan.mapper.UserMapper;
 import com.xinwei.teachingplan.util.StringUtil;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ public class UserService {
 
     public String addUser(UserBo user) {
         if (user.getName() == null || "".equals(user.getName())) {
-            return Integer.toString(0);
+            return "请填写名称";
         }
         user.setPassword(StringUtil.StringInMd5(user.getPassword()));
         //校验手机号是否重复
@@ -36,11 +35,19 @@ public class UserService {
         return count.toString();
     }
 
-    public UserBo doLogin(UserBo userBo) {
-        return userMapper.doLogin(userBo);
+    public UserBo doLogin(UserBo user) {
+        user.setPassword(StringUtil.StringInMd5(user.getPassword()));
+        return userMapper.doLogin(user);
+
     }
 
-    public Integer updatePassword(UserBo user) {
-        return null;
+    public String updatePassword(UserBo user) {
+        String phoneUser = userMapper.queryPhone(user.getPhone());
+        if (phoneUser == null){
+            return "没有找到对应的账号";
+        }
+        user.setPassword(StringUtil.StringInMd5(user.getPassword()));
+        Integer count = userMapper.updatePassword(user);
+        return count.toString();
     }
 }

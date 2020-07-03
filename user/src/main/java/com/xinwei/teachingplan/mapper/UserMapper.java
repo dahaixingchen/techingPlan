@@ -9,4 +9,6 @@ public interface UserMapper {
     UserBo doLogin(UserBo userBo);
 
     String queryPhone(String phone);
+
+    Integer updatePassword(UserBo user);
 }

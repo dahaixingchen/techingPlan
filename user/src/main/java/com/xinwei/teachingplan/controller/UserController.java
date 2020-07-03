@@ -7,6 +7,7 @@ import com.xinwei.teachingplan.util.MessageConstant;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,11 +45,11 @@ public class UserController {
     @ApiOperation(value="忘记密码", notes = "基本请求")
     @PostMapping("/updatePassword")
     public ApiMessage<UserBo> updatePassword(@RequestBody UserBo user) {
-        Integer result = userService.updatePassword(user);
-        if (result != null && result >= 0) {
-            return ApiMessage.success("密码修改成功");
+        String message = userService.updatePassword(user);
+        if (message != null && message.length() == 1 && Integer.parseInt(message) >= 1) {
+            return ApiMessage.success(message);
         } else {
-            return ApiMessage.error("密码修改失败");
+            return ApiMessage.error(message);
         }
     }
 
@@ -56,10 +57,10 @@ public class UserController {
     @PostMapping("/add-user")
     public ApiMessage<String> addUser(@RequestBody UserBo user){
         String  message = userService.addUser(user);
-        if (message.length() == 1 && Integer.parseInt(message) >= 1){
-            return ApiMessage.success("创建账号成功");
+        if (message != null && message.length() == 1 && Integer.parseInt(message) >= 1){
+            return ApiMessage.success(message);
         }else {
-            return ApiMessage.error("创建账号失败");
+            return ApiMessage.error(message);
         }
     }
 
