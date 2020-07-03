@@ -14,11 +14,24 @@
             #{password}
         )
     </insert>
+    <update id="updatePassword">
+        update user
+        set password = #{password}
+        where phone = #{phone}
+    </update>
     <select id="doLogin" resultType="com.xinwei.teachingplan.bo.UserBo">
         select
             name,
             phone
         from user
         where phone = #{phone} and password = #{password}
+    </select>
+
+<!--    校验手机号是否重复-->
+    <select id="queryPhone" resultType="java.lang.String">
+        select
+        phone
+        from user
+        where phone = #{phone}
     </select>
 </mapper>
