@@ -36,7 +36,7 @@
         <appender-ref ref="STDOUT" />
     </root>
 
-    <logger name="com.njwd" level="debug"/>
+    <logger name="com.xinwei" level="debug"/>
 
 
 </configuration>

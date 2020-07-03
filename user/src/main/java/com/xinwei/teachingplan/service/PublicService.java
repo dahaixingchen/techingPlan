@@ -1,7 +1,5 @@
 package com.xinwei.teachingplan.service;
 
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -12,13 +10,12 @@ import java.util.List;
  * @Description: TODO
  **/
 public interface PublicService {
-    public List<String> grade(String dataType);
 
-    public List<String> course(String dataType) ;
+    String getType();
 
-    public List<String> year(String dataType) ;
+    List<String> grade();
 
-    List<String> label(String dataType);
+    List<String> course() ;
 
-    List<String> knowledge(String dataType);
+    List<String> year() ;
 }

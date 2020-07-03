@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinwei.teachingplan.mapper.PublicTeachMapper">
+
+<!--    查询所有试题对应的年级-->
+    <select id="grade" resultType="java.lang.String">
+        select
+        grade
+        from teach
+        group  by grade
+    </select>
+    <select id="course" resultType="java.lang.String">
+        select
+        course
+        from teach
+        group  by course
+    </select>
+    <select id="year" resultType="java.lang.String">
+        select
+        year
+        from teach
+        group  by year
+    </select>
+    <select id="teachTopic" resultType="java.lang.String">
+        select
+        teach_topic
+        from teach
+        group  by teach_topic
+    </select>
+</mapper>
