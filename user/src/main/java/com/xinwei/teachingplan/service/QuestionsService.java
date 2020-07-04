@@ -28,8 +28,7 @@ public class QuestionsService {
       *
      * @return*/
     public Integer addQuestions(QuestionsBo questions) {
-        questionsMapper.addQuestions(questions);
-        return null;
+        return questionsMapper.addQuestions(questions);
     }
 
     /**
@@ -38,7 +37,8 @@ public class QuestionsService {
       * @Description: 查看试题
       **/
     public List<QuestionBaseEntity> queryQuestions(QuestionsBo questions) {
-        return null;
+        List<QuestionBaseEntity> questionBaseEntities = questionsMapper.queryQuestions(questions);
+        return questionBaseEntities;
     }
 
     public List<QuestionAnswerEntity> queryAnswer(Long questionsId) {

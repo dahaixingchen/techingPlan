@@ -32,7 +32,7 @@ public class QuestionsController {
     @PostMapping("/add-questions")
     public ApiMessage addQuestions(@RequestBody QuestionsBo questions){
         Integer count = questionsService.addQuestions(questions);
-        if (count == 1){
+        if (count != null &&count == 1){
             return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
         }else {
             return ApiMessage.error(MessageConstant.ADD_ERROR_MESSAGE);

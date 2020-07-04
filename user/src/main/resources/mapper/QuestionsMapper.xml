@@ -4,6 +4,56 @@
 
 
     <insert id="addQuestions" parameterType="com.xinwei.teachingplan.bo.QuestionsBo">
-
+        insert into questions(
+            grade,
+            course,
+            complexity,
+            questions_type,
+            year,
+            label,
+            knowledge,
+            questions_start,
+            questions_start_image,
+            questions_answer,
+            questions_answer_image,
+            questions_analyze,
+            questions_analyze_image,
+            questions_remark,
+            questions_remark_image,
+            questions_explain,
+            questions_explain_image
+        )values (
+            #{grade},
+            #{course},
+            #{complexity},
+            #{questionsType},
+            #{year},
+            #{label},
+            #{knowledge},
+            #{questionsStart},
+            #{questionsStartImage},
+            #{questionsAnswer},
+            #{questionsAnswerImage},
+            #{questionsAnalyze},
+            #{questionsAnalyzeImage},
+            #{questionsRemark},
+            #{questionsRemarkImage},
+            #{questionsExplain},
+            #{questionsExplainImage}
+        )
     </insert>
+    <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QuestionsBo"
+            resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
+        select
+            questions_start questionsStart,
+            questions_start_image questionsStartImage
+        from questions
+        where grade = #{grade}
+            and course = #{course}
+            and complexity = #{complexity}
+            and questions_type = #{questionsType}
+            and year = #{year}
+            and label = #{label}
+            and knowledge = #{knowledge}
+    </select>
 </mapper>
