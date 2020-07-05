@@ -1,5 +1,6 @@
 package com.xinwei.teachingplan.controller;
 
+import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
@@ -67,9 +68,9 @@ public class QuestionsController {
 
     @ApiOperation(value="添加到我")
     @ApiImplicitParam(name = "questionsId",value = "对应试题的id",required = true,paramType = "query")
-    @GetMapping("/add-me")
-    public ApiMessage addMe(Long questionsId){
-        Integer count = questionsService.addMe(questionsId);
+    @PostMapping("/add-me")
+    public ApiMessage addMe(@RequestBody PersonalBo personal){
+        Integer count = questionsService.addMe(personal);
         if (count == 1){
             return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
         }else {

@@ -1,9 +1,11 @@
 package com.xinwei.teachingplan.service;
 
+import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
 import com.xinwei.teachingplan.mapper.TeachMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -21,12 +23,17 @@ public class TeachService {
     @Resource
     private TeachMapper teachMapper;
 
+    @Transactional(rollbackFor = Exception.class)
     public Integer addTeach(TeachBo teachBo) {
-        return null;
+        Integer count = teachMapper.addTeach(teachBo);
+        teachMapper.addTeachPoints(teachBo);
+        teachMapper.addTeachPractice(teachBo);
+        return count;
     }
 
     public List<TeachBo> queryTeach(QueryTeachBo teachBo) {
-        return null;
+        return teachMapper.queryTeach(teachBo);
+
     }
 
     public Integer updateTeach(TeachBo teachBo) {
@@ -39,10 +46,10 @@ public class TeachService {
     }
 
     public Integer delete(String teachId) {
-        return null;
+        return teachMapper.delete(teachId);
     }
 
-    public Integer addMe(Long questionsId) {
-        return null;
+    public Integer addMe(PersonalBo personal) {
+        return teachMapper.addMe(personal);
     }
 }

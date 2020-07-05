@@ -42,6 +42,17 @@
             #{questionsExplainImage}
         )
     </insert>
+    <insert id="addMe">
+        insert into personal(
+            user_id,
+            questions_id,
+            teach_id
+        )values (
+            #{userId},
+            #{questionsId},
+            #{teachId}
+        )
+    </insert>
     <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QuestionsBo"
             resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
         select
@@ -55,5 +66,18 @@
             and year = #{year}
             and label = #{label}
             and knowledge = #{knowledge}
+    </select>
+    <select id="queryAnswer" resultType="com.xinwei.teachingplan.entity.QuestionAnswerEntity">
+        select
+            questions_answer questionsAnswer,
+            questions_answer_image questionsAnswerImage,
+            questions_analyze questionsAnalyze,
+            questions_analyze_image questionsAnalyzeImage,
+            questions_remark questionsRemark,
+            questions_remark_image questionsRemarkImage,
+            questions_explain questionsExplain,
+            questions_explain_image questionsExplainImage
+        from questions
+        where id = #{questionsId}
     </select>
 </mapper>

@@ -3,4 +3,126 @@
 <mapper namespace="com.xinwei.teachingplan.mapper.TeachMapper">
 
 
+    <insert id="addTeach" parameterType="com.xinwei.teachingplan.bo.TeachBo"
+            useGeneratedKeys="true" keyProperty="teachId">
+      insert into teach(
+         teach_phone,
+         teach_name ,
+         prepare_lessons_time ,
+         course ,
+         student_name ,
+         grade,
+         lessons_time ,
+         teach_topic ,
+         teach_type,
+         teach_source ,
+         student_questions ,
+         teach_goal ,
+         teach_key_difficulty ,
+         review ,
+         key_point,
+         senior_question_ids ,
+         conclude,
+         consolidate
+        )values (
+         #{teachPhone},
+         #{teachName},
+         #{prepareLessonsTime},
+         #{course},
+         #{studentName},
+         #{grade},
+         #{lessonsTime},
+         #{teachTopic} ,
+         #{teachType},
+         #{teachSource} ,
+         #{studentQuestions} ,
+         #{teachGoal} ,
+         #{teachKeyDifficulty} ,
+         #{review} ,
+         #{keyPoint},
+         #{seniorQuestionIds} ,
+         #{conclude},
+         #{consolidate}
+        )
+    </insert>
+    <insert id="addTeachPoints" parameterType="com.xinwei.teachingplan.bo.TeachBo">
+        insert into teach_points(
+            teach_id,
+            points,
+            analyse,
+            points_question_ids
+        )values (
+            #{teachId},
+            #{points},
+            #{analyse},
+            #{pointsQuestionIds}
+        )
+    </insert>
+    <insert id="addTeachPractice"  parameterType="com.xinwei.teachingplan.bo.TeachBo">
+        insert into teach_practice(
+            teach_id,
+            week,
+            practice_question_ids,
+            signature
+        )values (
+            #{teachId},
+            #{week},
+            #{practiceQuestionIds},
+            #{signature}
+        )
+    </insert>
+    <insert id="addMe" parameterType="com.xinwei.teachingplan.bo.PersonalBo">
+        insert into personal(
+            user_id,
+            questions_id,
+            teach_id
+        )values (
+            #{userId},
+            #{questionsId},
+            #{teachId}
+        )
+    </insert>
+    <update id="delete">
+        update teach
+        set is_del = 1
+        where teachId = #{teachId}
+    </update>
+    <select id="queryTeach" parameterType="com.xinwei.teachingplan.bo.QueryTeachBo"
+            resultType="com.xinwei.teachingplan.bo.TeachBo">
+        select
+            t.teach_phone teachPhone,
+            t.teach_name teachName,
+            t.prepare_lessons_time prepareLessonsTime,
+            t.course course,
+            t.student_name studentName,
+            t.grade grade,
+            t.lessons_time lessonsTime,
+            t.teach_topic teachTopic,
+            t.teach_type teachType,
+            t.teach_source teachSource,
+            t.student_questions studentQuestions,
+            t.teach_goal teachGoal,
+            t.teach_key_difficulty teachKeyDifficulty,
+            t.review review,
+          t.key_point keyPoint,
+            t.senior_question_ids seniorQuestionIds,
+            t.conclude conclude,
+            t.consolidate consolidate,
+            tp.points points,
+            tp.analyse analyse,
+            tp.points_question_ids pointsQuestionIds,
+            tpr.week week,
+            tpr.practice_question_ids practiceQuestionIds,
+            tpr.signature signature
+        from teach t
+        INNER JOIN teach_points tp
+            on t.id = tp.teach_id
+        INNER JOIN teach_practice tpr
+            on t.id = tpr.teach_id
+        where t.is_del = 0
+            and t.grade = #{grade}
+            and t.course = #{course}
+            and t.prepare_lessons_time = #{prepareLessonsTime}
+            and t.teach_topic = #{teachTopic}
+    </select>
 </mapper>

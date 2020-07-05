@@ -13,6 +13,9 @@ import lombok.Data;
 @Data
 public class TeachBo {
 
+    @ApiModelProperty(value = "教师电话(教案归属唯一性保证)",required = true)
+    private String teachPhone;
+
     @ApiModelProperty(value = "教师(教案作者名称)",required = true)
     private String teachName;
 

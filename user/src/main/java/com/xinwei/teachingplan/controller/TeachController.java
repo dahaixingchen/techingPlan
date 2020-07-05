@@ -1,5 +1,6 @@
 package com.xinwei.teachingplan.controller;
 
+import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
 import com.xinwei.teachingplan.service.TeachService;
@@ -75,8 +76,8 @@ public class TeachController {
     @ApiOperation(value="添加到我")
     @ApiImplicitParam(name = "questionsId",value = "对应教案的id",required = true,paramType = "query")
     @GetMapping("/add-me")
-    public ApiMessage addMe(Long questionsId){
-        Integer count = teachService.addMe(questionsId);
+    public ApiMessage addMe(@RequestBody PersonalBo personal){
+        Integer count = teachService.addMe(personal);
         if (count == 1){
             return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
         }else {

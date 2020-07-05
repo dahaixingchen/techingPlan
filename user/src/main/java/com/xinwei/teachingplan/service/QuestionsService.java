@@ -1,5 +1,6 @@
 package com.xinwei.teachingplan.service;
 
+import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
@@ -37,16 +38,14 @@ public class QuestionsService {
       * @Description: 查看试题
       **/
     public List<QuestionBaseEntity> queryQuestions(QuestionsBo questions) {
-        List<QuestionBaseEntity> questionBaseEntities = questionsMapper.queryQuestions(questions);
-        return questionBaseEntities;
+        return questionsMapper.queryQuestions(questions);
     }
 
     public List<QuestionAnswerEntity> queryAnswer(Long questionsId) {
-        return null;
+        return questionsMapper.queryAnswer(questionsId);
     }
 
-    public Integer addMe(Long questionsId) {
-
-        return null;
+    public Integer addMe(PersonalBo personal) {
+        return questionsMapper.addMe(personal);
     }
 }
