@@ -58,7 +58,7 @@
             #{pointsQuestionIds}
         )
     </insert>
-    <insert id="addTeachPractice"  parameterType="com.xinwei.teachingplan.bo.TeachBo">
+    <insert id="addTeachPractice" parameterType="com.xinwei.teachingplan.bo.TeachBo">
         insert into teach_practice(
             teach_id,
             week,
@@ -104,7 +104,7 @@
             t.teach_goal teachGoal,
             t.teach_key_difficulty teachKeyDifficulty,
             t.review review,
-          t.key_point keyPoint,
+            t.key_point keyPoint,
             t.senior_question_ids seniorQuestionIds,
             t.conclude conclude,
             t.consolidate consolidate,
@@ -114,15 +114,25 @@
             tpr.week week,
             tpr.practice_question_ids practiceQuestionIds,
             tpr.signature signature
-        from teach t
-        INNER JOIN teach_points tp
+            from teach t
+            INNER JOIN teach_points tp
             on t.id = tp.teach_id
-        INNER JOIN teach_practice tpr
+            INNER JOIN teach_practice tpr
             on t.id = tpr.teach_id
-        where t.is_del = 0
-            and t.grade = #{grade}
-            and t.course = #{course}
-            and t.prepare_lessons_time = #{prepareLessonsTime}
-            and t.teach_topic = #{teachTopic}
+            where t.is_del = 0
+            <if test="grade != null">
+                and t.grade = #{grade}
+            </if>
+            <if test="course != null">
+                and t.course = #{course}
+            </if>
+            <if test="prepareLessonsTime != null">
+                and t.prepare_lessons_time = #{prepareLessonsTime}
+            </if>
+            <if test="teachTopic != null">
+                and t.teach_topic = #{teachTopic}
+            </if>
+
+
     </select>
 </mapper>

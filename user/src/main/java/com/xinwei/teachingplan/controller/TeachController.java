@@ -31,7 +31,7 @@ public class TeachController {
 
     @ApiOperation(value="新增教案")
     @PostMapping("/add-teach")
-    public ApiMessage<List<String>> addTeach(@RequestBody TeachBo teachBo){
+    public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo){
         Integer count = teachService.addTeach(teachBo);
         if (count != null && count >= 1){
             return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE,"共新增数据 "+count+" 条");
@@ -44,7 +44,7 @@ public class TeachController {
     @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”"+
             " ，“约分”，“知识点”)都会触发这个接口")
     @PostMapping("/query-teach")
-    public ApiMessage<List<String>> queryTeach(@RequestBody QueryTeachBo queryTeachBo){
+    public ApiMessage<List<TeachBo>> queryTeach(@RequestBody QueryTeachBo queryTeachBo){
         List<TeachBo> Teachs = teachService.queryTeach(queryTeachBo);
         if (Teachs != null){
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
@@ -56,7 +56,7 @@ public class TeachController {
 
     @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
     @GetMapping("/download")
-    public ApiMessage<List<String>> download(String teachId){
+    public ApiMessage download(String teachId){
         teachService.download(teachId);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS);
     }

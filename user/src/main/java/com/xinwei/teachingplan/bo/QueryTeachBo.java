@@ -12,15 +12,15 @@ import lombok.Data;
  **/
 @Data
 public class QueryTeachBo {
-    @ApiModelProperty(value = "试题所属年级,默认为全部",required = true)
+    @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null",required = true)
     private String grade;
 
-    @ApiModelProperty(value = "试题所属课程,默认为全部",required = true)
+    @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null",required = true)
     private String course;
 
-    @ApiModelProperty(value = "备课时间,默认为全部",required = true)
+    @ApiModelProperty(value = "备课时间,默认为全部,前端传值null",required = true)
     private String prepareLessonsTime;
 
-    @ApiModelProperty(value = "教案课题,默认为全部",required = true)
+    @ApiModelProperty(value = "教案课题,默认为全部,前端传值null",required = true)
     private String teachTopic;
 }
