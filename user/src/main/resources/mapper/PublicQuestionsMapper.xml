@@ -6,31 +6,38 @@
     <select id="grade" resultType="java.lang.String">
         select
         grade
-        from questions
+        from questions_attribute
         group  by grade
     </select>
     <select id="course" resultType="java.lang.String">
         select
         course
-        from questions
+        from questions_attribute
         group  by course
     </select>
     <select id="year" resultType="java.lang.String">
         select
         year
-        from questions
+        from questions_attribute
         group  by year
     </select>
     <select id="label" resultType="java.lang.String">
         select
         label
-        from questions
+        from questions_attribute
         group  by label
     </select>
     <select id="knowledge" resultType="java.lang.String">
         select
         knowledge
-        from questions
+        from questions_attribute
         group  by knowledge
+    </select>
+    <select id="menuQuery" resultType="com.xinwei.teachingplan.entity.MenuEntity">
+        select
+            id,
+            name,
+            father_id fatherId
+        from questions_menu
     </select>
 </mapper>

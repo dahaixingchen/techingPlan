@@ -1,5 +1,6 @@
 package com.xinwei.teachingplan.controller;
 
+import com.xinwei.teachingplan.entity.MenuEntity;
 import com.xinwei.teachingplan.service.PubilcFactory;
 import com.xinwei.teachingplan.service.PublicQuestionsImpl;
 import com.xinwei.teachingplan.service.PublicService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: PublicController
@@ -27,95 +29,51 @@ import java.util.List;
 public class PublicController {
 
     @Autowired
-    PubilcFactory pubilcFactory;
+    public PubilcFactory pubilcFactory;
 
-    @ApiOperation(value = "查询所有的年级，在试卷，教案，个人中心三个模块中有年级出现的地方")
-    @ApiImplicitParam(name = "dataType"
-            , value = "查询分试卷和教案模块，如果为试题模块dataType传“questions”,反之传“teach”"
-            , required = true
-            ,paramType = "query")
-    @GetMapping("/grade")
-    public ApiMessage<List<String>> grade(String dataType) {
-        PublicService publicService = pubilcFactory.getImpl(dataType);
-        List<String> grades = publicService.grade();
-        if (grades != null) {
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, grades);
-        } else {
-            return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
-        }
-    }
-
-
-    @ApiOperation(value = "查询所有的课程，在试卷，教案，个人中心三个模块中有课程出现的地方")
-    @ApiImplicitParam(name = "dataType"
-            , value = "查询分试卷和教案模块，如果为试题模块dataType传“questions”,反之传“teach”"
-            , required = true
-            ,paramType = "query")
-    @GetMapping("/course")
-    public ApiMessage<List<String>> course(String dataType) {
-        PublicService publicService = pubilcFactory.getImpl(dataType);
-        List<String> courses = publicService.course();
-        if (courses != null) {
-
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, courses);
-        } else {
-            return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
-        }
-    }
-
-
-    @ApiOperation(value = "查询年份，在试卷，教案，个人中心三个模块中有年份出现的地方")
-    @ApiImplicitParam(name = "dataType"
-            , value = "查询分试卷和教案模块，如果为试题模块dataType传“questions”,反之传“teach”"
-            , required = true
-            ,paramType = "query")
-    @GetMapping("/year")
-    public ApiMessage<List<String>> year(String dataType) {
-        PublicService publicService = pubilcFactory.getImpl(dataType);
-        List<String> years = publicService.year();
-        if (years == null){
-            return ApiMessage.success(MessageConstant.LOGIN_SUCESS, years);
-        }else {
-            return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
-        }
-    }
-
-
-    @ApiOperation(value = "查询所有标签，在试卷，教案，个人中心三个模块中有标签出现的地方")
-    @GetMapping("/label")
-    public ApiMessage<List<String>> label(String dataType) {
+    @ApiOperation(value = "试题左侧菜单")
+    @GetMapping("/menuQueryQuestions")
+    public ApiMessage<List<MenuEntity>> menuQueryQuestions() {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
-        List<String> labels = publicService.label();
-        if (labels != null) {
-
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, labels);
+        List<MenuEntity> menus =  publicService.menuQuery();
+        if (menus != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, menus);
         } else {
             return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
         }
     }
 
+    @ApiOperation(value = "教案左侧菜单")
+    @GetMapping("/menuQueryTeach")
+    public ApiMessage<List<MenuEntity>> menuQueryTeach() {
+        PublicTeachImpl publicService = pubilcFactory.getImpl("teach");
+        List<MenuEntity> menus =  publicService.menuQuery();
+        if (menus != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, menus);
+        } else {
+            return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
+        }
+    }
 
-    @ApiOperation(value = "查询所有知识点，在试卷，教案，个人中心三个模块中有知识点出现的地方")
-    @GetMapping("/knowledges")
-    public ApiMessage<List<String>> knowledge(String dataType) {
+    @ApiOperation(value = "试题新增，试题综合查询接口，查询所有的年份，标签，知识点，在个人中心三个模块中出现的地方")
+    @GetMapping("/synQueryQuestions")
+    public ApiMessage<List<MenuEntity>> synQueryQuestions() {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
-        List<String> knowledges = publicService.knowledge();
-        if (knowledges != null) {
-
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, knowledges);
+        Map<String, List<String>> syns =  publicService.synQueryQuestions();
+        if (syns != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, syns);
         } else {
             return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
         }
     }
 
-    @ApiOperation(value = "查询所有知识点，在试卷，教案，个人中心三个模块中有知识点出现的地方")
-    @GetMapping("/teachTopic")
-    public ApiMessage<List<String>> teachTopic() {
-        PublicTeachImpl TeachImpl = pubilcFactory.getImpl("teach");
-        List<String> teachTopics = TeachImpl.teachTopic();
-        if (teachTopics != null) {
-
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, teachTopics);
+    @ApiOperation(value = "教案综合接口查询所有的课题，备课时间，在个人中心，试题查询模块中出现的地方")
+    @GetMapping("/synQueryTeach")
+    public ApiMessage<List<MenuEntity>> synQueryTeach() {
+        PublicTeachImpl publicService = pubilcFactory.getImpl("teach");
+        Map<String, List<String>> syns =  publicService.synQueryTeach();
+        if (syns != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, syns);
         } else {
             return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
         }

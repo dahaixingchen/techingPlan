@@ -27,4 +27,17 @@
         from teach
         group  by teach_topic
     </select>
+    <select id="menuQuery" resultType="com.xinwei.teachingplan.entity.MenuEntity">
+        select
+            id,
+            name,
+            father_id fatherId
+        from teach_menu
+    </select>
+    <select id="prepareLessonsTime" resultType="java.lang.String">
+        select
+        prepare_lessons_time
+        from teach
+        group  by prepare_lessons_time
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.xinwei.teachingplan.mapper;
 
+import com.xinwei.teachingplan.entity.MenuEntity;
+
 import java.util.List;
 
 public interface PublicQuestionsMapper {
@@ -13,4 +15,7 @@ public interface PublicQuestionsMapper {
     List<String> label();
 
     List<String> knowledge();
+
+    List<MenuEntity> menuQuery();
+
 }

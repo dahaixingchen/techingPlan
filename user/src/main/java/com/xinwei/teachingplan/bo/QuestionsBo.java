@@ -37,28 +37,28 @@ public class QuestionsBo {
     @ApiModelProperty(value = "试题题干",required = true)
     private String questionsStart;
 
-    @ApiModelProperty(value = "试题题干对应图片",required = true)
+    @ApiModelProperty(value = "试题题干对应图片")
     private String questionsStartImage;
 
     @ApiModelProperty(value = "试题答案",required = true)
     private String questionsAnswer;
 
-    @ApiModelProperty(value = "试题答案对应图片",required = true)
+    @ApiModelProperty(value = "试题答案对应图片")
     private String questionsAnswerImage;
 
-    @ApiModelProperty(value = "试题分析")
+    @ApiModelProperty(value = "试题分析",required = true)
     private String questionsAnalyze;
 
     @ApiModelProperty(value = "试题分析对应图片")
     private String questionsAnalyzeImage;
 
-    @ApiModelProperty(value = "试题点评")
+    @ApiModelProperty(value = "试题点评",required = true)
     private String questionsRemark;
 
     @ApiModelProperty(value = "试题点评对应图片")
     private String questionsRemarkImage;
 
-    @ApiModelProperty(value = "试题解答")
+    @ApiModelProperty(value = "试题解答",required = true)
     private String questionsExplain;
 
     @ApiModelProperty(value = "试题解答对应图片")

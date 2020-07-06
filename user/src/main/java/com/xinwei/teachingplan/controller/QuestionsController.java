@@ -1,6 +1,7 @@
 package com.xinwei.teachingplan.controller;
 
 import com.xinwei.teachingplan.bo.PersonalBo;
+import com.xinwei.teachingplan.bo.QueryQuestionsBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
@@ -43,7 +44,7 @@ public class QuestionsController {
     @ApiOperation(value="查看试题，在试题页面（个人中心的试题页面）没点一个关键字(“期中”，“填空”，“中考试卷”" +
             "，“约分”，“知识点”)都会触发这个接口")
     @PostMapping("/query-questions")
-    public ApiMessage<List<QuestionBaseEntity>> queryQuestions(@RequestBody QuestionsBo questions){
+    public ApiMessage<List<QuestionBaseEntity>> queryQuestions(@RequestBody QueryQuestionsBo  questions){
         List<QuestionBaseEntity> questionList = questionsService.queryQuestions(questions);
         if (questionList != null){
 

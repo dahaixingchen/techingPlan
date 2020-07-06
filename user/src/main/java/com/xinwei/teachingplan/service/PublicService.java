@@ -1,6 +1,7 @@
 package com.xinwei.teachingplan.service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: PubilcService
@@ -18,4 +19,5 @@ public interface PublicService {
     List<String> course() ;
 
     List<String> year() ;
+
 }

@@ -1,6 +1,7 @@
 package com.xinwei.teachingplan.service;
 
 import com.xinwei.teachingplan.bo.PersonalBo;
+import com.xinwei.teachingplan.bo.QueryQuestionsBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
@@ -36,8 +37,9 @@ public class QuestionsService {
       * @Authon: chengfei
       * @Date: 2020/6/28 18:32
       * @Description: 查看试题
-      **/
-    public List<QuestionBaseEntity> queryQuestions(QuestionsBo questions) {
+      *
+     * @param questions*/
+    public List<QuestionBaseEntity> queryQuestions(QueryQuestionsBo questions) {
         return questionsMapper.queryQuestions(questions);
     }
 

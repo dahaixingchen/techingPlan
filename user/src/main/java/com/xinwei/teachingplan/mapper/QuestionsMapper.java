@@ -2,6 +2,7 @@ package com.xinwei.teachingplan.mapper;
 
 
 import com.xinwei.teachingplan.bo.PersonalBo;
+import com.xinwei.teachingplan.bo.QueryQuestionsBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
@@ -12,7 +13,7 @@ public interface QuestionsMapper {
 
     Integer addQuestions(QuestionsBo questions);
 
-    List<QuestionBaseEntity> queryQuestions(QuestionsBo questions);
+    List<QuestionBaseEntity> queryQuestions(QueryQuestionsBo questions);
 
     List<QuestionAnswerEntity> queryAnswer(Long questionsId);
 

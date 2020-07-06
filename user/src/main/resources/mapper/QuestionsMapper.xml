@@ -53,7 +53,7 @@
             #{teachId}
         )
     </insert>
-    <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QuestionsBo"
+    <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
             resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
         select
             questions_start questionsStart,
