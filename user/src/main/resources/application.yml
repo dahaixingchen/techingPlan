@@ -1,5 +1,5 @@
 server:
-  port: 18660
+  port: 39001
 spring:
   profiles:
-    active: dev
+    active: online

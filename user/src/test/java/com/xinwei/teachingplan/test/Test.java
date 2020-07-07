@@ -33,9 +33,9 @@ public class Test  {
         //遍历数据库查询数据集合,如果父id==-1 代表根节点 添加到最终结果中,否则为非根节点添加到临时节点
         for (Menu menu : sqlData) {
             if(menu.getFatherId()==-1){
-                resultList.add(new MenuVo(menu.getId(),menu.getName(),menu.getUrl(),menu.getFatherId(),new ArrayList<>()));
+//                resultList.add(new MenuVo(menu.getId(),menu.getName(),menu.getUrl(),menu.getFatherId(),new ArrayList<>()));
             }else{
-                tempList.add(new MenuVo(menu.getId(),menu.getName(),menu.getUrl(),menu.getFatherId(),new ArrayList<>()));
+//                tempList.add(new MenuVo(menu.getId(),menu.getName(),menu.getUrl(),menu.getFatherId(),new ArrayList<>()));
             }
         }
         //遍历所有的根节点,通过根节点和非根节点集合,找到这个根节点的所有子节点
@@ -43,7 +43,7 @@ public class Test  {
             getChildNode(tempList,menuVo);
         }
 
-        resultList.forEach(System.out::println);
+//        resultList.forEach(System.out::println);
     }
 
 

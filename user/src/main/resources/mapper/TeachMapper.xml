@@ -104,7 +104,7 @@
             t.teach_goal teachGoal,
             t.teach_key_difficulty teachKeyDifficulty,
             t.review review,
-          t.key_point keyPoint,
+            t.key_point keyPoint,
             t.senior_question_ids seniorQuestionIds,
             t.conclude conclude,
             t.consolidate consolidate,
@@ -120,9 +120,17 @@
         INNER JOIN teach_practice tpr
             on t.id = tpr.teach_id
         where t.is_del = 0
-            and t.grade = #{grade}
-            and t.course = #{course}
-            and t.prepare_lessons_time = #{prepareLessonsTime}
-            and t.teach_topic = #{teachTopic}
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+            <if test="course != null">
+                and t.course = #{course}
+            </if>
+            <if test="prepareLessonsTime != null">
+                and t.prepare_lessons_time = #{prepareLessonsTime}
+            </if>
+            <if test="teachTopic != null">
+                and t.teach_topic = #{teachTopic}
+            </if>
     </select>
 </mapper>

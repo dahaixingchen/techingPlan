@@ -21,6 +21,7 @@
     </update>
     <select id="doLogin" resultType="com.xinwei.teachingplan.bo.UserBo">
         select
+            id,
             name,
             phone
         from user

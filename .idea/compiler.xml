@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="teachingPlan" target="1.8" />
+      <module name="user" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>
