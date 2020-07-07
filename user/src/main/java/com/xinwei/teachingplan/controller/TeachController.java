@@ -32,12 +32,16 @@ public class TeachController {
     @ApiOperation(value="新增教案")
     @PostMapping("/add-teach")
     public ApiMessage<List<String>> addTeach(@RequestBody TeachBo teachBo){
+        if(teachBo !=null && teachBo.getLessonsTime().split("-").length != 3
+                ||teachBo.getPrepareLessonsTime().split("-").length != 3 ){
+            return ApiMessage.error(new StringBuilder("添加的“备课时间”，“上课时间”参数有问题，正确例子：2020-01-01").toString());
+        }
         Integer count = teachService.addTeach(teachBo);
         if (count != null && count >= 1){
             return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE,"共新增数据 "+count+" 条");
         }else{
 
-            return ApiMessage.success(MessageConstant.ADD_ERROR_MESSAGE);
+            return ApiMessage.error(MessageConstant.ADD_ERROR_MESSAGE);
         }
     }
 
