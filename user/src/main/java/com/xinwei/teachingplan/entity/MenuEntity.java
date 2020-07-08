@@ -3,6 +3,7 @@ package com.xinwei.teachingplan.entity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**

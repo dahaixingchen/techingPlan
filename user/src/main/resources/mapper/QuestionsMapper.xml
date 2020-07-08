@@ -42,6 +42,36 @@
             #{questionsExplainImage}
         )
     </insert>
+    <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
+            resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
+        select
+        questions_start questionsStart,
+        questions_start_image questionsStartImage
+        from questions
+        where 1
+        <if test="grade != null">
+            and grade = #{grade}
+        </if>
+        <if test="course != null">
+            and course = #{course}
+        </if>
+        <if test="complexity != null">
+            and complexity = #{complexity}
+        </if>
+        <if test="questionsType != null">
+            and questions_type = #{questionsType}
+        </if>
+        <if test="year != null">
+            and year = #{year}
+        </if>
+        <if test="label != null">
+            and label = #{label}
+        </if>
+        <if test="knowledge != null">
+            and knowledge = #{knowledge}
+        </if>
+
+    </select>
     <insert id="addMe">
         insert into personal(
             user_id,
@@ -53,35 +83,6 @@
             #{teachId}
         )
     </insert>
-    <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
-            resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
-        select
-        questions_start questionsStart,
-        questions_start_image questionsStartImage
-        from questions
-        where is_del = 0
-            <if test="grade != null">
-                and grade = #{grade}
-            </if>
-            <if test="course != null">
-                and course = #{course}
-            </if>
-            <if test="complexity != -1">
-                and complexity = #{complexity}
-            </if>
-            <if test="questionsType != -1">
-                and questions_type = #{questionsType}
-            </if>
-            <if test="year != null">
-                and year = #{year}
-            </if>
-            <if test="label != null">
-                and label = #{label}
-            </if>
-            <if test="knowledge != null">
-                and knowledge = #{knowledge}
-            </if>
-    </select>
     <select id="queryAnswer" resultType="com.xinwei.teachingplan.entity.QuestionAnswerEntity">
         select
             questions_answer questionsAnswer,

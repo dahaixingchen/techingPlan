@@ -2,6 +2,7 @@ package com.xinwei.teachingplan.vo;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 @Data
 public class MenuVo {
@@ -14,6 +15,7 @@ public class MenuVo {
     private Integer fatherId;
 
     private List<MenuVo>  childNode;
+
 
     @Override
     public String toString() {

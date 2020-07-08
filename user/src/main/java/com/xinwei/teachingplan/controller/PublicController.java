@@ -57,7 +57,7 @@ public class PublicController {
 
     @ApiOperation(value = "试题新增，试题综合查询接口，查询所有的年份，标签，知识点，在个人中心三个模块中出现的地方")
     @GetMapping("/synQueryQuestions")
-    public ApiMessage<List<MenuEntity>> synQueryQuestions() {
+    public ApiMessage<Map<String, List<String>>> synQueryQuestions() {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
         Map<String, List<String>> syns =  publicService.synQueryQuestions();
         if (syns != null) {
@@ -69,7 +69,7 @@ public class PublicController {
 
     @ApiOperation(value = "教案综合接口查询所有的课题，备课时间，在个人中心，试题查询模块中出现的地方")
     @GetMapping("/synQueryTeach")
-    public ApiMessage<List<MenuEntity>> synQueryTeach() {
+    public ApiMessage<Map<String, List<String>>> synQueryTeach() {
         PublicTeachImpl publicService = pubilcFactory.getImpl("teach");
         Map<String, List<String>> syns =  publicService.synQueryTeach();
         if (syns != null) {
