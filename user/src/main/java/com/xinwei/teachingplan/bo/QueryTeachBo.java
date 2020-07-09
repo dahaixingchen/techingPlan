@@ -3,6 +3,8 @@ package com.xinwei.teachingplan.bo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @ClassName: QueryTeachBo
  * @Author chengfei
@@ -13,14 +15,14 @@ import lombok.Data;
 @Data
 public class QueryTeachBo {
     @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null",required = true)
-    private String grade;
+    private List<String> grade;
 
     @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null",required = true)
-    private String course;
+    private List<String> course;
 
     @ApiModelProperty(value = "备课时间,默认为全部,前端传值null",required = true)
-    private String prepareLessonsTime;
+    private List<String> prepareLessonsTime;
 
     @ApiModelProperty(value = "教案课题,默认为全部,前端传值null",required = true)
-    private String teachTopic;
+    private List<String> teachTopic;
 }

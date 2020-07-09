@@ -45,6 +45,7 @@
     <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
             resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
         select
+        id,
         questions_start questionsStart,
         questions_start_image questionsStartImage
         from questions
