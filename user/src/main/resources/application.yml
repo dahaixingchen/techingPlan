@@ -1,5 +1,7 @@
 server:
-  port: 39001
+  port: 18660
 spring:
   profiles:
     active: online
+  thymeleaf:
+    cache: false

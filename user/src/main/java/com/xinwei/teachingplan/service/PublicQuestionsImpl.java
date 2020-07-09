@@ -89,7 +89,7 @@ public class PublicQuestionsImpl implements PublicService {
         List<String> years = publicQuestionsMapper.year();
         List<String> labels = publicQuestionsMapper.label();
         List<String> knowledges = publicQuestionsMapper.knowledge();
-        map.put("grad",grades);
+        map.put("grade",grades);
         map.put("course",courses);
         map.put("year",years);
         map.put("label",labels);

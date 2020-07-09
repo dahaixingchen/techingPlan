@@ -14,6 +14,10 @@ import java.util.List;
  **/
 @Data
 public class QueryTeachBo {
+    @ApiModelProperty(value = "id")
+    private List<String> id;
+
+
     @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null",required = true)
     private List<String> grade;
 

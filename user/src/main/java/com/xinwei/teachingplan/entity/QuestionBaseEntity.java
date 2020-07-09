@@ -12,6 +12,10 @@ import lombok.Data;
  **/
 @Data
 public class QuestionBaseEntity {
+
+    @ApiModelProperty(value = "id")
+    private Long id;
+
     @ApiModelProperty(value = "试题题干",required = true)
     private String questionsStart;
 
