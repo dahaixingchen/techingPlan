@@ -90,6 +90,7 @@
     <select id="queryTeach" parameterType="com.xinwei.teachingplan.bo.QueryTeachBo"
             resultType="com.xinwei.teachingplan.bo.TeachBo">
         select
+            t.id id,
             t.teach_phone teachPhone,
             t.teach_name teachName,
             t.prepare_lessons_time prepareLessonsTime,
@@ -121,16 +122,28 @@
             on t.id = tpr.teach_id
             where t.is_del = 0
             <if test="grade != null">
-                and t.grade = #{grade}
+                and t.grade in
+                <foreach collection="grade" item="g" open="(" separator="," close=")">
+                    #{g}
+                </foreach>
             </if>
             <if test="course != null">
-                and t.course = #{course}
+                and t.course in
+                <foreach collection="course" item="g" open="(" separator="," close=")">
+                    #{g}
+                </foreach>
             </if>
             <if test="prepareLessonsTime != null">
-                and t.prepare_lessons_time = #{prepareLessonsTime}
+                and t.prepare_lessons_time in
+                <foreach collection="prepareLessonsTime" item="g" open="(" separator="," close=")">
+                    #{g}
+                </foreach>
             </if>
             <if test="teachTopic != null">
-                and t.teach_topic = #{teachTopic}
+                and t.teach_topic in
+                <foreach collection="teachTopic" item="g" open="(" separator="," close=")">
+                    #{g}
+                </foreach>
             </if>
 
 

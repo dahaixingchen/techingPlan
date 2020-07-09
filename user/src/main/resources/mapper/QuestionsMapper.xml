@@ -45,30 +45,52 @@
     <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
             resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
         select
+        id,
         questions_start questionsStart,
         questions_start_image questionsStartImage
         from questions
         where 1
         <if test="grade != null">
-            and grade = #{grade}
+            and grade in
+            <foreach collection="grade" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
         <if test="course != null">
-            and course = #{course}
+            and course in
+            <foreach collection="course" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
-        <if test="complexity != null">
-            and complexity = #{complexity}
+        <if test="complexity != null and complexity != -1">
+            and complexity in
+            <foreach collection="complexity" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
-        <if test="questionsType != null">
-            and questions_type = #{questionsType}
+        <if test="questionsType != null and questionsType != -1">
+            and questions_type in
+            <foreach collection="questionsType" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
         <if test="year != null">
-            and year = #{year}
+            and year in
+            <foreach collection="year" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
         <if test="label != null">
-            and label = #{label}
+            and label in
+            <foreach collection="label" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
         <if test="knowledge != null">
-            and knowledge = #{knowledge}
+            and knowledge in
+            <foreach collection="knowledge" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
         </if>
 
     </select>
