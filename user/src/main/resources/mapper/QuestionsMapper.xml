@@ -51,24 +51,18 @@
         from questions
         where 1
         <if test="grade != null">
-            and grade in
-            <foreach collection="grade" item="g" open="(" separator="," close=")">
-                #{g}
-            </foreach>
+            and grade = #{grade}
         </if>
         <if test="course != null">
-            and course in
-            <foreach collection="course" item="g" open="(" separator="," close=")">
-                #{g}
-            </foreach>
+            and course = #{course}
         </if>
-        <if test="complexity != null and complexity != -1">
+        <if test="complexity != null">
             and complexity in
             <foreach collection="complexity" item="g" open="(" separator="," close=")">
                 #{g}
             </foreach>
         </if>
-        <if test="questionsType != null and questionsType != -1">
+        <if test="questionsType != null">
             and questions_type in
             <foreach collection="questionsType" item="g" open="(" separator="," close=")">
                 #{g}
@@ -87,10 +81,7 @@
             </foreach>
         </if>
         <if test="knowledge != null">
-            and knowledge in
-            <foreach collection="knowledge" item="g" open="(" separator="," close=")">
-                #{g}
-            </foreach>
+            and knowledge = #{knowledge}
         </if>
 
     </select>
