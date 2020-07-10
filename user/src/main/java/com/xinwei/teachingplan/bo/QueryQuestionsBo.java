@@ -16,13 +16,13 @@ import java.util.List;
 public class QueryQuestionsBo {
 
     @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null")
-    private List<String> grade;
+    private String grade;
 
     @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null",required = true)
-    private List<String> course;
+    private String course;
 
     @ApiModelProperty(value = "试题的知识点,默认为全部,前端传值null",required = true)
-    private List<String> knowledge;
+    private String knowledge;
 
     @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null,1: 容易 ,2: 较易 ,3: 一般 ,4: 较难 , 5: 困难 ",required = true)
     private List<Integer> complexity;

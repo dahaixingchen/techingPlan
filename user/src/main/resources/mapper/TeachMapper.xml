@@ -122,16 +122,10 @@
             on t.id = tpr.teach_id
             where t.is_del = 0
             <if test="grade != null">
-                and t.grade in
-                <foreach collection="grade" item="g" open="(" separator="," close=")">
-                    #{g}
-                </foreach>
+                and t.grade = #{grade}
             </if>
             <if test="course != null">
-                and t.course in
-                <foreach collection="course" item="g" open="(" separator="," close=")">
-                    #{g}
-                </foreach>
+                and t.course = #{course}
             </if>
             <if test="prepareLessonsTime != null">
                 and t.prepare_lessons_time in

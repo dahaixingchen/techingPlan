@@ -19,10 +19,10 @@ public class QueryTeachBo {
 
 
     @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null")
-    private List<String> grade;
+    private String grade;
 
     @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null")
-    private List<String> course;
+    private String course;
 
     @ApiModelProperty(value = "备课时间,默认为全部,前端传值null")
     private List<String> prepareLessonsTime;
