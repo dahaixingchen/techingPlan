@@ -18,15 +18,15 @@ public class QueryTeachBo {
     private List<String> id;
 
 
-    @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null",required = true)
+    @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null")
     private List<String> grade;
 
-    @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null",required = true)
+    @ApiModelProperty(value = "试题所属课程,默认为全部,前端传值null")
     private List<String> course;
 
-    @ApiModelProperty(value = "备课时间,默认为全部,前端传值null",required = true)
+    @ApiModelProperty(value = "备课时间,默认为全部,前端传值null")
     private List<String> prepareLessonsTime;
 
-    @ApiModelProperty(value = "教案课题,默认为全部,前端传值null",required = true)
+    @ApiModelProperty(value = "教案课题,默认为全部,前端传值null")
     private List<String> teachTopic;
 }
