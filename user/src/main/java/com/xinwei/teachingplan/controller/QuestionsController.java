@@ -69,7 +69,7 @@ public class QuestionsController {
 
     @ApiOperation(value="添加到我")
     @ApiImplicitParam(name = "questionsId",value = "对应试题的id",required = true,paramType = "query")
-    @PostMapping("/add-me")
+    @GetMapping("/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal){
         Integer count = questionsService.addMe(personal);
         if (count == 1){

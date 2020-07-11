@@ -85,7 +85,7 @@
     <update id="delete">
         update teach
         set is_del = 1
-        where teachId = #{teachId}
+        where id = #{teachId}
     </update>
     <select id="queryTeach" parameterType="com.xinwei.teachingplan.bo.QueryTeachBo"
             resultType="com.xinwei.teachingplan.bo.TeachBo">

@@ -75,7 +75,7 @@ public class TeachController {
 
     @ApiOperation(value="添加到我")
     @ApiImplicitParam(name = "questionsId",value = "对应教案的id",required = true,paramType = "query")
-    @GetMapping("/add-me")
+    @PostMapping("/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal){
         Integer count = teachService.addMe(personal);
         if (count == 1){
