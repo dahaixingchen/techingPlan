@@ -2,6 +2,71 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinwei.teachingplan.mapper.PersonalMapper">
 
+    <insert id="insertPoint">
+        insert into teach_points(
+        teach_id,
+        points,
+        analyse,
+        points_question_ids
+        )values
+        <if test="teachPointsList != null and teachPointsList.size > 0">
+            <foreach collection="teachPointsList" item="TeachPoints" separator=",">
+                (
+                #{TeachPoints.teachId},
+                #{TeachPoints.points},
+                #{TeachPoints.analyse},
+                #{TeachPoints.pointsQuestionIds}
+                )
+            </foreach>
+        </if>
+    </insert>
 
-
+    <update id="updateTeach">
+        update teach
+        set teach_phone = #{teachPhone},
+            teach_name = #{teachName},
+            prepare_lessons_time = #{prepareLessonsTime},
+            course = #{course},
+            grade = #{grade},
+            lessons_time = #{lessonsTime},
+            teach_topic = #{teachTopic},
+            teach_type = #{teachType},
+            teach_source = #{teachSource},
+            student_questions = #{studentQuestions},
+            teach_goal = #{teachGoal},
+            teach_key_difficulty = #{teachKeyDifficulty},
+            review = #{review},
+            key_point = #{keyPoint},
+            senior_question_ids = #{seniorQuestionIds},
+            conclude = #{conclude},
+            consolidate = #{consolidate},
+            consolidate_question_ids = #{consolidateQuestionIds}
+        where id = #{teachId}
+    </update>
+    <update id="updatePractice">
+        insert into teach_practice(
+        teach_id,
+        week,
+        practice_question_ids,
+        signature
+        )values
+        <if test="teachPracticeList != null and teachPracticeList.size > 0">
+            <foreach collection="teachPracticeList" item="TeachPractice" separator=",">
+                (
+                #{TeachPractice.teachId},
+                #{TeachPractice.week},
+                #{TeachPractice.practiceQuestionIds},
+                #{TeachPractice.signature}
+                )
+            </foreach>
+        </if>
+    </update>
+    <delete id="deletePoints">
+        delete from teach_points
+        where teach_id = #{teachId}
+    </delete>
+    <delete id="deletePractice">
+        delete from teach_practice
+        where teach_id = #{teachId}
+    </delete>
 </mapper>

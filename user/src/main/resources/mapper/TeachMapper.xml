@@ -23,7 +23,8 @@
          key_point,
          senior_question_ids ,
          conclude,
-         consolidate
+         consolidate,
+         consolidate_question_ids
         )values (
          #{teachPhone},
          #{teachName},
@@ -42,34 +43,45 @@
          #{keyPoint},
          #{seniorQuestionIds} ,
          #{conclude},
-         #{consolidate}
+         #{consolidate},
+         #{consolidateQuestionIds}
         )
     </insert>
-    <insert id="addTeachPoints" parameterType="com.xinwei.teachingplan.bo.TeachBo">
+    <insert id="addTeachPoints" parameterType="com.xinwei.teachingplan.bo.TeachPointsBo">
         insert into teach_points(
-            teach_id,
-            points,
-            analyse,
-            points_question_ids
-        )values (
-            #{teachId},
-            #{points},
-            #{analyse},
-            #{pointsQuestionIds}
-        )
+        teach_id,
+        points,
+        analyse,
+        points_question_ids
+        )values
+        <if test="TeachPointsList != null and TeachPointsList.size > 0">
+            <foreach collection="TeachPointsList" item="TeachPoints" separator=",">
+                (
+                #{TeachPoints.teachId},
+                #{TeachPoints.points},
+                #{TeachPoints.analyse},
+                #{TeachPoints.pointsQuestionIds}
+                )
+            </foreach>
+        </if>
     </insert>
-    <insert id="addTeachPractice" parameterType="com.xinwei.teachingplan.bo.TeachBo">
+    <insert id="addTeachPractice" parameterType="com.xinwei.teachingplan.bo.TeachPracticeBo">
         insert into teach_practice(
-            teach_id,
-            week,
-            practice_question_ids,
-            signature
-        )values (
-            #{teachId},
-            #{week},
-            #{practiceQuestionIds},
-            #{signature}
-        )
+        teach_id,
+        week,
+        practice_question_ids,
+        signature
+        )values
+        <if test="TeachPracticeList != null and TeachPracticeList.size > 0">
+            <foreach collection="TeachPracticeList" item="TeachPractice" separator=",">
+                (
+                #{TeachPractice.teachId},
+                #{TeachPractice.week},
+                #{TeachPractice.practiceQuestionIds},
+                #{TeachPractice.signature}
+                )
+            </foreach>
+        </if>
     </insert>
     <insert id="addMe" parameterType="com.xinwei.teachingplan.bo.PersonalBo">
         insert into personal(
@@ -87,59 +99,71 @@
         set is_del = 1
         where id = #{teachId}
     </update>
-    <select id="queryTeach" parameterType="com.xinwei.teachingplan.bo.QueryTeachBo"
-            resultType="com.xinwei.teachingplan.bo.TeachBo">
+    <select id="queryTeach" resultType="com.xinwei.teachingplan.bo.TeachBo">
         select
-            t.id id,
-            t.teach_phone teachPhone,
-            t.teach_name teachName,
-            t.prepare_lessons_time prepareLessonsTime,
-            t.course course,
-            t.student_name studentName,
-            t.grade grade,
-            t.lessons_time lessonsTime,
-            t.teach_topic teachTopic,
-            t.teach_type teachType,
-            t.teach_source teachSource,
-            t.student_questions studentQuestions,
-            t.teach_goal teachGoal,
-            t.teach_key_difficulty teachKeyDifficulty,
-            t.review review,
-            t.key_point keyPoint,
-            t.senior_question_ids seniorQuestionIds,
-            t.conclude conclude,
-            t.consolidate consolidate,
-            tp.points points,
-            tp.analyse analyse,
-            tp.points_question_ids pointsQuestionIds,
-            tpr.week week,
-            tpr.practice_question_ids practiceQuestionIds,
-            tpr.signature signature
-            from teach t
-            INNER JOIN teach_points tp
-            on t.id = tp.teach_id
-            INNER JOIN teach_practice tpr
-            on t.id = tpr.teach_id
-            where t.is_del = 0
-            <if test="grade != null">
-                and t.grade = #{grade}
-            </if>
-            <if test="course != null">
-                and t.course = #{course}
-            </if>
-            <if test="prepareLessonsTime != null">
-                and t.prepare_lessons_time in
-                <foreach collection="prepareLessonsTime" item="g" open="(" separator="," close=")">
-                    #{g}
-                </foreach>
-            </if>
-            <if test="teachTopic != null">
-                and t.teach_topic in
-                <foreach collection="teachTopic" item="g" open="(" separator="," close=")">
-                    #{g}
-                </foreach>
-            </if>
+        t.id id,
+        t.teach_phone teachPhone,
+        t.teach_name teachName,
+        t.prepare_lessons_time prepareLessonsTime,
+        t.course course,
+        t.grade grade,
+        t.lessons_time lessonsTime,
+        t.teach_topic teachTopic,
+        t.teach_type teachType,
+        t.teach_source teachSource,
+        t.student_questions studentQuestions,
+        t.teach_goal teachGoal,
+        t.teach_key_difficulty teachKeyDifficulty,
+        t.review review,
+        t.key_point keyPoint,
+        t.senior_question_ids seniorQuestionIds,
+        t.conclude conclude,
+        t.consolidate consolidate,
+        t.consolidate_question_ids consolidateQuestionIds
+        from teach t
+        <if test="flag == 1">
+            inner join personal p
+                on p.teach_id = t.id
+        </if>
+        where t.is_del = 0
+        <if test="grade != null">
+            and t.grade = #{grade}
+        </if>
+        <if test="course != null">
+            and t.course = #{course}
+        </if>
+        <if test="prepareLessonsTime != null and prepareLessonsTime.size>0">
+            and t.prepare_lessons_time in
+            <foreach collection="prepareLessonsTime" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
+        </if>
+        <if test="teachTopic != null and teachTopic.size>0">
+            and t.teach_topic in
+            <foreach collection="teachTopic" item="g" open="(" separator="," close=")">
+                #{g}
+            </foreach>
+        </if>
+        <if test="flag == 1">
+            and p.user_id = #{userId}
+        </if>
 
 
+    </select>
+    <select id="queryPoint" resultType="com.xinwei.teachingplan.bo.TeachPointsBo">
+        select
+        points,
+        analyse,
+        points_question_ids pointsQuestionIds
+        from teach_points
+        where teach_id = #{id}
+    </select>
+    <select id="getPractice" resultType="com.xinwei.teachingplan.bo.TeachPracticeBo">
+        select
+        week,
+        signature,
+        practice_question_ids practiceQuestionIds
+        from teach_practice
+        where teach_id = #{id}
     </select>
 </mapper>

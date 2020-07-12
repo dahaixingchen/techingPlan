@@ -56,25 +56,25 @@
         <if test="course != null">
             and course = #{course}
         </if>
-        <if test="complexity != null">
+        <if test="complexity != null and  complexity.size >0">
             and complexity in
             <foreach collection="complexity" item="g" open="(" separator="," close=")">
                 #{g}
             </foreach>
         </if>
-        <if test="questionsType != null">
+        <if test="questionsType != null and questionsType.size >0">
             and questions_type in
             <foreach collection="questionsType" item="g" open="(" separator="," close=")">
                 #{g}
             </foreach>
         </if>
-        <if test="year != null">
+        <if test="year != null and year.size >0">
             and year in
             <foreach collection="year" item="g" open="(" separator="," close=")">
                 #{g}
             </foreach>
         </if>
-        <if test="label != null">
+        <if test="label != null and label.size >0">
             and label in
             <foreach collection="label" item="g" open="(" separator="," close=")">
                 #{g}
@@ -94,6 +94,30 @@
             #{userId},
             #{questionsId},
             #{teachId}
+        )
+    </insert>
+    <insert id="insertMenu" parameterType="com.xinwei.teachingplan.bo.MenuBo"
+            useGeneratedKeys="true" keyProperty="oneId">
+        insert into questions_menu(name,father_id)
+        values(#{name},#{fatherId})
+    </insert>
+    <insert id="insertAttribute" parameterType="com.xinwei.teachingplan.bo.QuestionsBo">
+        insert into (
+            grade,
+            course,
+            complexity,
+            questions_type,
+            year,
+            label,
+            knowledge
+        )values (
+            #{grade},
+            #{course},
+            #{complexity},
+            #{questionsType},
+            #{year},
+            #{label},
+            #{knowledge}
         )
     </insert>
     <select id="queryAnswer" resultType="com.xinwei.teachingplan.entity.QuestionAnswerEntity">

@@ -41,8 +41,19 @@ public class QuestionsController {
         }
     }
 
-    @ApiOperation(value="查看试题，在试题页面（个人中心的试题页面）没点一个关键字(“期中”，“填空”，“中考试卷”" +
-            "，“约分”，“知识点”)都会触发这个接口")
+    @ApiOperation(value="删除试题")
+    @GetMapping("/delete")
+    public ApiMessage delete(Long id){
+        Integer count = questionsService.delete(id);
+        if (count == 1){
+            return ApiMessage.success(MessageConstant.DELETE_SUCCESS_MESSAGE);
+        }else {
+            return ApiMessage.error(MessageConstant.DELETE_ERROR_MESSAGE);
+        }
+    }
+
+    @ApiOperation(value="查看试题，在试题页面每点一个关键字(“期中”，“填空”，“中考试卷”" +
+            "“知识点”)都会触发这个接口")
     @PostMapping("/query-questions")
     public ApiMessage<List<QuestionBaseEntity>> queryQuestions(@RequestBody QueryQuestionsBo  questions){
         List<QuestionBaseEntity> questionList = questionsService.queryQuestions(questions);
@@ -68,8 +79,7 @@ public class QuestionsController {
     }
 
     @ApiOperation(value="添加到我")
-    @ApiImplicitParam(name = "questionsId",value = "对应试题的id",required = true,paramType = "query")
-    @GetMapping("/add-me")
+    @PostMapping("/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal){
         Integer count = questionsService.addMe(personal);
         if (count == 1){

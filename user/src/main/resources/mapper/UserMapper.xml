@@ -23,7 +23,8 @@
         select
             id,
             name,
-            phone
+            phone,
+            user_type
         from user
         where phone = #{phone} and password = #{password}
     </select>

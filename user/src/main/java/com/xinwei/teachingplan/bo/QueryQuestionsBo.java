@@ -36,4 +36,10 @@ public class QueryQuestionsBo {
     @ApiModelProperty(value = "试题标签,默认为全部,前端传值null",required = true)
     private List<String> label;
 
+    @ApiModelProperty(value = "0表示查询全部，1表示在个人中心中查询")
+    private Integer flag;
+
+    @ApiModelProperty(value = "只在个人中心查询的时候使用，需要传对应用户的id")
+    private Long userId;
+
 }

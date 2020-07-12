@@ -1,20 +1,21 @@
-package com.xinwei.teachingplan.bo;
+package com.xinwei.teachingplan.vo;
 
+import com.xinwei.teachingplan.bo.TeachPointsBo;
+import com.xinwei.teachingplan.bo.TeachPracticeBo;
+import com.xinwei.teachingplan.entity.QuestionBaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
 
 /**
- * @ClassName: TeachBo
+ * @ClassName: TeachVo
  * @Author chengfei
- * @Date 2020/6/30 11:04
- * @Version 1.0
+ * @Date 2020/7/12 19:12
  * @Description: TODO
  **/
 @Data
-public class TeachBo {
-
+public class TeachVo {
     @ApiModelProperty(value = "教案id", required = true)
     private Long id;
 
@@ -64,7 +65,7 @@ public class TeachBo {
     private String keyPoint;
 
     @ApiModelProperty(value = "教案中考演练试题的id集合", required = true)
-    private String seniorQuestionIds;
+    private List<QuestionBaseEntity> seniorQuestionList;
 
     @ApiModelProperty(value = "总结归纳", required = true)
     private String conclude;
@@ -73,13 +74,13 @@ public class TeachBo {
     private String consolidate;
 
     @ApiModelProperty(value = "自我的试题ids", required = true)
-    private String consolidateQuestionIds;
+    private List<QuestionBaseEntity> consolidateQuestionList;
 
     @ApiModelProperty(value = "教案id",required = true)
     private String teachId;
 
     @ApiModelProperty(value = "考点集合",required = true)
-    private List<TeachPointsBo> teachPointsList;
+    private List<TeachPointsBo> TeachPointsList;
 
     @ApiModelProperty(value = "练习题集合",required = true)
     private List<TeachPracticeBo> teachPracticeList;

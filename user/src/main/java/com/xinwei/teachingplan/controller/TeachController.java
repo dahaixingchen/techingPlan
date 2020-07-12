@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -41,6 +43,7 @@ public class TeachController {
         }
     }
 
+
     @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”"+
             " ，“约分”，“知识点”)都会触发这个接口")
     @PostMapping("/query-teach")
@@ -56,7 +59,7 @@ public class TeachController {
 
     @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
     @GetMapping("/download")
-    public ApiMessage download(String teachId){
+    public ApiMessage download(HttpServletRequest request, HttpServletResponse response,String teachId){
         teachService.download(teachId);
         return ApiMessage.success(MessageConstant.LOGIN_SUCESS);
     }
@@ -74,7 +77,6 @@ public class TeachController {
     }
 
     @ApiOperation(value="添加到我")
-    @ApiImplicitParam(name = "questionsId",value = "对应教案的id",required = true,paramType = "query")
     @PostMapping("/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal){
         Integer count = teachService.addMe(personal);

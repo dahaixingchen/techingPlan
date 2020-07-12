@@ -16,4 +16,8 @@ public interface PublicTeachMapper {
     List<MenuEntity> menuQuery();
 
     List<String> prepareLessonsTime();
+
+    List<String> teachPTopic(Long userId);
+
+    List<String> preparePLessonsTime(Long userId);
 }

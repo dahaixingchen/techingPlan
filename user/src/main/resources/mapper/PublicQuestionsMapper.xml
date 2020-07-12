@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinwei.teachingplan.mapper.PublicQuestionsMapper">
 
-<!--    查询所有试题对应的年级-->
+    <!--    查询所有试题对应的年级-->
     <select id="grade" resultType="java.lang.String">
         select
         grade
@@ -39,5 +39,50 @@
             name,
             father_id fatherId
         from questions_menu
+    </select>
+    <select id="syngrades" resultType="java.lang.String">
+        select
+        grade
+        from questions q
+        inner join personal p
+            on q.id = p.questions_id
+        where p.user_id = #{userId}
+        group by grade
+    </select>
+    <select id="syncourses" resultType="java.lang.String">
+        select
+        course
+        from questions q
+        inner join personal p
+            on q.id = p.questions_id
+        where p.user_id = #{userId}
+        group by course
+    </select>
+    <select id="synyears" resultType="java.lang.String">
+        select
+        year
+        from questions q
+        inner join personal p
+            on q.id = p.questions_id
+        where p.user_id = #{userId}
+        group by year
+    </select>
+    <select id="synlabels" resultType="java.lang.String">
+        select
+        label
+        from questions q
+        inner join personal p
+            on q.id = p.questions_id
+        where p.user_id = #{userId}
+        group by label
+    </select>
+    <select id="synknowledges" resultType="java.lang.String">
+        select
+        knowledge
+        from questions q
+        inner join personal p
+            on q.id = p.questions_id
+        where p.user_id = #{userId}
+        group by knowledge
     </select>
 </mapper>

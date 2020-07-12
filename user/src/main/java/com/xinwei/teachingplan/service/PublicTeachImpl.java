@@ -89,4 +89,13 @@ public class PublicTeachImpl implements PublicService {
         map.put("lessonsTime",lessonsTimes);
         return map;
     }
+
+    public Map<String, List<String>> synQueryTeach(Long userId) {
+        HashMap<String, List<String>> map = new HashMap<>();
+        List<String> topics = publicTeachMapper.teachPTopic(userId);
+        List<String> lessonsTimes = publicTeachMapper.preparePLessonsTime(userId);
+        map.put("topic",topics);
+        map.put("lessonsTime",lessonsTimes);
+        return map;
+    }
 }

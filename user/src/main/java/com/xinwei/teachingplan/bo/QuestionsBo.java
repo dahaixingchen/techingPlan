@@ -13,6 +13,9 @@ import lombok.Data;
 @Data
 public class QuestionsBo {
 
+    @ApiModelProperty(value = "用户id",required = true)
+    private Long userId;
+
     @ApiModelProperty(value = "试题所属年级,默认为全部",required = true)
     private String grade;
 

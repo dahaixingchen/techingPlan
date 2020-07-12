@@ -1,13 +1,12 @@
 package com.xinwei.teachingplan.service;
 
-import com.xinwei.teachingplan.bo.PersonalBo;
-import com.xinwei.teachingplan.bo.QueryTeachBo;
-import com.xinwei.teachingplan.bo.TeachBo;
+import com.xinwei.teachingplan.bo.*;
 import com.xinwei.teachingplan.mapper.TeachMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,13 +25,21 @@ public class TeachService {
     @Transactional(rollbackFor = Exception.class)
     public Integer addTeach(TeachBo teachBo) {
         Integer count = teachMapper.addTeach(teachBo);
-        teachMapper.addTeachPoints(teachBo);
-        teachMapper.addTeachPractice(teachBo);
+        teachMapper.addTeachPoints(teachBo.getTeachPointsList());
+        teachMapper.addTeachPractice(teachBo.getTeachPracticeList());
         return count;
     }
 
     public List<TeachBo> queryTeach(QueryTeachBo teachBo) {
-        return teachMapper.queryTeach(teachBo);
+        teachBo.setFlag(0);
+        List<TeachBo> teachs = teachMapper.queryTeach(teachBo);
+        for(TeachBo teach :teachs){
+            List<TeachPointsBo> points = teachMapper.queryPoint(teach.getId());
+            teach.setTeachPointsList(points);
+            List<TeachPracticeBo> practices = teachMapper.getPractice(teach.getId());
+            teach.setTeachPracticeList(practices);
+        }
+        return teachs;
 
     }
 

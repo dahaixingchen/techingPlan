@@ -18,4 +18,13 @@ public interface PublicQuestionsMapper {
 
     List<MenuEntity> menuQuery();
 
+    List<String> syngrades(Long userId);
+
+    List<String> syncourses(Long userId);
+
+    List<String> synyears(Long userId);
+
+    List<String> synlabels(Long userId);
+
+    List<String> synknowledges(Long userId);
 }

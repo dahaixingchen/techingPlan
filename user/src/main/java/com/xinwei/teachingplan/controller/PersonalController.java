@@ -1,6 +1,9 @@
 package com.xinwei.teachingplan.controller;
 
+import com.xinwei.teachingplan.bo.QueryQuestionsBo;
+import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
+import com.xinwei.teachingplan.entity.QuestionBaseEntity;
 import com.xinwei.teachingplan.service.PersonalService;
 import com.xinwei.teachingplan.util.ApiMessage;
 import com.xinwei.teachingplan.util.MessageConstant;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @ClassName: PersonalController
@@ -37,6 +42,30 @@ public class PersonalController {
         }else{
 
             return ApiMessage.success(MessageConstant.UPDATE_ERROR_MESSAGE);
+        }
+    }
+
+    @ApiOperation(value="我的试题，个人中心中默认展示我的教案")
+    @PostMapping("/my-questions")
+    public ApiMessage myQuestions(@RequestBody QueryQuestionsBo questions){
+        List<QuestionBaseEntity> questionList = personalService.myQuestions(questions);
+        if (questionList != null){
+
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,questionList);
+        }else {
+            return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
+        }
+    }
+
+    @ApiOperation(value="我的教案，个人中心中默认展示我的教案")
+    @PostMapping("/my-teach")
+    public ApiMessage myTeach(@RequestBody QueryTeachBo queryTeachBo){
+        List<TeachBo> Teachs = personalService.myTeach(queryTeachBo);
+        if (Teachs != null){
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
+        }else{
+            return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
+
         }
     }
 

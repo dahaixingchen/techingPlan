@@ -14,9 +14,6 @@ import java.util.List;
  **/
 @Data
 public class QueryTeachBo {
-    @ApiModelProperty(value = "id")
-    private List<String> id;
-
 
     @ApiModelProperty(value = "试题所属年级,默认为全部,前端传值null")
     private String grade;
@@ -29,4 +26,10 @@ public class QueryTeachBo {
 
     @ApiModelProperty(value = "教案课题,默认为全部,前端传值null")
     private List<String> teachTopic;
+
+    @ApiModelProperty(value = "0表示查询全部，1表示在个人中心中查询")
+    private Integer flag;
+
+    @ApiModelProperty(value = "只在个人中心查询的时候使用，需要传对应用户的id")
+    private String userId;
 }

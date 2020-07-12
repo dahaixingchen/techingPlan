@@ -40,4 +40,22 @@
         from teach
         group  by prepare_lessons_time
     </select>
+    <select id="teachPTopic" resultType="java.lang.String">
+        select
+        grade
+        from teach q
+        inner join personal p
+            on q.id = p.teach_id
+        where p.user_id = #{userId}
+        group by grade
+    </select>
+    <select id="preparePLessonsTime" resultType="java.lang.String">
+        select
+        prepare_lessons_time
+        from teach q
+        inner join personal p
+            on q.id = p.teach_id
+        where p.user_id = #{userId}
+        group by prepare_lessons_time
+    </select>
 </mapper>

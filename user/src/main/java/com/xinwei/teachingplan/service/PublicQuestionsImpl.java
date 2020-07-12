@@ -96,4 +96,19 @@ public class PublicQuestionsImpl implements PublicService {
         map.put("knowledge",knowledges);
         return map;
     }
+
+    public Map<String, List<String>> synQueryQuestions(Long userId) {
+        Map<String, List<String>> map = new HashMap<>();
+        List<String> grades = publicQuestionsMapper.syngrades(userId);
+        List<String> courses = publicQuestionsMapper.syncourses(userId);
+        List<String> years = publicQuestionsMapper.synyears(userId);
+        List<String> labels = publicQuestionsMapper.synlabels(userId);
+        List<String> knowledges = publicQuestionsMapper.synknowledges(userId);
+        map.put("grade",grades);
+        map.put("course",courses);
+        map.put("year",years);
+        map.put("label",labels);
+        map.put("knowledge",knowledges);
+        return map;
+    }
 }

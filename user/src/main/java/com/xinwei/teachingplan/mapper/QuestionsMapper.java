@@ -1,6 +1,7 @@
 package com.xinwei.teachingplan.mapper;
 
 
+import com.xinwei.teachingplan.bo.MenuBo;
 import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QueryQuestionsBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
@@ -18,4 +19,8 @@ public interface QuestionsMapper {
     List<QuestionAnswerEntity> queryAnswer(Long questionsId);
 
     Integer addMe(PersonalBo personal);
+
+    void insertMenu(MenuBo menuBo);
+
+    void insertAttribute(QuestionsBo questions);
 }
