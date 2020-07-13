@@ -43,7 +43,7 @@ public class Test  {
             getChildNode(tempList,menuVo);
         }
 
-//        resultList.forEach(System.out::println);
+        resultList.forEach(System.out::println);
     }
 
 

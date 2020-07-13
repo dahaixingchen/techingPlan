@@ -3,6 +3,7 @@ package com.xinwei.teachingplan.service;
 import com.xinwei.teachingplan.bo.*;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
 import com.xinwei.teachingplan.mapper.PersonalMapper;
+import com.xinwei.teachingplan.mapper.QuestionsMapper;
 import com.xinwei.teachingplan.mapper.TeachMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,9 @@ public class PersonalService {
 
     @Resource
     private TeachMapper teachMapper;
+
+    @Resource
+    private QuestionsMapper questionsMapper;
 
     @Transactional(rollbackFor = Exception.class)
     public Integer updateTeach(TeachBo teachBo) {
@@ -48,6 +52,7 @@ public class PersonalService {
     }
 
     public List<QuestionBaseEntity> myQuestions(QueryQuestionsBo questions) {
-        return null;
+        questions.setFlag(1);
+        return questionsMapper.queryQuestions(questions);
     }
 }

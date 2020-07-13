@@ -25,7 +25,14 @@ public class TeachService {
     @Transactional(rollbackFor = Exception.class)
     public Integer addTeach(TeachBo teachBo) {
         Integer count = teachMapper.addTeach(teachBo);
+        teachBo.getTeachPointsList().forEach(point->{
+            point.setTeachId(teachBo.getTeachId());
+        });
         teachMapper.addTeachPoints(teachBo.getTeachPointsList());
+
+        teachBo.getTeachPracticeList().forEach(practice->{
+            practice.setTeachId(teachBo.getTeachId());
+        });
         teachMapper.addTeachPractice(teachBo.getTeachPracticeList());
         return count;
     }

@@ -5,6 +5,7 @@
 
     <insert id="addQuestions" parameterType="com.xinwei.teachingplan.bo.QuestionsBo">
         insert into questions(
+            user_id,
             grade,
             course,
             complexity,
@@ -23,6 +24,7 @@
             questions_explain,
             questions_explain_image
         )values (
+            #{userId},
             #{grade},
             #{course},
             #{complexity},
@@ -42,14 +44,23 @@
             #{questionsExplainImage}
         )
     </insert>
+    <update id="delete">
+        update questions
+        set is_del = 1
+        where id = #{id}
+    </update>
     <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
             resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
         select
-        id,
-        questions_start questionsStart,
-        questions_start_image questionsStartImage
-        from questions
-        where 1
+        q.id,
+        q.questions_start questionsStart,
+        q.questions_start_image questionsStartImage
+        from questions q
+        <if test="flag == 1">
+            inner join personal p
+            on p.questions_id = q.id
+        </if>
+        where q.is_del = 0
         <if test="grade != null">
             and grade = #{grade}
         </if>
@@ -83,6 +94,9 @@
         <if test="knowledge != null">
             and knowledge = #{knowledge}
         </if>
+        <if test="flag == 1">
+            and p.user_id = #{userId}
+        </if>
 
     </select>
     <insert id="addMe">
@@ -102,7 +116,7 @@
         values(#{name},#{fatherId})
     </insert>
     <insert id="insertAttribute" parameterType="com.xinwei.teachingplan.bo.QuestionsBo">
-        insert into (
+        insert into questions_attribute(
             grade,
             course,
             complexity,
@@ -131,6 +145,6 @@
             questions_explain questionsExplain,
             questions_explain_image questionsExplainImage
         from questions
-        where id = #{questionsId}
+        where id = #{questionsId} and is_del = 0
     </select>
 </mapper>

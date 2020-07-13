@@ -23,4 +23,6 @@ public interface QuestionsMapper {
     void insertMenu(MenuBo menuBo);
 
     void insertAttribute(QuestionsBo questions);
+
+    Integer delete(Long id);
 }

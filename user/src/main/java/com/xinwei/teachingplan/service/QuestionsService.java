@@ -10,6 +10,7 @@ import com.xinwei.teachingplan.entity.QuestionBaseEntity;
 import com.xinwei.teachingplan.mapper.PublicQuestionsMapper;
 import com.xinwei.teachingplan.mapper.QuestionsMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -36,6 +37,7 @@ public class QuestionsService {
      * @Date: 2020/6/28 18:21
      * @Description: 添加试题
      */
+    @Transactional(rollbackFor = Exception.class)
     public Integer addQuestions(QuestionsBo questions) {
         //添加试题左侧栏，年级，科目，知识点属性
         PublicQuestionsImpl questions1 = pubilcFactory.getImpl("questions");
@@ -49,6 +51,14 @@ public class QuestionsService {
         if (!oneMap.containsKey(questions.getGrade())){
             //如果不存在，直接新增
             menuBo.setFatherId(-1L);
+
+            //新增三层的目录
+            questionsMapper.insertMenu(menuBo);
+            menuBo.setFatherId(menuBo.getOneId());
+            menuBo.setName(questions.getCourse());
+            questionsMapper.insertMenu(menuBo);
+            menuBo.setFatherId(menuBo.getOneId());
+            menuBo.setName(questions.getKnowledge());
             questionsMapper.insertMenu(menuBo);
         }else{
             //如果存在，继续往下面遍历
@@ -59,9 +69,12 @@ public class QuestionsService {
             }
             //第二层课程的判断
             if (!twoMap.containsKey(questions.getCourse())){
-                //如果不存在，直接新增课程
-                menuBo.setFatherId(menuBo.getOneId());
+                //如果不存在，直接新增课程后两层的目录
+                menuBo.setFatherId(menuEntity.getId());
                 menuBo.setName(questions.getCourse());
+                questionsMapper.insertMenu(menuBo);
+                menuBo.setFatherId(menuBo.getOneId());
+                menuBo.setName(questions.getKnowledge());
                 questionsMapper.insertMenu(menuBo);
             }else{
                 //如果存在，继续往下面遍历
@@ -73,7 +86,7 @@ public class QuestionsService {
                 //第三层知识点的判断
                 if (!thirdMap.containsKey(questions.getKnowledge())){
                     //如果不存在，直接新增知识点属性
-                    menuBo.setFatherId(menuBo.getOneId());
+                    menuBo.setFatherId(menuEntity.getId());
                     menuBo.setName(questions.getKnowledge());
                     questionsMapper.insertMenu(menuBo);
                 }
@@ -93,7 +106,6 @@ public class QuestionsService {
      * @Description: 查看试题
      */
     public List<QuestionBaseEntity> queryQuestions(QueryQuestionsBo questions) {
-        questions.getComplexity();
         return questionsMapper.queryQuestions(questions);
     }
 
@@ -106,6 +118,6 @@ public class QuestionsService {
     }
 
     public Integer delete(Long id) {
-        return null;
+        return questionsMapper.delete(id);
     }
 }
