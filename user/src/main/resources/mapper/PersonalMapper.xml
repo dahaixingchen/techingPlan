@@ -40,7 +40,8 @@
             senior_question_ids = #{seniorQuestionIds},
             conclude = #{conclude},
             consolidate = #{consolidate},
-            consolidate_question_ids = #{consolidateQuestionIds}
+            consolidate_question_ids = #{consolidateQuestionIds},
+            node = #{node}
         where id = #{teachId}
     </update>
     <update id="updatePractice">

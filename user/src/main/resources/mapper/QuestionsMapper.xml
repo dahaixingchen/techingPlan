@@ -136,6 +136,8 @@
     </insert>
     <select id="queryAnswer" resultType="com.xinwei.teachingplan.entity.QuestionAnswerEntity">
         select
+            questions_start questionsStart,
+            questions_start_image questionsStartImage,
             questions_answer questionsAnswer,
             questions_answer_image questionsAnswerImage,
             questions_analyze questionsAnalyze,

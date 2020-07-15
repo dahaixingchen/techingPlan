@@ -23,7 +23,8 @@
          senior_question_ids ,
          conclude,
          consolidate,
-         consolidate_question_ids
+         consolidate_question_ids,
+         node
         )values (
          #{teachPhone},
          #{teachName},
@@ -42,7 +43,8 @@
          #{seniorQuestionIds} ,
          #{conclude},
          #{consolidate},
-         #{consolidateQuestionIds}
+         #{consolidateQuestionIds},
+         #{node}
         )
     </insert>
     <insert id="addTeachPoints" parameterType="com.xinwei.teachingplan.bo.TeachPointsBo">
@@ -145,8 +147,6 @@
         <if test="flag == 1">
             and p.user_id = #{userId}
         </if>
-
-
     </select>
     <select id="queryPoint" resultType="com.xinwei.teachingplan.bo.TeachPointsBo">
         select
@@ -157,6 +157,46 @@
         where teach_id = #{id}
     </select>
     <select id="getPractice" resultType="com.xinwei.teachingplan.bo.TeachPracticeBo">
+        select
+        week,
+        signature,
+        practice_question_ids practiceQuestionIds
+        from teach_practice
+        where teach_id = #{id}
+    </select>
+    <select id="queryTeachById" resultType="com.xinwei.teachingplan.vo.TeachVo">
+        select
+        t.id id,
+        t.teach_phone teachPhone,
+        t.teach_name teachName,
+        t.prepare_lessons_time prepareLessonsTime,
+        t.course course,
+        t.grade grade,
+        t.lessons_time lessonsTime,
+        t.teach_topic teachTopic,
+        t.teach_type teachType,
+        t.teach_source teachSource,
+        t.student_questions studentQuestions,
+        t.teach_goal teachGoal,
+        t.teach_key_difficulty teachKeyDifficulty,
+        t.review review,
+        t.key_point keyPoint,
+        t.senior_question_ids seniorQuestionIds,
+        t.conclude conclude,
+        t.consolidate consolidate,
+        t.consolidate_question_ids consolidateQuestionIds
+        from teach t
+        where id = #{id}
+    </select>
+    <select id="queryPointById" resultType="com.xinwei.teachingplan.vo.TeachPointsVo">
+        select
+        points,
+        analyse,
+        points_question_ids pointsQuestionIds
+        from teach_points
+        where teach_id = #{id}
+    </select>
+    <select id="getPracticeById" resultType="com.xinwei.teachingplan.vo.TeachPracticeVo">
         select
         week,
         signature,

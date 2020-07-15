@@ -8,30 +8,35 @@
         grade
         from questions_attribute
         group  by grade
+        limit 15
     </select>
     <select id="course" resultType="java.lang.String">
         select
         course
         from questions_attribute
         group  by course
+        limit 15
     </select>
     <select id="year" resultType="java.lang.String">
         select
         year
         from questions_attribute
         group  by year
+        limit 15
     </select>
     <select id="label" resultType="java.lang.String">
         select
         label
         from questions_attribute
         group  by label
+        limit 15
     </select>
     <select id="knowledge" resultType="java.lang.String">
         select
         knowledge
         from questions_attribute
         group  by knowledge
+        limit 15
     </select>
     <select id="menuQuery" resultType="com.xinwei.teachingplan.entity.MenuEntity">
         select

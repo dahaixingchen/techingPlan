@@ -7,6 +7,7 @@ import com.xinwei.teachingplan.bo.QueryQuestionsBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
+import com.xinwei.teachingplan.vo.TeachVo;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface QuestionsMapper {
 
     List<QuestionBaseEntity> queryQuestions(QueryQuestionsBo questions);
 
-    List<QuestionAnswerEntity> queryAnswer(Long questionsId);
+    QuestionAnswerEntity queryAnswer(Long questionsId);
 
     Integer addMe(PersonalBo personal);
 
@@ -25,4 +26,5 @@ public interface QuestionsMapper {
     void insertAttribute(QuestionsBo questions);
 
     Integer delete(Long id);
+
 }

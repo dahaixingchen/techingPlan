@@ -109,7 +109,7 @@ public class QuestionsService {
         return questionsMapper.queryQuestions(questions);
     }
 
-    public List<QuestionAnswerEntity> queryAnswer(Long questionsId) {
+    public QuestionAnswerEntity queryAnswer(Long questionsId) {
         return questionsMapper.queryAnswer(questionsId);
     }
 

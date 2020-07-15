@@ -3,15 +3,18 @@ package com.xinwei.teachingplan.controller;
 import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
+import com.xinwei.teachingplan.mapper.QuestionsMapper;
 import com.xinwei.teachingplan.service.TeachService;
 import com.xinwei.teachingplan.util.ApiMessage;
 import com.xinwei.teachingplan.util.MessageConstant;
+import com.xinwei.teachingplan.vo.TeachVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -49,6 +52,19 @@ public class TeachController {
     @PostMapping("/query-teach")
     public ApiMessage<List<TeachBo>> queryTeach(@RequestBody QueryTeachBo queryTeachBo){
         List<TeachBo> Teachs = teachService.queryTeach(queryTeachBo);
+        if (Teachs != null){
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
+        }else{
+            return ApiMessage.success(MessageConstant.QUERY_ERROR_MESSAGE);
+
+        }
+    }
+
+    @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”"+
+            " ，“约分”，“知识点”)都会触发这个接口")
+    @GetMapping("/query-allTeach")
+    public ApiMessage<TeachVo> queryAllTeach(Long id){
+        TeachVo Teachs = teachService.queryAllTeach(id);
         if (Teachs != null){
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
         }else{

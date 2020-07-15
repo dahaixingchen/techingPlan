@@ -1,6 +1,9 @@
 package com.xinwei.teachingplan.mapper;
 
 import com.xinwei.teachingplan.bo.*;
+import com.xinwei.teachingplan.vo.TeachPointsVo;
+import com.xinwei.teachingplan.vo.TeachPracticeVo;
+import com.xinwei.teachingplan.vo.TeachVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -22,4 +25,9 @@ public interface TeachMapper {
 
     List<TeachPracticeBo> getPractice(Long id);
 
+    TeachVo queryTeachById(Long id);
+
+    List<TeachPointsVo> queryPointById(Long id);
+
+    List<TeachPracticeVo> getPracticeById(Long id);
 }

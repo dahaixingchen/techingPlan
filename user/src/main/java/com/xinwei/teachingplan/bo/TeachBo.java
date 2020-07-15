@@ -72,6 +72,9 @@ public class TeachBo {
     @ApiModelProperty(value = "自我巩固", required = true)
     private String consolidate;
 
+    @ApiModelProperty(value = "笔记", required = true)
+    private String node;
+
     @ApiModelProperty(value = "自我的试题ids", required = true)
     private String consolidateQuestionIds;
 

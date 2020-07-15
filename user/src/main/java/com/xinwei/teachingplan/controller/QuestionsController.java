@@ -68,11 +68,11 @@ public class QuestionsController {
     @ApiOperation(value="查看答案")
     @ApiImplicitParam(name = "questionsId",value = "对应试题的id",required = true,paramType = "query")
     @GetMapping("/query-answer")
-    public ApiMessage<List<QuestionAnswerEntity>> queryAnswer(Long questionsId){
-        List<QuestionAnswerEntity> answerList = questionsService.queryAnswer(questionsId);
-        if(answerList != null){
+    public ApiMessage<QuestionAnswerEntity> queryAnswer(Long questionsId){
+        QuestionAnswerEntity answer = questionsService.queryAnswer(questionsId);
+        if(answer != null){
 
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,answerList);
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,answer);
         }else {
             return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
         }
