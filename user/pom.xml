@@ -130,11 +130,11 @@
             <version>5.2.0</version>
         </dependency>
         <!-- 这个在本地仓库里 远程仓库里没有 链接：https://pan.baidu.com/s/1TTGlR7zm7pI7swczSnXscw 提取码：4am6 具体怎么导入本地maven仓库可以自行百度一下-->
-        <dependency>
-            <groupId>com.artofsolving</groupId>
-            <artifactId>jodconverter</artifactId>
-            <version>2.2.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.artofsolving</groupId>-->
+<!--            <artifactId>jodconverter</artifactId>-->
+<!--            <version>2.2.2</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
