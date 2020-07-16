@@ -11,6 +11,7 @@
          prepare_lessons_time ,
          course ,
          grade,
+         student_name,
          lessons_time ,
          teach_topic ,
          teach_type,
@@ -31,6 +32,7 @@
          #{prepareLessonsTime},
          #{course},
          #{grade},
+         #{studentName},
          #{lessonsTime},
          #{teachTopic} ,
          #{teachType},
@@ -107,6 +109,7 @@
         t.prepare_lessons_time prepareLessonsTime,
         t.course course,
         t.grade grade,
+        t.student_name,
         t.lessons_time lessonsTime,
         t.teach_topic teachTopic,
         t.teach_type teachType,
@@ -172,6 +175,7 @@
         t.prepare_lessons_time prepareLessonsTime,
         t.course course,
         t.grade grade,
+        t.student_name,
         t.lessons_time lessonsTime,
         t.teach_topic teachTopic,
         t.teach_type teachType,
@@ -186,7 +190,7 @@
         t.consolidate consolidate,
         t.consolidate_question_ids consolidateQuestionIds
         from teach t
-        where id = #{id}
+        where id = #{id} and is_del = 0
     </select>
     <select id="queryPointById" resultType="com.xinwei.teachingplan.vo.TeachPointsVo">
         select

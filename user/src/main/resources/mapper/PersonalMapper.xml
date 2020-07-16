@@ -28,6 +28,7 @@
             prepare_lessons_time = #{prepareLessonsTime},
             course = #{course},
             grade = #{grade},
+            student_name = #{studentName},
             lessons_time = #{lessonsTime},
             teach_topic = #{teachTopic},
             teach_type = #{teachType},

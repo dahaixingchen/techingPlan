@@ -27,6 +27,9 @@ public class TeachBo {
     @ApiModelProperty(value = "教师(教案作者名称)", required = true)
     private String teachName;
 
+    @ApiModelProperty(value = "学生", required = true)
+    private String studentName;
+
     @ApiModelProperty(value = "备课时间", required = true)
     private String prepareLessonsTime;
 

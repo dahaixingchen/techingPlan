@@ -25,5 +25,6 @@ public class MessageConstant {
     public static final String LOGIN_SUCESS = "登录成功";
     public static final String LOGIN_ERROR = "用户名密码不正确";
     public static final String DATE_FORMAT_ERROR_MESSAGE = "时间格式错误，无法转换";
+    public static final String DATA_ERROR = "请填写正确的试卷id";
 
 }
