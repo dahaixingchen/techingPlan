@@ -89,4 +89,5 @@ public class TeachBo {
 
     @ApiModelProperty(value = "练习题集合",required = true)
     private List<TeachPracticeBo> teachPracticeList;
+
 }

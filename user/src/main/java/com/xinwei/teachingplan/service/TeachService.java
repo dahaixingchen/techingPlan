@@ -107,7 +107,9 @@ public class TeachService {
         String[] split = ids.split(",");
         for (String questionsId:split){
             QuestionAnswerEntity questionAnswerEntity = questionsMapper.queryAnswer(Long.valueOf(questionsId));
-            questionAnswerEntities.add(questionAnswerEntity);
+            if (questionAnswerEntity != null){
+                questionAnswerEntities.add(questionAnswerEntity);
+            }
         }
         return questionAnswerEntities;
     }

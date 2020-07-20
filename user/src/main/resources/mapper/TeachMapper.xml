@@ -122,7 +122,8 @@
         t.senior_question_ids seniorQuestionIds,
         t.conclude conclude,
         t.consolidate consolidate,
-        t.consolidate_question_ids consolidateQuestionIds
+        t.consolidate_question_ids consolidateQuestionIds,
+        t.student_name studentName
         from teach t
         <if test="flag == 1">
             inner join personal p
@@ -175,7 +176,7 @@
         t.prepare_lessons_time prepareLessonsTime,
         t.course course,
         t.grade grade,
-        t.student_name,
+        t.student_name studentName,
         t.lessons_time lessonsTime,
         t.teach_topic teachTopic,
         t.teach_type teachType,
@@ -188,7 +189,8 @@
         t.senior_question_ids seniorQuestionIds,
         t.conclude conclude,
         t.consolidate consolidate,
-        t.consolidate_question_ids consolidateQuestionIds
+        t.consolidate_question_ids consolidateQuestionIds,
+        t.node node
         from teach t
         where id = #{id} and is_del = 0
     </select>

@@ -24,7 +24,7 @@
             questions_explain,
             questions_explain_image
         )values (
-            #{userId},
+            #{id},
             #{grade},
             #{course},
             #{complexity},

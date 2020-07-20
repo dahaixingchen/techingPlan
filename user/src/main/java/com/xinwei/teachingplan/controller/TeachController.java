@@ -3,20 +3,23 @@ package com.xinwei.teachingplan.controller;
 import com.xinwei.teachingplan.bo.PersonalBo;
 import com.xinwei.teachingplan.bo.QueryTeachBo;
 import com.xinwei.teachingplan.bo.TeachBo;
-import com.xinwei.teachingplan.mapper.QuestionsMapper;
 import com.xinwei.teachingplan.service.TeachService;
+import com.xinwei.teachingplan.service.WordAction;
 import com.xinwei.teachingplan.util.ApiMessage;
 import com.xinwei.teachingplan.util.MessageConstant;
 import com.xinwei.teachingplan.vo.TeachVo;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -60,8 +63,7 @@ public class TeachController {
         }
     }
 
-    @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”"+
-            " ，“约分”，“知识点”)都会触发这个接口")
+    @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）完整查看")
     @GetMapping("/query-allTeach")
     public ApiMessage<TeachVo> queryAllTeach(Long id){
         TeachVo Teachs = teachService.queryAllTeach(id);
@@ -71,13 +73,6 @@ public class TeachController {
             return ApiMessage.success(MessageConstant.QUERY_ERROR_MESSAGE);
 
         }
-    }
-
-    @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
-    @GetMapping("/download")
-    public ApiMessage download(HttpServletRequest request, HttpServletResponse response,String teachId){
-        teachService.download(teachId);
-        return ApiMessage.success(MessageConstant.LOGIN_SUCESS);
     }
 
     @ApiOperation(value="删除教案")
@@ -101,5 +96,23 @@ public class TeachController {
         }else {
             return ApiMessage.error(MessageConstant.ADD_ERROR_MESSAGE);
         }
+    }
+
+
+    @Autowired
+    WordAction wordAction;
+    @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
+    @GetMapping("/download")
+    public ResponseEntity<byte[]> download(Long teachId) throws UnsupportedEncodingException {
+        byte[] bytes = wordAction.dowloadWord(teachId);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentDispositionFormData("attachment", URLEncoder.encode("teachWord.doc", "utf-8"));
+        return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
+    }
+
+    @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
+    @GetMapping("/getWord")
+    public void getWord(Long teachId)  {
+        wordAction.createWord();
     }
 }
