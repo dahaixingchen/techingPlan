@@ -36,12 +36,18 @@ public class TeachService {
         teachBo.getTeachPointsList().forEach(point->{
             point.setTeachId(teachBo.getTeachId());
         });
-        teachMapper.addTeachPoints(teachBo.getTeachPointsList());
+        if (teachBo.getTeachPointsList().size() > 0){
+            teachMapper.addTeachPoints(teachBo.getTeachPointsList());
+        }
 
         teachBo.getTeachPracticeList().forEach(practice->{
             practice.setTeachId(teachBo.getTeachId());
         });
-        teachMapper.addTeachPractice(teachBo.getTeachPracticeList());
+        if (teachBo.getTeachPracticeList().size() > 0){
+            teachMapper.addTeachPractice(teachBo.getTeachPracticeList());
+
+        }
+        //添加个人中心
         return count;
     }
 

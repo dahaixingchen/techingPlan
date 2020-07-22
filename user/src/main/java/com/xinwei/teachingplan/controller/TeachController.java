@@ -63,7 +63,7 @@ public class TeachController {
         }
     }
 
-    @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）完整查看")
+    @ApiOperation(value="完整查看，查询教案，在教案页面（个人中心的教案页面）")
     @GetMapping("/query-allTeach")
     public ApiMessage<TeachVo> queryAllTeach(Long id){
         TeachVo Teachs = teachService.queryAllTeach(id);
@@ -110,7 +110,7 @@ public class TeachController {
         return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
     }
 
-    @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
+    @ApiOperation(value="测试用，下载教案到某个目录")
     @GetMapping("/getWord")
     public void getWord(Long teachId)  {
         wordAction.createWord();

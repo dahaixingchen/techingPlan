@@ -96,6 +96,7 @@ public class QuestionsService {
         questionsMapper.insertAttribute(questions);
         //添加试题内容
         Integer count = questionsMapper.addQuestions(questions);
+
         return count;
     }
 

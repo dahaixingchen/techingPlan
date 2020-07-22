@@ -13,6 +13,9 @@ import lombok.Data;
 public class UserBo {
 
     @ApiModelProperty(value = "名称")
+    private String id;
+
+    @ApiModelProperty(value = "名称")
     private String name;
 
     @ApiModelProperty(value = "手机号",required = true)
