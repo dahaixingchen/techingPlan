@@ -3,7 +3,7 @@
 <mapper namespace="com.xinwei.teachingplan.mapper.QuestionsMapper">
 
 
-    <insert id="addQuestions" parameterType="com.xinwei.teachingplan.bo.QuestionsBo">
+    <insert id="addQuestions" useGeneratedKeys="true" keyProperty="id" parameterType="com.xinwei.teachingplan.bo.QuestionsBo">
         insert into questions(
             user_id,
             grade,
@@ -108,7 +108,7 @@
             #{userId},
             #{questionsId},
             #{teachId}
-        )
+        )on duplicate key  update update_time = CURRENT_TIMESTAMP
     </insert>
     <insert id="insertMenu" parameterType="com.xinwei.teachingplan.bo.MenuBo"
             useGeneratedKeys="true" keyProperty="oneId">

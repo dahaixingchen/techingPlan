@@ -20,4 +20,17 @@ public class PersonalBo {
 
     @ApiModelProperty(value = "教案id",required = true)
     private String teachId;
+
+    @ApiModelProperty(value = "0表示查询全部，1表示在个人中心中查询")
+    private Integer flag;
+
+    public PersonalBo(String userId,String questionsId){
+        this.userId = userId;
+        this.questionsId = questionsId;
+    }
+
+    public PersonalBo(String userId,String teachId,String questionsId){
+        this.userId = userId;
+        this.teachId = teachId;
+    }
 }

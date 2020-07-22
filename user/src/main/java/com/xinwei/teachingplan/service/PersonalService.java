@@ -36,6 +36,7 @@ public class PersonalService {
         personalMapper.insertPoint(teachBo.getTeachPointsList());
         personalMapper.deletePractice(teachBo.getTeachId());
         personalMapper.updatePractice(teachBo.getTeachPracticeList());
+
         return count;
     }
 

@@ -88,13 +88,17 @@
     <insert id="addMe" parameterType="com.xinwei.teachingplan.bo.PersonalBo">
         insert into personal(
             user_id,
-            questions_id,
+            <if test="flag != 1">
+                questions_id,
+            </if>
             teach_id
         )values (
             #{userId},
-            #{questionsId},
+            <if test="flag != 1">
+                #{questionsId},
+            </if>
             #{teachId}
-        )
+        ) on duplicate key  update update_time = CURRENT_TIMESTAMP
     </insert>
     <update id="delete">
         update teach

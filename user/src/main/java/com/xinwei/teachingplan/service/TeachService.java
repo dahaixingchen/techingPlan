@@ -47,7 +47,8 @@ public class TeachService {
             teachMapper.addTeachPractice(teachBo.getTeachPracticeList());
 
         }
-        //添加个人中心
+        //添加个人中心创建人
+        teachMapper.addMe(new PersonalBo(teachBo.getUserId(),teachBo.getTeachId(),""));
         return count;
     }
 
@@ -73,6 +74,7 @@ public class TeachService {
     }
 
     public Integer addMe(PersonalBo personal) {
+        personal.setFlag(1);
         return teachMapper.addMe(personal);
     }
 

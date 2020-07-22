@@ -37,71 +37,59 @@ public class TeachController {
     @Autowired
     private TeachService teachService;
 
-    @ApiOperation(value="新增教案")
+    @ApiOperation(value = "新增教案")
     @PostMapping("/add-teach")
-    public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo){
+    public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo) {
         Integer count = teachService.addTeach(teachBo);
-        if (count != null && count >= 1){
-            return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE,"共新增数据 "+count+" 条");
-        }else{
-
-            return ApiMessage.success(MessageConstant.ADD_ERROR_MESSAGE);
-        }
+        return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE, "共新增数据 " + count + " 条");
     }
 
 
-    @ApiOperation(value="查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”"+
+    @ApiOperation(value = "查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”" +
             " ，“约分”，“知识点”)都会触发这个接口")
     @PostMapping("/query-teach")
-    public ApiMessage<List<TeachBo>> queryTeach(@RequestBody QueryTeachBo queryTeachBo){
+    public ApiMessage<List<TeachBo>> queryTeach(@RequestBody QueryTeachBo queryTeachBo) {
         List<TeachBo> Teachs = teachService.queryTeach(queryTeachBo);
-        if (Teachs != null){
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
-        }else{
+        if (Teachs != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, Teachs);
+        } else {
             return ApiMessage.success(MessageConstant.QUERY_ERROR_MESSAGE);
 
         }
     }
 
-    @ApiOperation(value="完整查看，查询教案，在教案页面（个人中心的教案页面）")
+    @ApiOperation(value = "完整查看，查询教案，在教案页面（个人中心的教案页面）")
     @GetMapping("/query-allTeach")
-    public ApiMessage<TeachVo> queryAllTeach(Long id){
+    public ApiMessage<TeachVo> queryAllTeach(Long id) {
         TeachVo Teachs = teachService.queryAllTeach(id);
-        if (Teachs != null){
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
-        }else{
+        if (Teachs != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, Teachs);
+        } else {
             return ApiMessage.success(MessageConstant.QUERY_ERROR_MESSAGE);
 
         }
     }
 
-    @ApiOperation(value="删除教案")
+    @ApiOperation(value = "删除教案")
     @GetMapping("/delete")
-    public ApiMessage<Integer> delete(String teachId){
+    public ApiMessage<Integer> delete(String teachId) {
         Integer count = teachService.delete(teachId);
-        if (count != null && count >= 1){
-            return ApiMessage.success(MessageConstant.DELETE_SUCCESS_MESSAGE,"共删除数据 "+count+" 条");
-        }else{
-
-            return ApiMessage.success(MessageConstant.DELETE_ERROR_MESSAGE);
-        }
+        return ApiMessage.success(MessageConstant.DELETE_SUCCESS_MESSAGE, "共删除数据 " + count + " 条");
     }
 
-    @ApiOperation(value="添加到我")
+    @ApiOperation(value = "添加到我")
     @PostMapping("/add-me")
-    public ApiMessage addMe(@RequestBody PersonalBo personal){
+    public ApiMessage addMe(@RequestBody PersonalBo personal) {
         Integer count = teachService.addMe(personal);
-        if (count == 1){
-            return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
-        }else {
-            return ApiMessage.error(MessageConstant.ADD_ERROR_MESSAGE);
-        }
+        return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE, count);
+
     }
 
 
     @Autowired
     WordAction wordAction;
-    @ApiOperation(value="下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
+
+    @ApiOperation(value = "下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
     @GetMapping("/download")
     public ResponseEntity<byte[]> download(Long teachId) throws UnsupportedEncodingException {
         byte[] bytes = wordAction.dowloadWord(teachId);
@@ -110,9 +98,9 @@ public class TeachController {
         return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
     }
 
-    @ApiOperation(value="测试用，下载教案到某个目录")
+    @ApiOperation(value = "测试用，下载教案到某个目录")
     @GetMapping("/getWord")
-    public void getWord(Long teachId)  {
+    public void getWord(Long teachId) {
         wordAction.createWord();
     }
 }

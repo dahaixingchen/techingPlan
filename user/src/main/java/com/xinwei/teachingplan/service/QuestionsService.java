@@ -91,12 +91,15 @@ public class QuestionsService {
                     questionsMapper.insertMenu(menuBo);
                 }
             }
+
         }
         //添加试题所有属性
         questionsMapper.insertAttribute(questions);
         //添加试题内容
         Integer count = questionsMapper.addQuestions(questions);
 
+        //把试题添加到创建人
+        questionsMapper.addMe(new PersonalBo(questions.getUser_id().toString(),questions.getId().toString()));
         return count;
     }
 

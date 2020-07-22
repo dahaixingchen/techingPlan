@@ -24,7 +24,7 @@
             id,
             name,
             phone,
-            user_type
+            user_type userType
         from user
         where phone = #{phone} and password = #{password}
     </select>
