@@ -26,6 +26,7 @@ import java.util.Map;
 @Api("公共接口")
 @RestController
 @RequestMapping("/public")
+//@CrossOrigin(origins = "*")
 public class PublicController {
 
     @Autowired

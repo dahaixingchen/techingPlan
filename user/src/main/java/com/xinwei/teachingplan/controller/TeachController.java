@@ -40,8 +40,11 @@ public class TeachController {
     @ApiOperation(value = "新增教案")
     @PostMapping("/add-teach")
     public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo) {
-        Integer count = teachService.addTeach(teachBo);
-        return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE, "共新增数据 " + count + " 条");
+        String message = teachService.addTeach(teachBo);
+        if (message != null){
+            return ApiMessage.error(message);
+        }
+        return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
     }
 
 

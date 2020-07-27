@@ -26,7 +26,13 @@
             phone,
             user_type userType
         from user
-        where phone = #{phone} and password = #{password}
+        where password = #{password}
+        <if test="phone != null" >
+            and phone = #{phone}
+        </if>
+        <if test="name != null">
+            and name = #{name}
+        </if>
     </select>
 
 <!--    校验手机号是否重复-->
