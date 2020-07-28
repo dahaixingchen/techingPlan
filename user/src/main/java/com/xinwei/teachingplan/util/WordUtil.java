@@ -3,11 +3,50 @@ package com.xinwei.teachingplan.util;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public class WordUtil {
+
+    /**
+     * 生成word文件通过response返回文件流
+     *
+     * @param dataMap      word中需要展示的动态数据，用map集合来保存
+     * @param templateName word模板名称，例如：model.ftl
+     * @param fileName     生成的文件名称，例如：Test.doc
+     */
+    public static void createWordByte(Map<String, Object> dataMap, String templateName, String fileName, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            //创建配置实例
+            Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);
+            //设置编码
+            configuration.setDefaultEncoding("utf-8");
+            //ftl模板文件
+            configuration.setClassForTemplateLoading(WordUtil.class, "/templates");
+            //获取模板
+            Template template = configuration.getTemplate(templateName);
+            //输出文件
+
+            response.reset();
+            response.setContentType("application/x-download");
+            response.setCharacterEncoding("UTF-8");
+//            response.setContentType("multipart/form-data");
+//            response.setHeader("Content-Disposition", "attachment;filename=" + new String((fileName.getBytes())
+//                    , "UTF-8"));
+            response.addHeader("Content-Disposition","attachment;filename=" + fileName);
+            //将模板和数据模型合并生成文件
+            template.process(dataMap, response.getWriter());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //关闭流
+            response.getWriter().close();
+        }
+    }
 
     /**
      * 生成word文件并返回二进制
@@ -69,6 +108,8 @@ public class WordUtil {
         }
         return wordByte;
     }
+
+
     /**
      * 生成word文件
      * @param dataMap word中需要展示的动态数据，用map集合来保存

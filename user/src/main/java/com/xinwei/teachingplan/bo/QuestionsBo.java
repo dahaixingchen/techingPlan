@@ -14,7 +14,7 @@ import lombok.Data;
 public class QuestionsBo {
 
     @ApiModelProperty(value = "用户id",required = true)
-    private Long user_id;
+    private Long userId;
 
     @ApiModelProperty(value = "试题id")
     private Long id;
@@ -26,10 +26,10 @@ public class QuestionsBo {
     private String course;
 
     @ApiModelProperty(value = "试题所属课程,默认为全部,1: 容易 ,2: 较易 ,3: 一般 ,4: 较难 , 5: 困难 ",required = true)
-    private int complexity;
+    private Integer complexity;
 
     @ApiModelProperty(value = "试题的题型,默认为全部,1: 单选题 ,2: 多选题 ,3: 判断题 ,4: 填空题 ,5: 解答题",required = true)
-    private int questionsType;
+    private Integer questionsType;
 
     @ApiModelProperty(value = "试题所属年份,默认为全部",required = true)
     private String year;

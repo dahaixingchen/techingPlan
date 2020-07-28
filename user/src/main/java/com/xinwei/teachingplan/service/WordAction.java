@@ -6,6 +6,8 @@ import com.xinwei.teachingplan.vo.TeachVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,8 +28,10 @@ public class WordAction {
      * 下载生成的word文档
      * @return
      * @param teachId
+     * @param request
+     * @param response
      */
-    public byte[] dowloadWord(Long teachId) {
+    public void dowloadWord(Long teachId, HttpServletRequest request, HttpServletResponse response) {
 
         TeachVo teachVo = teachService.queryAllTeach(teachId);
 
@@ -120,12 +124,11 @@ public class WordAction {
 
         byte[] fileByte = null;
         try {
-            fileByte = WordUtil.createWordByte(dataMap, "teachWord.ftl","teachWord.doc");
+            WordUtil.createWordByte(dataMap, "teachWord.ftl","teachWord.doc",request,response);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return fileByte;
     }
 
 

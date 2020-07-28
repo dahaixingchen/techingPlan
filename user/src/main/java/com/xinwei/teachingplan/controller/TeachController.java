@@ -37,6 +37,9 @@ public class TeachController {
     @Autowired
     private TeachService teachService;
 
+    @Autowired
+    private HttpServletRequest request;
+
     @ApiOperation(value = "新增教案")
     @PostMapping("/add-teach")
     public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo) {
@@ -76,13 +79,17 @@ public class TeachController {
     @ApiOperation(value = "删除教案")
     @GetMapping("/delete")
     public ApiMessage<Integer> delete(String teachId) {
-        Integer count = teachService.delete(teachId);
+        String userId = request.getHeader("userId");
+        String userType = request.getHeader("userType");
+        Integer count = teachService.delete(teachId,userId,userType);
         return ApiMessage.success(MessageConstant.DELETE_SUCCESS_MESSAGE, "共删除数据 " + count + " 条");
     }
 
     @ApiOperation(value = "添加到我")
     @PostMapping("/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal) {
+        String userId = request.getHeader("userId");
+        personal.setUserId(userId);
         Integer count = teachService.addMe(personal);
         return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE, count);
 
@@ -94,11 +101,11 @@ public class TeachController {
 
     @ApiOperation(value = "下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
     @GetMapping("/download")
-    public ResponseEntity<byte[]> download(Long teachId) throws UnsupportedEncodingException {
-        byte[] bytes = wordAction.dowloadWord(teachId);
+    public void download(HttpServletRequest request, HttpServletResponse response, Long teachId) throws UnsupportedEncodingException {
+        wordAction.dowloadWord(teachId,request,response);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentDispositionFormData("attachment", URLEncoder.encode("teachWord.doc", "utf-8"));
-        return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
+//        return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
     }
 
     @ApiOperation(value = "测试用，下载教案到某个目录")

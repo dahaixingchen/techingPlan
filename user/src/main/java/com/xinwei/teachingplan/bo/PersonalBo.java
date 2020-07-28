@@ -24,6 +24,8 @@ public class PersonalBo {
     @ApiModelProperty(value = "0表示查询全部，1表示在个人中心中查询")
     private Integer flag;
 
+    public PersonalBo(){}
+
     public PersonalBo(String userId,String questionsId){
         this.userId = userId;
         this.questionsId = questionsId;

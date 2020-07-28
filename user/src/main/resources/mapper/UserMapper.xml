@@ -30,9 +30,6 @@
         <if test="phone != null" >
             and phone = #{phone}
         </if>
-        <if test="name != null">
-            and name = #{name}
-        </if>
     </select>
 
 <!--    校验手机号是否重复-->

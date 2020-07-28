@@ -105,6 +105,10 @@
         set is_del = 1
         where id = #{teachId}
     </update>
+    <delete id="deletePersonal">
+        delete from personal
+        where user_id = #{userId} and teach_id = #{teachId}
+    </delete>
     <select id="queryTeach" resultType="com.xinwei.teachingplan.bo.TeachBo">
         select
         t.id id,

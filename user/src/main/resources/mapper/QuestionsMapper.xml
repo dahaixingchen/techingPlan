@@ -49,6 +49,10 @@
         set is_del = 1
         where id = #{id}
     </update>
+    <delete id="deletePersonal">
+        delete from personal
+        where user_id = #{userId} and questions_id = #{id}
+    </delete>
     <select id="queryQuestions" parameterType="com.xinwei.teachingplan.bo.QueryQuestionsBo"
             resultType="com.xinwei.teachingplan.entity.QuestionBaseEntity">
         select
@@ -136,6 +140,7 @@
     </insert>
     <select id="queryAnswer" resultType="com.xinwei.teachingplan.entity.QuestionAnswerEntity">
         select
+            id,
             questions_start questionsStart,
             questions_start_image questionsStartImage,
             questions_answer questionsAnswer,

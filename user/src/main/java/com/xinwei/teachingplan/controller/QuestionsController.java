@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -30,17 +31,27 @@ public class QuestionsController {
     @Autowired
     private QuestionsService questionsService;
 
+    @Autowired
+    private HttpServletRequest request;
+
     @ApiOperation(value = "新增试题")
     @PostMapping("/add-questions")
     public ApiMessage addQuestions(@RequestBody QuestionsBo questions) {
-        Integer count = questionsService.addQuestions(questions);
-        return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE,count);
+        String userId = request.getHeader("userId");
+        questions.setUserId(Long.valueOf(userId));
+        String message = questionsService.addQuestions(questions);
+        if (message != null){
+            return ApiMessage.error(message);
+        }
+        return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
     }
 
     @ApiOperation(value = "删除试题")
     @GetMapping("/delete")
     public ApiMessage delete(Long id) {
-        Integer count = questionsService.delete(id);
+        String userId = request.getHeader("userId");
+        String userType = request.getHeader("userType");
+        Integer count = questionsService.delete(id,userId,userType);
         return ApiMessage.success(MessageConstant.DELETE_SUCCESS_MESSAGE, count);
     }
 
@@ -73,6 +84,8 @@ public class QuestionsController {
     @ApiOperation(value = "添加到我")
     @PostMapping("/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal) {
+        String userId = request.getHeader("userId");
+        personal.setUserId(userId);
         Integer count = questionsService.addMe(personal);
         return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE,count);
     }

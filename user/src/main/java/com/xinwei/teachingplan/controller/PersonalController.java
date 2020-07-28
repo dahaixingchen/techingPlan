@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -32,10 +33,15 @@ public class PersonalController {
     @Autowired
     private PersonalService personalService;
 
+    @Autowired
+    private HttpServletRequest request;
+
 
     @ApiOperation(value="修改教案，这个在个人中心")
     @PostMapping("/update-teach")
     public ApiMessage updateTeach(@RequestBody TeachBo teachBo){
+        String userId = request.getHeader("userId");
+        teachBo.setUserId(userId);
         Integer count = personalService.updateTeach(teachBo);
         if (count != null && count >= 1){
             return ApiMessage.success(MessageConstant.UPDATE_SUCCESS_MESSAGE,"共修改的数据 "+count+" 条");
@@ -48,6 +54,8 @@ public class PersonalController {
     @ApiOperation(value="我的试题，个人中心中默认展示我的教案")
     @PostMapping("/my-questions")
     public ApiMessage myQuestions(@RequestBody QueryQuestionsBo questions){
+        String userId = request.getHeader("userId");
+        questions.setUserId(Long.valueOf(userId));
         List<QuestionBaseEntity> questionList = personalService.myQuestions(questions);
         if (questionList != null){
 
@@ -60,6 +68,8 @@ public class PersonalController {
     @ApiOperation(value="我的教案，个人中心中默认展示我的教案")
     @PostMapping("/my-teach")
     public ApiMessage myTeach(@RequestBody QueryTeachBo queryTeachBo){
+        String userId = request.getHeader("userId");
+        queryTeachBo.setUserId(userId);
         List<TeachBo> Teachs = personalService.myTeach(queryTeachBo);
         if (Teachs != null){
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);

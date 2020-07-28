@@ -202,8 +202,14 @@ public class TeachService {
 
     }
 
-    public Integer delete(String teachId) {
-        return teachMapper.delete(teachId);
+    public Integer delete(String teachId, String userId,String userType) {
+        Integer count = 0;
+        if (Long.valueOf(userType) == 1){
+            count =teachMapper.delete(teachId);
+        }else{
+            count =teachMapper.deletePersonal(teachId,userId);
+        }
+        return count;
     }
 
     public Integer addMe(PersonalBo personal) {

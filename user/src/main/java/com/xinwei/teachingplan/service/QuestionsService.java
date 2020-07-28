@@ -7,7 +7,6 @@ import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.MenuEntity;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
-import com.xinwei.teachingplan.mapper.PublicQuestionsMapper;
 import com.xinwei.teachingplan.mapper.QuestionsMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +37,48 @@ public class QuestionsService {
      * @Description: 添加试题
      */
     @Transactional(rollbackFor = Exception.class)
-    public Integer addQuestions(QuestionsBo questions) {
+    public String addQuestions(QuestionsBo questions) {
+        //数据校验
+        if (questions==null){
+            return "试题不能为空";
+        }
+        if (questions.getGrade() == null || "".equals(questions.getGrade())){
+            return "年级不能为空";
+        }
+        if (questions.getCourse() == null || "".equals(questions.getCourse())){
+            return "课程不能为空";
+        }
+        if (questions.getQuestionsType() == null || "".equals(questions.getQuestionsType())){
+            return "试题类型不能为空";
+        }
+        if (questions.getComplexity() == null || "".equals(questions.getComplexity())){
+            return "试题难易程度不能为空";
+        }
+        if (questions.getYear() == null || "".equals(questions.getYear())){
+            return "试题年份不能为空";
+        }
+        if (questions.getLabel() == null || "".equals(questions.getLabel())){
+            return "试题标签不能为空";
+        }
+        if (questions.getKnowledge() == null || "".equals(questions.getKnowledge())){
+            return "试题所属知识点不能为空";
+        }
+        if (questions.getQuestionsStart() == null || "".equals(questions.getQuestionsStart())){
+            return "试题题干不能为空";
+        }
+        if (questions.getQuestionsAnswer() == null || "".equals(questions.getQuestionsAnswer())){
+            return "试题答案不能为空";
+        }
+        if (questions.getQuestionsAnalyze() == null || "".equals(questions.getQuestionsAnalyze())){
+            return "试题分析不能为空";
+        }
+        if (questions.getQuestionsRemark() == null || "".equals(questions.getQuestionsRemark())){
+            return "试题点评不能为空";
+        }
+        if (questions.getQuestionsExplain() == null || "".equals(questions.getQuestionsExplain())){
+            return "试题解答不能为空";
+        }
+
         //添加试题左侧栏，年级，科目，知识点属性
         PublicQuestionsImpl questions1 = pubilcFactory.getImpl("questions");
         List<MenuEntity> menuEntities = questions1.menuQuery();
@@ -99,8 +139,8 @@ public class QuestionsService {
         Integer count = questionsMapper.addQuestions(questions);
 
         //把试题添加到创建人
-        questionsMapper.addMe(new PersonalBo(questions.getUser_id().toString(),questions.getId().toString()));
-        return count;
+        questionsMapper.addMe(new PersonalBo(questions.getUserId().toString(),questions.getId().toString()));
+        return "添加成功";
     }
 
     /**
@@ -121,7 +161,13 @@ public class QuestionsService {
         return questionsMapper.addMe(personal);
     }
 
-    public Integer delete(Long id) {
-        return questionsMapper.delete(id);
+    public Integer delete(Long id,String userId,String userType) {
+        Integer count = 0;
+        if (Long.valueOf(userType) == 1){
+            count = questionsMapper.delete(id);
+        }else {
+            count =questionsMapper.deletePersonal(id,userId);
+        }
+        return count;
     }
 }

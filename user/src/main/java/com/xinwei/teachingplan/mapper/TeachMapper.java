@@ -30,4 +30,6 @@ public interface TeachMapper {
     List<TeachPointsVo> queryPointById(Long id);
 
     List<TeachPracticeVo> getPracticeById(Long id);
+
+    Integer deletePersonal(@Param("teachId") String teachId, @Param("userId")String userId);
 }
