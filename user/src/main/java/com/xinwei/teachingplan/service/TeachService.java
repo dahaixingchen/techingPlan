@@ -161,6 +161,10 @@ public class TeachService {
                         || "".equals(teachBo.getTeachPracticeList().get(i).getPracticeQuestionIds())){
                     return new StringBuilder("每周一练,周").append(i+1).append("对应的练习题不能为空").toString();
                 }
+                if(null == teachBo.getTeachPracticeList().get(i).getSignature()
+                        || "".equals(teachBo.getTeachPracticeList().get(i).getSignature())){
+                    return new StringBuilder("每周一练,周").append(i+1).append("对应的签名不能为空").toString();
+                }
             }
         }
         if(null == teachBo.getTeachPointsList() || "".equals(teachBo.getTeachPointsList().size()<=0)){
@@ -233,7 +237,7 @@ public class TeachService {
             for (TeachPracticeVo practice:practices){
                 String ids = practice.getPracticeQuestionIds();
                 Map<String, Map<String, Object>> questions = this.getQuestions(ids);
-                practice.setPracticeQuestionIdMap(questions);
+                practice.setPracticeQuestionIds_detail(questions);
             }
             teach.setTeachPracticeList(practices);
 
@@ -243,6 +247,38 @@ public class TeachService {
 
             Map<String, Map<String, Object>> questions1 = this.getQuestions(teach.getSeniorQuestionIds());
             teach.setSeniorQuestionIds_detail(questions1);
+        }
+        return teach;
+    }
+
+    public TeachVo queryAllTeachDownload(Long id) {
+        TeachVo teach = teachMapper.queryTeachById(id);
+
+        //包括完整试题的考点
+        if (teach != null){
+            List<TeachPointsVo> points = teachMapper.queryPointById(teach.getId());
+            for (TeachPointsVo point:points){
+                String ids = point.getPointsQuestionIds();
+                List<QuestionAnswerEntity> questions = this.getQuestionsDownload(ids);
+                point.setPointsQuestionIdList(questions);
+            }
+            teach.setTeachPointsList(points);
+
+            //包括完整试题的练习题
+            List<TeachPracticeVo> practices = teachMapper.getPracticeById(teach.getId());
+            for (TeachPracticeVo practice:practices){
+                String ids = practice.getPracticeQuestionIds();
+                List<QuestionAnswerEntity> questions = this.getQuestionsDownload(ids);
+                practice.setPracticeQuestionIdList(questions);
+            }
+            teach.setTeachPracticeList(practices);
+
+            //教案其他的试题
+            List<QuestionAnswerEntity> questions = this.getQuestionsDownload(teach.getConsolidateQuestionIds());
+            teach.setConsolidateQuestionList(questions);
+
+            List<QuestionAnswerEntity> questions1 = this.getQuestionsDownload(teach.getSeniorQuestionIds());
+            teach.setSeniorQuestionList(questions1);
         }
         return teach;
     }
@@ -263,32 +299,19 @@ public class TeachService {
         return questionAnswerEntities;
     }
 
-//    public static void main(String[] args) {
-//        String date_string="2016-09-06";
-//        boolean dateflag=true;
-//        String eL = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
-//        Pattern p = Pattern.compile(eL);
-//        Matcher m = p.matcher(date_string);
-//        boolean dateFlag = m.matches();
-//        if (!dateFlag) {
-//            System.out.println("格式错误");
-//        }else {
-//
-//            System.out.println("格式正确");
-//        }
-//
-//        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-mm");
-//
-//        try
-//        {
-//            Date date = format.parse(date_string);
-//        } catch (ParseException e)
-//        {
-//            dateflag=false;
-//        }finally{
-//// 成功：true ;失败:false
-//            System.out.println("日期是否满足要求"+dateflag);
-//        }
-//
-//    }
+    private List<QuestionAnswerEntity> getQuestionsDownload(String ids) {
+        //查询对应的多有试题
+        List<QuestionAnswerEntity> questionAnswerEntities = new ArrayList<>();
+        String[] split = ids.split(",");
+        for (String questionsId:split){
+            if (questionsId != null && !"".equals(questionsId)){
+                QuestionAnswerEntity questionAnswerEntity = questionsMapper.queryAnswer(Long.valueOf(questionsId));
+                if (questionAnswerEntity != null){
+                    questionAnswerEntities.add(questionAnswerEntity);
+                }
+            }
+        }
+        return questionAnswerEntities;
+    }
+
 }

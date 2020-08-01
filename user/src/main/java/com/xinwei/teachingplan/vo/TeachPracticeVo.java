@@ -26,7 +26,7 @@ public class TeachPracticeVo {
     private List<QuestionAnswerEntity> practiceQuestionIdList;
 
     @ApiModelProperty(value = "教案试题的id集合", required = true)
-    private Map<String, Map<String, Object>> practiceQuestionIdMap;
+    private Map<String, Map<String, Object>> practiceQuestionIds_detail;
 
     @ApiModelProperty(value = "教案试题的id集合", required = true)
     private String practiceQuestionIds;

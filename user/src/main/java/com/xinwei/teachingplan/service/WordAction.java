@@ -33,7 +33,7 @@ public class WordAction {
      */
     public void dowloadWord(Long teachId, HttpServletRequest request, HttpServletResponse response) {
 
-        TeachVo teachVo = teachService.queryAllTeach(teachId);
+        TeachVo teachVo = teachService.queryAllTeachDownload(teachId);
 
         /** 用于组装word页面需要的数据 */
         Map<String, Object> dataMap = new HashMap<String, Object>();
