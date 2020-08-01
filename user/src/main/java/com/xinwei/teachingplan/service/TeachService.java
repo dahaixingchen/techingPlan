@@ -13,9 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -149,9 +147,9 @@ public class TeachService {
         if(null == teachBo.getConclude() || "".equals(teachBo.getConclude())){
             return "总结归纳不能为空";
         }
-        if(null == teachBo.getConsolidate() || "".equals(teachBo.getConsolidate())){
-            return "自我巩固不能为空";
-        }
+//        if(null == teachBo.getConsolidate() || "".equals(teachBo.getConsolidate())){
+//            return "自我巩固不能为空";
+//        }
         if(null == teachBo.getConsolidateQuestionIds() || "".equals(teachBo.getConsolidateQuestionIds())){
             return "自我巩固练习题不能为空";
         }
@@ -225,8 +223,8 @@ public class TeachService {
             List<TeachPointsVo> points = teachMapper.queryPointById(teach.getId());
             for (TeachPointsVo point:points){
                 String ids = point.getPointsQuestionIds();
-                List<QuestionAnswerEntity> questions = this.getQuestions(ids);
-                point.setPointsQuestionIdList(questions);
+                Map<String, Map<String, Object>> questions = this.getQuestions(ids);
+                point.setPointsQuestionIds_detail(questions);
             }
             teach.setTeachPointsList(points);
 
@@ -234,62 +232,63 @@ public class TeachService {
             List<TeachPracticeVo> practices = teachMapper.getPracticeById(teach.getId());
             for (TeachPracticeVo practice:practices){
                 String ids = practice.getPracticeQuestionIds();
-                List<QuestionAnswerEntity> questions = this.getQuestions(ids);
-                practice.setPracticeQuestionIdList(questions);
+                Map<String, Map<String, Object>> questions = this.getQuestions(ids);
+                practice.setPracticeQuestionIdMap(questions);
             }
             teach.setTeachPracticeList(practices);
 
             //教案其他的试题
-            List<QuestionAnswerEntity> questions = this.getQuestions(teach.getConsolidateQuestionIds());
-            teach.setConsolidateQuestionList(questions);
+            Map<String, Map<String, Object>> questions = this.getQuestions(teach.getConsolidateQuestionIds());
+            teach.setConsolidateQuestionIds_detail(questions);
 
-            List<QuestionAnswerEntity> questions1 = this.getQuestions(teach.getSeniorQuestionIds());
-            teach.setSeniorQuestionList(questions1);
+            Map<String, Map<String, Object>> questions1 = this.getQuestions(teach.getSeniorQuestionIds());
+            teach.setSeniorQuestionIds_detail(questions1);
         }
         return teach;
     }
 
-    private List<QuestionAnswerEntity> getQuestions(String ids) {
+    private Map<String, Map<String, Object>> getQuestions(String ids) {
         //查询对应的多有试题
-        List<QuestionAnswerEntity> questionAnswerEntities = new ArrayList<>();
+        Map<String, Map<String, Object>> questionAnswerEntities = new HashMap<>();
+//        Map<String,Object> questionAnswerEntities = new HashMap<>();
         String[] split = ids.split(",");
         for (String questionsId:split){
             if (questionsId != null && !"".equals(questionsId)){
-                QuestionAnswerEntity questionAnswerEntity = questionsMapper.queryAnswer(Long.valueOf(questionsId));
+                Map<String,Object> questionAnswerEntity = questionsMapper.queryAnswerMap(Long.valueOf(questionsId));
                 if (questionAnswerEntity != null){
-                    questionAnswerEntities.add(questionAnswerEntity);
+                    questionAnswerEntities.put(questionsId,questionAnswerEntity);
                 }
             }
         }
         return questionAnswerEntities;
     }
 
-    public static void main(String[] args) {
-        String date_string="2016-09-06";
-        boolean dateflag=true;
-        String eL = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
-        Pattern p = Pattern.compile(eL);
-        Matcher m = p.matcher(date_string);
-        boolean dateFlag = m.matches();
-        if (!dateFlag) {
-            System.out.println("格式错误");
-        }else {
-
-            System.out.println("格式正确");
-        }
-
-        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-mm");
-
-        try
-        {
-            Date date = format.parse(date_string);
-        } catch (ParseException e)
-        {
-            dateflag=false;
-        }finally{
-// 成功：true ;失败:false
-            System.out.println("日期是否满足要求"+dateflag);
-        }
-
-    }
+//    public static void main(String[] args) {
+//        String date_string="2016-09-06";
+//        boolean dateflag=true;
+//        String eL = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
+//        Pattern p = Pattern.compile(eL);
+//        Matcher m = p.matcher(date_string);
+//        boolean dateFlag = m.matches();
+//        if (!dateFlag) {
+//            System.out.println("格式错误");
+//        }else {
+//
+//            System.out.println("格式正确");
+//        }
+//
+//        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-mm");
+//
+//        try
+//        {
+//            Date date = format.parse(date_string);
+//        } catch (ParseException e)
+//        {
+//            dateflag=false;
+//        }finally{
+//// 成功：true ;失败:false
+//            System.out.println("日期是否满足要求"+dateflag);
+//        }
+//
+//    }
 }

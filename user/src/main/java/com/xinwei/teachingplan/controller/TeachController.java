@@ -43,6 +43,8 @@ public class TeachController {
     @ApiOperation(value = "新增教案")
     @PostMapping("/add-teach")
     public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo) {
+        String userId = request.getHeader("userId");
+        teachBo.setUserId(userId);
         String message = teachService.addTeach(teachBo);
         if (message != null){
             return ApiMessage.error(message);

@@ -154,4 +154,20 @@
         from questions
         where id = #{questionsId} and is_del = 0
     </select>
+    <select id="queryAnswerMap" resultType="java.util.Map">
+        select
+            id,
+            questions_start questionsStart,
+            questions_start_image questionsStartImage,
+            questions_answer questionsAnswer,
+            questions_answer_image questionsAnswerImage,
+            questions_analyze questionsAnalyze,
+            questions_analyze_image questionsAnalyzeImage,
+            questions_remark questionsRemark,
+            questions_remark_image questionsRemarkImage,
+            questions_explain questionsExplain,
+            questions_explain_image questionsExplainImage
+        from questions
+        where id = #{questionsId} and is_del = 0
+    </select>
 </mapper>

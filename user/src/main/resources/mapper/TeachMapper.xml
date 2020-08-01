@@ -6,7 +6,6 @@
     <insert id="addTeach" parameterType="com.xinwei.teachingplan.bo.TeachBo"
             useGeneratedKeys="true" keyProperty="teachId">
       insert into teach(
-         teach_phone,
          teach_name ,
          prepare_lessons_time ,
          course ,
@@ -27,7 +26,6 @@
          consolidate_question_ids,
          node
         )values (
-         #{teachPhone},
          #{teachName},
          #{prepareLessonsTime},
          #{course},

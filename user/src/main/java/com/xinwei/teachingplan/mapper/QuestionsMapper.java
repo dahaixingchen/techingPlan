@@ -7,10 +7,10 @@ import com.xinwei.teachingplan.bo.QueryQuestionsBo;
 import com.xinwei.teachingplan.bo.QuestionsBo;
 import com.xinwei.teachingplan.entity.QuestionAnswerEntity;
 import com.xinwei.teachingplan.entity.QuestionBaseEntity;
-import com.xinwei.teachingplan.vo.TeachVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface QuestionsMapper {
 
@@ -29,4 +29,6 @@ public interface QuestionsMapper {
     Integer delete(Long id);
 
     Integer deletePersonal(@Param("id") Long id, @Param("userId") String userId);
+
+    Map<String, Object> queryAnswerMap(Long questionsId);
 }

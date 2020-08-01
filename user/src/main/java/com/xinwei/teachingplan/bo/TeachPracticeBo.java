@@ -3,6 +3,8 @@ package com.xinwei.teachingplan.bo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Map;
+
 /**
  * @ClassName: TeachPracticeBo
  * @Author chengfei
@@ -20,6 +22,9 @@ public class TeachPracticeBo {
 
     @ApiModelProperty(value = "教案试题的id集合", required = true)
     private String practiceQuestionIds;
+
+    @ApiModelProperty(value = "教案试题的id集合",required = true)
+    private Map<String, Object> practiceQuestionIds_detail;
 
     @ApiModelProperty(value = "家长签字", required = true)
     private String signature;

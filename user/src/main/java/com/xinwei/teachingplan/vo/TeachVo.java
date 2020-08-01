@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: TeachVo
@@ -75,6 +76,9 @@ public class TeachVo {
     private List<QuestionAnswerEntity> seniorQuestionList;
 
     @ApiModelProperty(value = "教案中考演练试题的id集合", required = true)
+    private Map<String, Map<String, Object>> seniorQuestionIds_detail;
+
+    @ApiModelProperty(value = "教案中考演练试题的id集合", required = true)
     private String seniorQuestionIds;
 
     @ApiModelProperty(value = "总结归纳", required = true)
@@ -88,6 +92,9 @@ public class TeachVo {
 
     @ApiModelProperty(value = "自我巩固的试题ids", required = true)
     private List<QuestionAnswerEntity> consolidateQuestionList;
+
+    @ApiModelProperty(value = "自我巩固的试题ids", required = true)
+    private Map<String, Map<String, Object>> consolidateQuestionIds_detail;
 
     @ApiModelProperty(value = "自我的试题ids", required = true)
     private String consolidateQuestionIds;

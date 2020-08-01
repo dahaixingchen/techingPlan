@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: TeachPoints
@@ -28,6 +29,8 @@ public class TeachPointsVo {
     @ApiModelProperty(value = "小试牛刀-试题集合",required = true)
     private List<QuestionAnswerEntity> pointsQuestionIdList;
 
+    @ApiModelProperty(value = "教案试题的id集合",required = true)
+    private Map<String, Map<String, Object>> pointsQuestionIds_detail;
 
     @ApiModelProperty(value = "小试牛刀-试题集合",required = true)
     private String pointsQuestionIds;
