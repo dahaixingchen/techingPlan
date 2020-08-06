@@ -43,9 +43,9 @@
             consolidate = #{consolidate},
             consolidate_question_ids = #{consolidateQuestionIds},
             node = #{node}
-        where id = #{teachId}
+        where id = #{id}
     </update>
-    <update id="updatePractice">
+    <insert id="updatePractice">
         insert into teach_practice(
         teach_id,
         week,
@@ -62,7 +62,7 @@
                 )
             </foreach>
         </if>
-    </update>
+    </insert>
     <delete id="deletePoints">
         delete from teach_points
         where teach_id = #{teachId}

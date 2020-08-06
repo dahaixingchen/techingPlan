@@ -140,7 +140,7 @@ public class QuestionsService {
 
         //把试题添加到创建人
         questionsMapper.addMe(new PersonalBo(questions.getUserId().toString(),questions.getId().toString()));
-        return "添加成功";
+        return null;
     }
 
     /**

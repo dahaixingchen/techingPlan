@@ -62,7 +62,7 @@ public class TeachService {
     /**
       * @Description: 校验数据
       **/
-    private String checkData(TeachBo teachBo){
+    public String checkData(TeachBo teachBo){
         //数据校验
         if(null == teachBo.getTeachName() || "".equals(teachBo.getTeachName())){
             return "教师名称不能为空";
@@ -191,9 +191,9 @@ public class TeachService {
         teachBo.setFlag(0);
         List<TeachBo> teachs = teachMapper.queryTeach(teachBo);
         for(TeachBo teach :teachs){
-            List<TeachPointsBo> points = teachMapper.queryPoint(teach.getId());
+            List<TeachPointsBo> points = teachMapper.queryPoint(Long.valueOf(teach.getId()));
             teach.setTeachPointsList(points);
-            List<TeachPracticeBo> practices = teachMapper.getPractice(teach.getId());
+            List<TeachPracticeBo> practices = teachMapper.getPractice(Long.valueOf(teach.getId()));
             teach.setTeachPracticeList(practices);
         }
         return teachs;

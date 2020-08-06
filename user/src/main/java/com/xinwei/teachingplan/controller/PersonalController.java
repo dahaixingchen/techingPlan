@@ -42,13 +42,11 @@ public class PersonalController {
     public ApiMessage updateTeach(@RequestBody TeachBo teachBo){
         String userId = request.getHeader("userId");
         teachBo.setUserId(userId);
-        Integer count = personalService.updateTeach(teachBo);
-        if (count != null && count >= 1){
-            return ApiMessage.success(MessageConstant.UPDATE_SUCCESS_MESSAGE,"共修改的数据 "+count+" 条");
-        }else{
-
-            return ApiMessage.success(MessageConstant.UPDATE_ERROR_MESSAGE);
+        String message = personalService.updateTeach(teachBo);
+        if (message != null){
+            return ApiMessage.error(message);
         }
+        return ApiMessage.success(MessageConstant.UPDATE_SUCCESS_MESSAGE);
     }
 
     @ApiOperation(value="我的试题，个人中心中默认展示我的教案")
