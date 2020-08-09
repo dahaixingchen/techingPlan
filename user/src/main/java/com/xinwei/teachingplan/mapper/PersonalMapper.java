@@ -17,4 +17,6 @@ public interface PersonalMapper {
     void deletePractice(String teachId);
 
     void updatePractice(@Param("teachPracticeList") List<TeachPracticeBo> teachPracticeList);
+
+    void deletePerson(TeachBo teachBo);
 }

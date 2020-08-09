@@ -71,4 +71,7 @@
         delete from teach_practice
         where teach_id = #{teachId}
     </delete>
+    <delete id="deletePerson">
+        delete from personal where teach_id = #{teach_id} and user_id = #{userId}
+    </delete>
 </mapper>

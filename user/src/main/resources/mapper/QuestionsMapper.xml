@@ -60,9 +60,11 @@
         q.questions_start questionsStart,
         q.questions_start_image questionsStartImage
         from questions q
-        <if test="flag == 1">
+        <if test="flag == 1 or flag == 2">
             inner join personal p
             on p.questions_id = q.id
+            left join user u
+            on p.user_id = u.id
         </if>
         where q.is_del = 0
         <if test="grade != null">
@@ -101,7 +103,9 @@
         <if test="flag == 1">
             and p.user_id = #{userId}
         </if>
-
+        <if test="flag == 2">
+            and u.user_type = 1
+        </if>
     </select>
     <insert id="addMe">
         insert into personal(

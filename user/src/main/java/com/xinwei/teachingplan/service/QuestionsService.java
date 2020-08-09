@@ -150,6 +150,7 @@ public class QuestionsService {
      * @Description: 查看试题
      */
     public List<QuestionBaseEntity> queryQuestions(QueryQuestionsBo questions) {
+        questions.setFlag(2);
         return questionsMapper.queryQuestions(questions);
     }
 

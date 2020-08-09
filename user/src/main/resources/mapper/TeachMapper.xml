@@ -131,9 +131,11 @@
         t.consolidate_question_ids consolidateQuestionIds,
         t.student_name studentName
         from teach t
-        <if test="flag == 1">
+        <if test="flag == 1 or flag == 2">
             inner join personal p
                 on p.teach_id = t.id
+            left join user u
+            on p.user_id = u.id
         </if>
         where t.is_del = 0
         <if test="grade != null">
@@ -156,6 +158,9 @@
         </if>
         <if test="flag == 1">
             and p.user_id = #{userId}
+        </if>
+        <if test="flag == 2">
+            and u.user_type = 1
         </if>
     </select>
     <select id="queryPoint" resultType="com.xinwei.teachingplan.bo.TeachPointsBo">

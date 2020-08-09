@@ -26,17 +26,15 @@
             phone,
             user_type userType
         from user
-        where password = #{password}
-        <if test="phone != null" >
-            and phone = #{phone}
-        </if>
+        where password = #{password} and phone = #{phone} or name = #{name}
+
     </select>
 
 <!--    校验手机号是否重复-->
-    <select id="queryPhone" resultType="java.lang.String">
+    <select id="queryPhone" resultType="com.xinwei.teachingplan.bo.UserBo">
         select
         phone
         from user
-        where phone = #{phone}
+        where phone = #{phone} or name = #{name}
     </select>
 </mapper>

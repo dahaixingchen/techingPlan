@@ -187,8 +187,12 @@ public class TeachService {
         }
         return null;
     }
+
+    /**
+      * @Description: 查看教案
+      **/
     public List<TeachBo> queryTeach(QueryTeachBo teachBo) {
-        teachBo.setFlag(0);
+        teachBo.setFlag(2);
         List<TeachBo> teachs = teachMapper.queryTeach(teachBo);
         for(TeachBo teach :teachs){
             List<TeachPointsBo> points = teachMapper.queryPoint(Long.valueOf(teach.getId()));

@@ -84,6 +84,9 @@ public class TeachBo {
     @ApiModelProperty(value = "教案id",required = true)
     private String teachId;
 
+    @ApiModelProperty(value = "教案id",required = true)
+    private String teach_id;
+
     @ApiModelProperty(value = "考点集合",required = true)
     private List<TeachPointsBo> teachPointsList;
 
