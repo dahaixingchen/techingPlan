@@ -11,7 +11,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 /**
  * @ClassName: Swagger2
- * @Author chengfei
  * @Date 2020/6/22 19:34
  * @Version 1.0
  * @Description: TODO

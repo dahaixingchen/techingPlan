@@ -12,7 +12,6 @@ import java.util.Map;
 
 /**
  * @ClassName: PublicTeachImpl
- * @Author chengfei
  * @Date 2020/7/3 11:28
  * @Version 1.0
  * @Description: TODO

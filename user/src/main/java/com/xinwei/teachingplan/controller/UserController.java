@@ -17,14 +17,13 @@ import java.util.Map;
 
 /**
  * @ClassName: UserController
- * @Author chengfei
  * @Date 2020/6/17 20:31
  * @Version 1.0
  * @Description: 人员管理系统
  **/
 @Api("用户管理")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired

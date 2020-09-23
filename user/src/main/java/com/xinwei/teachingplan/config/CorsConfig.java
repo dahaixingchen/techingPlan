@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  * @ClassName: CorsConfig
- * @Author chengfei
  * @Date 2020/7/26 6:49
  * @Description: 跨域设置
  **/

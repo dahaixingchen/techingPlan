@@ -18,14 +18,13 @@ import java.util.Map;
 
 /**
  * @ClassName: PublicController
- * @Author chengfei
  * @Date 2020/6/29 11:07
  * @Version 1.0
  * @Description: 公共的接口
  **/
 @Api("公共接口")
 @RestController
-@RequestMapping("/public")
+@RequestMapping("/api/public")
 //@CrossOrigin(origins = "*")
 public class PublicController {
 

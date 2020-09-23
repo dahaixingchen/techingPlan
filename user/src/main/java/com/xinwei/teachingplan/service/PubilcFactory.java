@@ -13,7 +13,6 @@ import java.util.Map;
 
 /**
  * @ClassName: PubilcFactory
- * @Author chengfei
  * @Date 2020/7/3 13:55
  * @Version 1.0
  * @Description: TODO

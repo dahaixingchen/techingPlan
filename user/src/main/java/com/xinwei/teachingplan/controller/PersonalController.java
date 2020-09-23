@@ -20,14 +20,13 @@ import java.util.List;
 
 /**
  * @ClassName: PersonalController
- * @Author chengfei
  * @Date 2020/7/2 11:41
  * @Version 1.0
  * @Description: TODO
  **/
 @Api("个人中心模块")
 @RestController
-@RequestMapping("/personal")
+@RequestMapping("/api/personal")
 public class PersonalController {
 
     @Autowired

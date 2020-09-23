@@ -12,7 +12,6 @@ import java.util.Map;
 
 /**
  * @ClassName: TeachVo
- * @Author chengfei
  * @Date 2020/7/12 19:12
  * @Description: TODO
  **/

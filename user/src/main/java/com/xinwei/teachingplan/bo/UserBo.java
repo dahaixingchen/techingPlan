@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 /**
  * @ClassName: UserBo
- * @Author chengfei
  * @Date 2020/6/17 20:51
  * @Version 1.0
  * @Description: TODO

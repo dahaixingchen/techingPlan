@@ -5,7 +5,6 @@ import lombok.Data;
 
 /**
  * @ClassName: MenuBo
- * @Author chengfei
  * @Date 2020/7/12 8:37
  * @Description: TODO
  **/

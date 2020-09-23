@@ -1,7 +1,6 @@
 package com.xinwei.teachingplan.util;
 
 /**
-  * @Authon: chengfei
   * @Date: 2020/6/22 20:06
   * @Description: 响应体
   **/

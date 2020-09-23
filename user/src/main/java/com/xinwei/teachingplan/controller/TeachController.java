@@ -24,14 +24,13 @@ import java.util.List;
 
 /**
  * @ClassName: TeachController
- * @Author chengfei
  * @Date 2020/6/29 12:49
  * @Version 1.0
  * @Description: TODO
  **/
 @Api("教案模块")
 @RestController
-@RequestMapping("/teach")
+//@RequestMapping("")
 public class TeachController {
 
     @Autowired
@@ -41,7 +40,7 @@ public class TeachController {
     private HttpServletRequest request;
 
     @ApiOperation(value = "新增教案")
-    @PostMapping("/add-teach")
+    @PostMapping("/api/teach/add-teach")
     public ApiMessage<Integer> addTeach(@RequestBody TeachBo teachBo) {
         String userId = request.getHeader("userId");
         teachBo.setUserId(userId);
@@ -55,7 +54,7 @@ public class TeachController {
 
     @ApiOperation(value = "查询教案，在教案页面（个人中心的教案页面）没点一个关键字(“期中”，“填空”，“中考试卷”" +
             " ，“约分”，“知识点”)都会触发这个接口")
-    @PostMapping("/query-teach")
+    @PostMapping("/api/teach/query-teach")
     public ApiMessage<List<TeachBo>> queryTeach(@RequestBody QueryTeachBo queryTeachBo) {
         List<TeachBo> Teachs = teachService.queryTeach(queryTeachBo);
         if (Teachs != null) {
@@ -67,7 +66,7 @@ public class TeachController {
     }
 
     @ApiOperation(value = "完整查看，查询教案，在教案页面（个人中心的教案页面）")
-    @GetMapping("/query-allTeach")
+    @GetMapping("/api/teach/query-allTeach")
     public ApiMessage<TeachVo> queryAllTeach(Long id) {
         TeachVo Teachs = teachService.queryAllTeach(id);
         if (Teachs != null) {
@@ -79,7 +78,7 @@ public class TeachController {
     }
 
     @ApiOperation(value = "删除教案")
-    @GetMapping("/delete")
+    @GetMapping("/api/teach/delete")
     public ApiMessage<Integer> delete(String teachId) {
         String userId = request.getHeader("userId");
         String userType = request.getHeader("userType");
@@ -88,7 +87,7 @@ public class TeachController {
     }
 
     @ApiOperation(value = "添加到我")
-    @PostMapping("/add-me")
+    @PostMapping("/api/teach/add-me")
     public ApiMessage addMe(@RequestBody PersonalBo personal) {
         String userId = request.getHeader("userId");
         personal.setUserId(userId);
@@ -102,7 +101,7 @@ public class TeachController {
     WordAction wordAction;
 
     @ApiOperation(value = "下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
-    @GetMapping("/download")
+    @GetMapping("/teach/download")
     public void download(HttpServletRequest request, HttpServletResponse response, Long teachId) throws UnsupportedEncodingException {
         wordAction.dowloadWord(teachId,request,response);
         HttpHeaders headers = new HttpHeaders();
@@ -111,7 +110,7 @@ public class TeachController {
     }
 
     @ApiOperation(value = "测试用，下载教案到某个目录")
-    @GetMapping("/getWord")
+    @GetMapping("/api/teach/getWord")
     public void getWord(Long teachId) {
         wordAction.createWord();
     }

@@ -9,7 +9,6 @@ import java.util.Map;
 
 /**
  * @ClassName: TeachPracticeBo
- * @Author chengfei
  * @Date 2020/7/11 13:49
  * @Description: TODO
  **/

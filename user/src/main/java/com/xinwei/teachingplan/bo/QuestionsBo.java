@@ -5,7 +5,6 @@ import lombok.Data;
 
 /**
  * @ClassName: QuestionsBo
- * @Author chengfei
  * @Date 2020/6/28 17:00
  * @Version 1.0
  * @Description: TODO

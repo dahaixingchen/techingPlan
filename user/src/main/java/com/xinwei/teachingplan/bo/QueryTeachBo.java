@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * @ClassName: QueryTeachBo
- * @Author chengfei
  * @Date 2020/7/2 12:54
  * @Version 1.0
  * @Description: TODO

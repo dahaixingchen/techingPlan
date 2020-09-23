@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * @ClassName: MenuEntity
- * @Author chengfei
  * @Date 2020/7/6 12:54
  * @Version 1.0
  * @Description: TODO

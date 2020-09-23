@@ -19,14 +19,13 @@ import java.util.List;
 
 /**
  * @ClassName: QuestionsController
- * @Author chengfei
  * @Date 2020/6/28 16:39
  * @Version 1.0
  * @Description: 试卷模块
  **/
 @Api("试卷模块")
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("/api/questions")
 public class QuestionsController {
     @Autowired
     private QuestionsService questionsService;
