@@ -23,7 +23,7 @@ import java.util.Map;
  **/
 @Api("用户管理")
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired

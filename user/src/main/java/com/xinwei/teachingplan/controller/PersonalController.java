@@ -26,7 +26,7 @@ import java.util.List;
  **/
 @Api("个人中心模块")
 @RestController
-@RequestMapping("/api/personal")
+@RequestMapping("/personal")
 public class PersonalController {
 
     @Autowired

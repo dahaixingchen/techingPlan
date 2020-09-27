@@ -25,7 +25,7 @@ import java.util.List;
  **/
 @Api("试卷模块")
 @RestController
-@RequestMapping("/api/questions")
+@RequestMapping("/questions")
 public class QuestionsController {
     @Autowired
     private QuestionsService questionsService;
