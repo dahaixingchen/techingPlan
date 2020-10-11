@@ -1,6 +1,6 @@
-package com.xinwei.teachingplan.test;
+package com.xinwei.teachingplan.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
@@ -44,8 +44,9 @@ public class PathUtils {
         return path.substring(path.lastIndexOf(".") + 1);
     }
 
-    @Test
-    public void test() throws FileNotFoundException {
-        System.out.println(PathUtils.getRootPath());
+
+    public static void main(String[] args) throws FileNotFoundException {
+        System.out.println(PathUtils.getRootPath()+File.separator+"images");
     }
+
 }

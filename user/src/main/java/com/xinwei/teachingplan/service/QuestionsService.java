@@ -150,7 +150,8 @@ public class QuestionsService {
      */
     public List<QuestionBaseEntity> queryQuestions(QueryQuestionsBo questions) {
         questions.setFlag(2);
-        return questionsMapper.queryQuestions(questions);
+        List<QuestionBaseEntity> questionBaseEntities = questionsMapper.queryQuestions(questions);
+        return questionBaseEntities;
     }
 
     public QuestionAnswerEntity queryAnswer(Long questionsId) {

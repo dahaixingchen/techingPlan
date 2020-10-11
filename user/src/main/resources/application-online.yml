@@ -4,6 +4,10 @@ spring:
     url: jdbc:mysql://47.112.115.39:3306/teaching_plan?useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true&allowMultiQueries=true
     username: chengfei
     password: cheng2108638
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 200Mb
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
