@@ -13,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -38,6 +39,9 @@ public class QuestionsController {
     @Autowired
     private HttpServletRequest request;
 
+    @Value("${img.path}")
+    private String imgPath;
+
     @ApiOperation(value = "新增试题")
     @PostMapping("/add-questions")
     public @ResponseBody
@@ -49,7 +53,6 @@ public class QuestionsController {
         List<MultipartFile> questionsExplainImages = ((MultipartHttpServletRequest) request).getFiles("questionsExplainImages");
         String path = null;
         try {
-            path = PathUtils.getRootPath() + File.separator + "static" + File.separator + "questions_teach_imag";
             //图片存储
             String startImages = this.imageDeal(questionsStartImages);
             String answerImages = this.imageDeal(questionsAnswerImages);
@@ -88,7 +91,8 @@ public class QuestionsController {
     //存储图片
     private String imageDeal(List<MultipartFile> files) throws FileNotFoundException {
         String imagesPath = new String();
-        String path = PathUtils.getRootPath() + File.separator + "static" + File.separator + "questions_teach_imag";
+        String path = imgPath + File.separator + "static" + File.separator + "questions_teach_imag";
+
         for (MultipartFile file : files) {
             String fileName = file.getOriginalFilename();
             if (file.isEmpty()) {
