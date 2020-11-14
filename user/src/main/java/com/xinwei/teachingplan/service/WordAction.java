@@ -19,17 +19,18 @@ import java.util.*;
 @Service
 public class WordAction {
 
-    private static final String[] bigWord = {"一","二","三","四","五","六","七","八","九","十",};
+    private static final String[] bigWord = {"一", "二", "三", "四", "五", "六", "七", "八", "九", "十",};
 
     @Resource
     TeachService teachService;
 
     /**
      * 下载生成的word文档
-     * @return
+     *
      * @param teachId
      * @param request
      * @param response
+     * @return
      */
     public void dowloadWord(Long teachId, HttpServletRequest request, HttpServletResponse response) {
 
@@ -63,15 +64,15 @@ public class WordAction {
         List<Map<String, Object>> consolidateQuestionList = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> practiceQuestionIdList = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> teachPracticeList = new ArrayList<Map<String, Object>>();
-        if (teachVo.getTeachPracticeList() != null && teachVo.getTeachPracticeList().size() >0){
+        if (teachVo.getTeachPracticeList() != null && teachVo.getTeachPracticeList().size() > 0) {
             for (int i = 0; i < teachVo.getTeachPracticeList().size(); i++) {
                 Map<String, Object> map = new HashMap<String, Object>();
-                map.put("week",  bigWord[i]);
+                map.put("week", bigWord[i]);
                 map.put("signature", teachVo.getTeachPracticeList().get(i).getSignature());
                 teachPracticeList.add(map);
                 teachVo.getTeachPracticeList().get(i).getPracticeQuestionIdList().forEach(question -> {
                     Map<String, Object> map1 = new HashMap<String, Object>();
-                    map1.put("questionsStart",question.getQuestionsStart());
+                    map1.put("questionsStart", question.getQuestionsStart());
                     map1.put("questionsAnswer", question.getQuestionsAnswer());
                     map1.put("questionsRemark", question.getQuestionsRemark());
                     map1.put("questionsExplain", question.getQuestionsExplain());
@@ -80,28 +81,28 @@ public class WordAction {
                 });
             }
         }
-        dataMap.put("teachPracticeList",teachPracticeList);
-        dataMap.put("practiceQuestionIdList",practiceQuestionIdList);
-        teachVo.getConsolidateQuestionList().forEach(conslidate->{
+        dataMap.put("teachPracticeList", teachPracticeList);
+        dataMap.put("practiceQuestionIdList", practiceQuestionIdList);
+        teachVo.getConsolidateQuestionList().forEach(conslidate -> {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("questionsStart", conslidate.getQuestionsStart());
             map.put("questionsAnswer", conslidate.getQuestionsAnswer());
             map.put("questionsRemark", conslidate.getQuestionsRemark());
             map.put("questionsExplain", conslidate.getQuestionsExplain());
-            map.put("questionsAnalyze",conslidate.getQuestionsAnalyze());
+            map.put("questionsAnalyze", conslidate.getQuestionsAnalyze());
             consolidateQuestionList.add(map);
         });
-        dataMap.put("consolidateQuestionList",consolidateQuestionList);
-        teachVo.getSeniorQuestionList().forEach(senior->{
+        dataMap.put("consolidateQuestionList", consolidateQuestionList);
+        teachVo.getSeniorQuestionList().forEach(senior -> {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("questionsStart", senior.getQuestionsStart());
             map.put("questionsAnswer", senior.getQuestionsAnswer());
             map.put("questionsRemark", senior.getQuestionsRemark());
             map.put("questionsExplain", senior.getQuestionsExplain());
-            map.put("questionsAnalyze",senior.getQuestionsAnalyze());
+            map.put("questionsAnalyze", senior.getQuestionsAnalyze());
             seniorQuestionList.add(map);
         });
-        dataMap.put("seniorQuestionList",seniorQuestionList);
+        dataMap.put("seniorQuestionList", seniorQuestionList);
 
         for (int i = 0; i < teachVo.getTeachPointsList().size(); i++) {
             Map<String, Object> map = new HashMap<String, Object>();
@@ -109,7 +110,7 @@ public class WordAction {
             map.put("points", teachVo.getTeachPointsList().get(i).getPoints());
             map.put("analyse", teachVo.getTeachPointsList().get(i).getAnalyse());
             teachPointsList.add(map);
-            teachVo.getTeachPointsList().get(i).getPointsQuestionIdList().forEach(point->{
+            teachVo.getTeachPointsList().get(i).getPointsQuestionIdList().forEach(point -> {
                 Map<String, Object> map1 = new HashMap<String, Object>();
                 map1.put("questionsStart", point.getQuestionsStart());
                 map1.put("questionsAnswer", point.getQuestionsAnswer());
@@ -124,7 +125,7 @@ public class WordAction {
 
         byte[] fileByte = null;
         try {
-            WordUtil.createWordByte(dataMap, "teachWord.ftl","teachWord.doc",request,response);
+            WordUtil.createWordByte(dataMap, "teachWord.ftl", "teachWord.doc", request, response);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -167,11 +168,11 @@ public class WordAction {
         List<Map<String, Object>> teachPracticeList = new ArrayList<Map<String, Object>>();
         for (int i = 0; i < 5; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("week",  i);
+            map.put("week", i);
             map.put("signature", "学生家长签字");
             teachPracticeList.add(map);
         }
-        dataMap.put("teachPracticeList",teachPracticeList);
+        dataMap.put("teachPracticeList", teachPracticeList);
         for (int i = 0; i < 2; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("questionsStart", "练习题干" + i);
@@ -182,7 +183,7 @@ public class WordAction {
             practiceQuestionIdList.add(map);
 
         }
-        dataMap.put("practiceQuestionIdList",practiceQuestionIdList);
+        dataMap.put("practiceQuestionIdList", practiceQuestionIdList);
         for (int i = 0; i < 2; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("questionsStart", "自我巩固题干" + i);
@@ -193,7 +194,7 @@ public class WordAction {
             consolidateQuestionList.add(map);
 
         }
-        dataMap.put("consolidateQuestionList",consolidateQuestionList);
+        dataMap.put("consolidateQuestionList", consolidateQuestionList);
         for (int i = 0; i < 2; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("questionsStart", "考高试题题干" + i);
@@ -204,7 +205,7 @@ public class WordAction {
             seniorQuestionList.add(map);
 
         }
-        dataMap.put("seniorQuestionList",seniorQuestionList);
+        dataMap.put("seniorQuestionList", seniorQuestionList);
         for (int i = 0; i < 2; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("questionsStart", "题干" + i);
@@ -216,7 +217,7 @@ public class WordAction {
         }
         for (int i = 1; i <= 5; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("num", i+1);
+            map.put("num", i + 1);
             map.put("points", "考点梳理" + i);
             map.put("analyse", "案例分析" + i);
             teachPointsList.add(map);

@@ -68,7 +68,7 @@ public class TeachVo {
     @ApiModelProperty(value = "考点突破-重点", required = true)
     private String keyPoint;
 
-    @ApiModelProperty(value = "考点集合",required = true)
+    @ApiModelProperty(value = "考点集合", required = true)
     private List<TeachPointsVo> TeachPointsList;
 
     @ApiModelProperty(value = "教案中考演练试题的id集合", required = true)
@@ -98,10 +98,10 @@ public class TeachVo {
     @ApiModelProperty(value = "自我的试题ids", required = true)
     private String consolidateQuestionIds;
 
-    @ApiModelProperty(value = "教案id",required = true)
+    @ApiModelProperty(value = "教案id", required = true)
     private String teachId;
 
-    @ApiModelProperty(value = "练习题集合",required = true)
+    @ApiModelProperty(value = "练习题集合", required = true)
     private List<TeachPracticeVo> teachPracticeList;
 
 }

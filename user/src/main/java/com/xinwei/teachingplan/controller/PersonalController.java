@@ -36,41 +36,41 @@ public class PersonalController {
     private HttpServletRequest request;
 
 
-    @ApiOperation(value="修改教案，这个在个人中心")
+    @ApiOperation(value = "修改教案，这个在个人中心")
     @PostMapping("/update-teach")
-    public ApiMessage updateTeach(@RequestBody TeachBo teachBo){
+    public ApiMessage updateTeach(@RequestBody TeachBo teachBo) {
         String userId = request.getHeader("userId");
         teachBo.setUserId(userId);
         String message = personalService.updateTeach(teachBo);
-        if (message != null){
+        if (message != null) {
             return ApiMessage.error(message);
         }
         return ApiMessage.success(MessageConstant.UPDATE_SUCCESS_MESSAGE);
     }
 
-    @ApiOperation(value="我的试题，个人中心中默认展示我的教案")
+    @ApiOperation(value = "我的试题，个人中心中默认展示我的教案")
     @PostMapping("/my-questions")
-    public ApiMessage myQuestions(@RequestBody QueryQuestionsBo questions){
+    public ApiMessage myQuestions(@RequestBody QueryQuestionsBo questions) {
         String userId = request.getHeader("userId");
         questions.setUserId(Long.valueOf(userId));
         List<QuestionBaseEntity> questionList = personalService.myQuestions(questions);
-        if (questionList != null){
+        if (questionList != null) {
 
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,questionList);
-        }else {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, questionList);
+        } else {
             return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
         }
     }
 
-    @ApiOperation(value="我的教案，个人中心中默认展示我的教案")
+    @ApiOperation(value = "我的教案，个人中心中默认展示我的教案")
     @PostMapping("/my-teach")
-    public ApiMessage myTeach(@RequestBody QueryTeachBo queryTeachBo){
+    public ApiMessage myTeach(@RequestBody QueryTeachBo queryTeachBo) {
         String userId = request.getHeader("userId");
         queryTeachBo.setUserId(userId);
         List<TeachBo> Teachs = personalService.myTeach(queryTeachBo);
-        if (Teachs != null){
-            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE,Teachs);
-        }else{
+        if (Teachs != null) {
+            return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, Teachs);
+        } else {
             return ApiMessage.error(MessageConstant.QUERY_ERROR_MESSAGE);
 
         }

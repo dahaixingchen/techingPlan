@@ -37,7 +37,7 @@ public class PersonalService {
     public String updateTeach(TeachBo teachBo) {
         String message = teachService.addTeach(teachBo);
 
-        if (message == null){
+        if (message == null) {
             personalMapper.deletePerson(teachBo);
         }
         return message;
@@ -73,7 +73,7 @@ public class PersonalService {
     public List<TeachBo> myTeach(QueryTeachBo teachBo) {
         teachBo.setFlag(1);
         List<TeachBo> teachs = teachMapper.queryTeach(teachBo);
-        for(TeachBo teach :teachs){
+        for (TeachBo teach : teachs) {
             List<TeachPointsBo> points = teachMapper.queryPoint(Long.valueOf(teach.getId()));
             teach.setTeachPointsList(points);
             List<TeachPracticeBo> practices = teachMapper.getPractice(Long.valueOf(teach.getId()));

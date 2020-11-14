@@ -45,8 +45,9 @@ public class PathUtils {
     }
 
 
-    public static void main(String[] args) throws FileNotFoundException {
-        System.out.println(PathUtils.getRootPath()+File.separator+"images");
+    public static void main(String[] args) throws IOException {
+        System.out.println(PathUtils.getRootPath() + File.separator + "images");
+        System.out.println(PathUtils.getStaticPath());
     }
 
 }

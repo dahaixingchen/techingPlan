@@ -1,9 +1,9 @@
 package com.xinwei.teachingplan.util;
 
 /**
-  * @Date: 2020/6/22 20:06
-  * @Description: 响应体
-  **/
+ * @Date: 2020/6/22 20:06
+ * @Description: 响应体
+ **/
 public class ApiMessage<T> {
 
     public static final int SUCCESS = 200;

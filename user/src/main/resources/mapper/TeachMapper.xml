@@ -5,46 +5,46 @@
 
     <insert id="addTeach" parameterType="com.xinwei.teachingplan.bo.TeachBo"
             useGeneratedKeys="true" keyProperty="teachId">
-      insert into teach(
-         teach_name ,
-         prepare_lessons_time ,
-         course ,
-         grade,
-         student_name,
-         lessons_time ,
-         teach_topic ,
-         teach_type,
-         teach_source ,
-         student_questions ,
-         teach_goal ,
-         teach_key_difficulty ,
-         review ,
-         key_point,
-         senior_question_ids ,
-         conclude,
-         consolidate,
-         consolidate_question_ids,
-         node
+        insert into teach(
+        teach_name ,
+        prepare_lessons_time ,
+        course ,
+        grade,
+        student_name,
+        lessons_time ,
+        teach_topic ,
+        teach_type,
+        teach_source ,
+        student_questions ,
+        teach_goal ,
+        teach_key_difficulty ,
+        review ,
+        key_point,
+        senior_question_ids ,
+        conclude,
+        consolidate,
+        consolidate_question_ids,
+        node
         )values (
-         #{teachName},
-         #{prepareLessonsTime},
-         #{course},
-         #{grade},
-         #{studentName},
-         #{lessonsTime},
-         #{teachTopic} ,
-         #{teachType},
-         #{teachSource} ,
-         #{studentQuestions} ,
-         #{teachGoal} ,
-         #{teachKeyDifficulty} ,
-         #{review} ,
-         #{keyPoint},
-         #{seniorQuestionIds} ,
-         #{conclude},
-         #{consolidate},
-         #{consolidateQuestionIds},
-         #{node}
+        #{teachName},
+        #{prepareLessonsTime},
+        #{course},
+        #{grade},
+        #{studentName},
+        #{lessonsTime},
+        #{teachTopic} ,
+        #{teachType},
+        #{teachSource} ,
+        #{studentQuestions} ,
+        #{teachGoal} ,
+        #{teachKeyDifficulty} ,
+        #{review} ,
+        #{keyPoint},
+        #{seniorQuestionIds} ,
+        #{conclude},
+        #{consolidate},
+        #{consolidateQuestionIds},
+        #{node}
         )
     </insert>
     <insert id="addTeachPoints" parameterType="com.xinwei.teachingplan.bo.TeachPointsBo">
@@ -85,18 +85,18 @@
     </insert>
     <insert id="addMe" parameterType="com.xinwei.teachingplan.bo.PersonalBo">
         insert into personal(
-            user_id,
-            <if test="flag != 1">
-                questions_id,
-            </if>
-            teach_id
+        user_id,
+        <if test="flag != 1">
+            questions_id,
+        </if>
+        teach_id
         )values (
-            #{userId},
-            <if test="flag != 1">
-                #{questionsId},
-            </if>
-            #{teachId}
-        ) on duplicate key  update update_time = CURRENT_TIMESTAMP
+        #{userId},
+        <if test="flag != 1">
+            #{questionsId},
+        </if>
+        #{teachId}
+        ) on duplicate key update update_time = CURRENT_TIMESTAMP
     </insert>
     <update id="delete">
         update teach
@@ -133,7 +133,7 @@
         from teach t
         <if test="flag == 1 or flag == 2">
             inner join personal p
-                on p.teach_id = t.id
+            on p.teach_id = t.id
             left join user u
             on p.user_id = u.id
         </if>

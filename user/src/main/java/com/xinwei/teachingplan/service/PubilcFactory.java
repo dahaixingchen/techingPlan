@@ -20,14 +20,15 @@ import java.util.Map;
 @Component
 public class PubilcFactory implements ApplicationContextAware {
 
-    private  Map<String,PublicService> publicServiceMap = new HashMap<>();
+    private Map<String, PublicService> publicServiceMap = new HashMap<>();
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Map<String, PublicService> map = applicationContext.getBeansOfType(PublicService.class);
         publicServiceMap.putAll(map);
     }
-    public  <T extends PublicService> T getImpl(String type){
+
+    public <T extends PublicService> T getImpl(String type) {
         return (T) publicServiceMap.get(type);
     }
 

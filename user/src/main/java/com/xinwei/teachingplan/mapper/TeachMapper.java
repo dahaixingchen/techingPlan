@@ -31,5 +31,5 @@ public interface TeachMapper {
 
     List<TeachPracticeVo> getPracticeById(Long id);
 
-    Integer deletePersonal(@Param("teachId") String teachId, @Param("userId")String userId);
+    Integer deletePersonal(@Param("teachId") String teachId, @Param("userId") String userId);
 }

@@ -35,7 +35,7 @@ public class PublicController {
     @GetMapping("/menuQueryQuestions")
     public ApiMessage<List<MenuEntity>> menuQueryQuestions() {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
-        List<MenuEntity> menus =  publicService.menuQuery();
+        List<MenuEntity> menus = publicService.menuQuery();
         if (menus != null) {
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, menus);
         } else {
@@ -47,7 +47,7 @@ public class PublicController {
     @GetMapping("/menuQueryTeach")
     public ApiMessage<List<MenuEntity>> menuQueryTeach() {
         PublicTeachImpl publicService = pubilcFactory.getImpl("teach");
-        List<MenuEntity> menus =  publicService.menuQuery();
+        List<MenuEntity> menus = publicService.menuQuery();
         if (menus != null) {
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, menus);
         } else {
@@ -59,7 +59,7 @@ public class PublicController {
     @GetMapping("/synQueryQuestions")
     public ApiMessage<Map<String, List<String>>> synQueryQuestions() {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
-        Map<String, List<String>> syns =  publicService.synQueryQuestions();
+        Map<String, List<String>> syns = publicService.synQueryQuestions();
         if (syns != null) {
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, syns);
         } else {
@@ -71,7 +71,7 @@ public class PublicController {
     @GetMapping("/synQueryPersonQuestions")
     public ApiMessage<Map<String, List<String>>> synQueryQuestions(Long userId) {
         PublicQuestionsImpl publicService = pubilcFactory.getImpl("questions");
-        Map<String, List<String>> syns =  publicService.synQueryQuestions(userId);
+        Map<String, List<String>> syns = publicService.synQueryQuestions(userId);
         if (syns != null) {
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, syns);
         } else {
@@ -80,11 +80,11 @@ public class PublicController {
     }
 
     @ApiOperation(value = "教案综合接口查询所有的课题，备课时间，在个人中心，试题查询模块中出现的地方")
-    @ApiImplicitParam(name = "userId",value = "对应用户的id",required = true,paramType = "query")
+    @ApiImplicitParam(name = "userId", value = "对应用户的id", required = true, paramType = "query")
     @GetMapping("/synQueryTeach")
     public ApiMessage<Map<String, List<String>>> synQueryTeach() {
         PublicTeachImpl publicService = pubilcFactory.getImpl("teach");
-        Map<String, List<String>> syns =  publicService.synQueryTeach();
+        Map<String, List<String>> syns = publicService.synQueryTeach();
         if (syns != null) {
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, syns);
         } else {
@@ -93,11 +93,11 @@ public class PublicController {
     }
 
     @ApiOperation(value = "在个人中心页面，刚进去默认就调用或是当点击我的教案调用")
-    @ApiImplicitParam(name = "userId",value = "对应用户的id",required = true,paramType = "query")
+    @ApiImplicitParam(name = "userId", value = "对应用户的id", required = true, paramType = "query")
     @GetMapping("/synQueryPersonTeach")
     public ApiMessage<Map<String, List<String>>> synQueryTeach(Long userId) {
         PublicTeachImpl publicService = pubilcFactory.getImpl("teach");
-        Map<String, List<String>> syns =  publicService.synQueryTeach(userId);
+        Map<String, List<String>> syns = publicService.synQueryTeach(userId);
         if (syns != null) {
             return ApiMessage.success(MessageConstant.QUERY_SUCCESS_MESSAGE, syns);
         } else {

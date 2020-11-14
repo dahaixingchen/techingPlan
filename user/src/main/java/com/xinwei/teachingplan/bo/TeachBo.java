@@ -80,16 +80,16 @@ public class TeachBo {
     @ApiModelProperty(value = "自我的试题ids", required = true)
     private String consolidateQuestionIds;
 
-    @ApiModelProperty(value = "教案id",required = true)
+    @ApiModelProperty(value = "教案id", required = true)
     private String teachId;
 
-    @ApiModelProperty(value = "教案id",required = true)
+    @ApiModelProperty(value = "教案id", required = true)
     private String teach_id;
 
-    @ApiModelProperty(value = "考点集合",required = true)
+    @ApiModelProperty(value = "考点集合", required = true)
     private List<TeachPointsBo> teachPointsList;
 
-    @ApiModelProperty(value = "练习题集合",required = true)
+    @ApiModelProperty(value = "练习题集合", required = true)
     private List<TeachPracticeBo> teachPracticeList;
 
 }

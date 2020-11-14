@@ -42,33 +42,28 @@ public class QuestionsController {
     @PostMapping("/add-questions")
     public @ResponseBody
     ApiMessage addQuestions(HttpServletRequest request, QuestionsBo questions) {
-        List<MultipartFile> questionsStartImages = ((MultipartHttpServletRequest) request).getFiles("qestionsStartImages");
+        List<MultipartFile> questionsStartImages = ((MultipartHttpServletRequest) request).getFiles("questionsStartImages");
         List<MultipartFile> questionsAnswerImages = ((MultipartHttpServletRequest) request).getFiles("questionsAnswerImages");
         List<MultipartFile> questionsAnalyzeImages = ((MultipartHttpServletRequest) request).getFiles("questionsAnalyzeImages");
         List<MultipartFile> questionsRemarkImages = ((MultipartHttpServletRequest) request).getFiles("questionsRemarkImages");
         List<MultipartFile> questionsExplainImages = ((MultipartHttpServletRequest) request).getFiles("questionsExplainImages");
         String path = null;
         try {
-            path = PathUtils.getRootPath() + File.separator + "static/questions_teach_imag";
+            path = PathUtils.getRootPath() + File.separator + "static" + File.separator + "questions_teach_imag";
             //图片存储
-            this.imageDeal(questionsStartImages);
-            this.imageDeal(questionsAnswerImages);
-            this.imageDeal(questionsAnalyzeImages);
-            this.imageDeal(questionsRemarkImages);
-            this.imageDeal(questionsExplainImages);
-            String startImages = this.getImagesPath(questionsStartImages, path);
-            String answerImages = this.getImagesPath(questionsStartImages, path);
-            String analyzeImages = this.getImagesPath(questionsStartImages, path);
-            String remarkImages = this.getImagesPath(questionsStartImages, path);
-            String explainImages = this.getImagesPath(questionsStartImages, path);
+            String startImages = this.imageDeal(questionsStartImages);
+            String answerImages = this.imageDeal(questionsAnswerImages);
+            String analyzeImages = this.imageDeal(questionsAnalyzeImages);
+            String remarkImages = this.imageDeal(questionsRemarkImages);
+            String explainImages = this.imageDeal(questionsExplainImages);
             questions.setQuestionsStartImage(startImages);
             questions.setQuestionsAnswerImage(answerImages);
             questions.setQuestionsAnalyzeImage(analyzeImages);
             questions.setQuestionsRemarkImage(remarkImages);
             questions.setQuestionsExplainImage(explainImages);
 
-            String userId = request.getHeader("userId");
-            questions.setUserId(Long.valueOf(userId));
+//            String userId = request.getHeader("userId");
+//            questions.setUserId(Long.valueOf(userId));
             String message = questionsService.addQuestions(questions);
             if (message != null) {
                 return ApiMessage.error(message);
@@ -78,8 +73,10 @@ public class QuestionsController {
         }
         return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
     }
-//得到图片的路径
-    private String getImagesPath(List<MultipartFile> imagesMul, String path) {
+
+    //得到图片的路径
+    private String getImagesPath(List<MultipartFile> imagesMul) throws FileNotFoundException {
+        String path = PathUtils.getRootPath() + File.separator + "static" + File.separator + "questions_teach_imag";
         StringBuilder images = new StringBuilder();
         for (MultipartFile image : imagesMul) {
             String imagePath = path + File.separator + image.getOriginalFilename();
@@ -87,27 +84,31 @@ public class QuestionsController {
         }
         return images.toString();
     }
-//存储图片
-    private void imageDeal(List<MultipartFile> files) {
-        String path = File.separator + "static/questions_teach_imag";
-        for(MultipartFile file:files){
+
+    //存储图片
+    private String imageDeal(List<MultipartFile> files) throws FileNotFoundException {
+        String imagesPath = new String();
+        String path = PathUtils.getRootPath() + File.separator + "static" + File.separator + "questions_teach_imag";
+        for (MultipartFile file : files) {
             String fileName = file.getOriginalFilename();
-            if(file.isEmpty()){
+            if (file.isEmpty()) {
 //                return "false";
-            }else{
+            } else {
                 File dest = new File(path + File.separator + fileName);
-                if(!dest.getParentFile().exists()){ //判断文件父目录是否存在
+                imagesPath += fileName + ",";
+                if (!dest.getParentFile().exists()) { //判断文件父目录是否存在
                     dest.getParentFile().mkdir();
                 }
                 try {
                     file.transferTo(dest);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
 //                    return "false";
                 }
             }
         }
+        return imagesPath;
     }
 
     @ApiOperation(value = "删除试题")

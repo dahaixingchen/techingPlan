@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Data
 public class MenuVo {
     private Integer id;
@@ -14,7 +15,7 @@ public class MenuVo {
 
     private Integer fatherId;
 
-    private List<MenuVo>  childNode;
+    private List<MenuVo> childNode;
 
 
     @Override

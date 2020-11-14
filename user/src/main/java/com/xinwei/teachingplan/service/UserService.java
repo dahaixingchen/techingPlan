@@ -38,7 +38,7 @@ public class UserService {
         user.setPassword(StringUtil.StringInMd5(user.getPassword()));
         //校验手机号是否重复
         String phoneUser = userMapper.queryPhone(user);
-        if (phoneUser != null){
+        if (phoneUser != null) {
             return "手机号码或用户名重复";
         }
         Integer count = userMapper.addUser(user);
@@ -55,7 +55,7 @@ public class UserService {
 
     public String updatePassword(UserBo user) {
         String phoneUser = userMapper.queryPhone(user);
-        if (phoneUser == null){
+        if (phoneUser == null) {
             return "没有找到对应的账号";
         }
         user.setPassword(StringUtil.StringInMd5(user.getPassword()));

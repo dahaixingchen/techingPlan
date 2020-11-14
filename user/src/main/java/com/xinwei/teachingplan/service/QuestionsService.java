@@ -38,43 +38,43 @@ public class QuestionsService {
     @Transactional(rollbackFor = Exception.class)
     public String addQuestions(QuestionsBo questions) {
         //数据校验
-        if (questions==null){
+        if (questions == null) {
             return "试题不能为空";
         }
-        if (questions.getGrade() == null || "".equals(questions.getGrade())){
+        if (questions.getGrade() == null || "".equals(questions.getGrade())) {
             return "年级不能为空";
         }
-        if (questions.getCourse() == null || "".equals(questions.getCourse())){
+        if (questions.getCourse() == null || "".equals(questions.getCourse())) {
             return "课程不能为空";
         }
-        if (questions.getQuestionsType() == null || "".equals(questions.getQuestionsType())){
+        if (questions.getQuestionsType() == null || "".equals(questions.getQuestionsType())) {
             return "试题类型不能为空";
         }
-        if (questions.getComplexity() == null || "".equals(questions.getComplexity())){
+        if (questions.getComplexity() == null || "".equals(questions.getComplexity())) {
             return "试题难易程度不能为空";
         }
-        if (questions.getYear() == null || "".equals(questions.getYear())){
+        if (questions.getYear() == null || "".equals(questions.getYear())) {
             return "试题年份不能为空";
         }
-        if (questions.getLabel() == null || "".equals(questions.getLabel())){
+        if (questions.getLabel() == null || "".equals(questions.getLabel())) {
             return "试题标签不能为空";
         }
-        if (questions.getKnowledge() == null || "".equals(questions.getKnowledge())){
+        if (questions.getKnowledge() == null || "".equals(questions.getKnowledge())) {
             return "试题所属知识点不能为空";
         }
-        if (questions.getQuestionsStart() == null || "".equals(questions.getQuestionsStart())){
+        if (questions.getQuestionsStart() == null || "".equals(questions.getQuestionsStart())) {
             return "试题题干不能为空";
         }
-        if (questions.getQuestionsAnswer() == null || "".equals(questions.getQuestionsAnswer())){
+        if (questions.getQuestionsAnswer() == null || "".equals(questions.getQuestionsAnswer())) {
             return "试题答案不能为空";
         }
-        if (questions.getQuestionsAnalyze() == null || "".equals(questions.getQuestionsAnalyze())){
+        if (questions.getQuestionsAnalyze() == null || "".equals(questions.getQuestionsAnalyze())) {
             return "试题分析不能为空";
         }
-        if (questions.getQuestionsRemark() == null || "".equals(questions.getQuestionsRemark())){
+        if (questions.getQuestionsRemark() == null || "".equals(questions.getQuestionsRemark())) {
             return "试题点评不能为空";
         }
-        if (questions.getQuestionsExplain() == null || "".equals(questions.getQuestionsExplain())){
+        if (questions.getQuestionsExplain() == null || "".equals(questions.getQuestionsExplain())) {
             return "试题解答不能为空";
         }
 
@@ -82,12 +82,12 @@ public class QuestionsService {
         PublicQuestionsImpl questions1 = pubilcFactory.getImpl("questions");
         List<MenuEntity> menuEntities = questions1.menuQuery();
         HashMap<String, MenuEntity> oneMap = new HashMap<>();
-        for (MenuEntity menuEntity:menuEntities){
-            oneMap.put(menuEntity.getName(),menuEntity);
+        for (MenuEntity menuEntity : menuEntities) {
+            oneMap.put(menuEntity.getName(), menuEntity);
         }
         MenuBo menuBo = new MenuBo(questions.getGrade());
         //第一层年级的判断
-        if (!oneMap.containsKey(questions.getGrade())){
+        if (!oneMap.containsKey(questions.getGrade())) {
             //如果不存在，直接新增
             menuBo.setFatherId(-1L);
 
@@ -99,15 +99,15 @@ public class QuestionsService {
             menuBo.setFatherId(menuBo.getOneId());
             menuBo.setName(questions.getKnowledge());
             questionsMapper.insertMenu(menuBo);
-        }else{
+        } else {
             //如果存在，继续往下面遍历
             MenuEntity menuEntity = oneMap.get(questions.getGrade());
             HashMap<String, MenuEntity> twoMap = new HashMap<>();
-            for(MenuEntity menu:menuEntity.getChildNode()){
-                twoMap.put(menu.getName(),menu);
+            for (MenuEntity menu : menuEntity.getChildNode()) {
+                twoMap.put(menu.getName(), menu);
             }
             //第二层课程的判断
-            if (!twoMap.containsKey(questions.getCourse())){
+            if (!twoMap.containsKey(questions.getCourse())) {
                 //如果不存在，直接新增课程后两层的目录
                 menuBo.setFatherId(menuEntity.getId());
                 menuBo.setName(questions.getCourse());
@@ -115,15 +115,15 @@ public class QuestionsService {
                 menuBo.setFatherId(menuBo.getOneId());
                 menuBo.setName(questions.getKnowledge());
                 questionsMapper.insertMenu(menuBo);
-            }else{
+            } else {
                 //如果存在，继续往下面遍历
                 menuEntity = twoMap.get(questions.getCourse());
                 HashMap<String, MenuEntity> thirdMap = new HashMap<>();
-                for(MenuEntity menu:menuEntity.getChildNode()){
-                    thirdMap.put(menu.getName(),menu);
+                for (MenuEntity menu : menuEntity.getChildNode()) {
+                    thirdMap.put(menu.getName(), menu);
                 }
                 //第三层知识点的判断
-                if (!thirdMap.containsKey(questions.getKnowledge())){
+                if (!thirdMap.containsKey(questions.getKnowledge())) {
                     //如果不存在，直接新增知识点属性
                     menuBo.setFatherId(menuEntity.getId());
                     menuBo.setName(questions.getKnowledge());
@@ -138,7 +138,7 @@ public class QuestionsService {
         Integer count = questionsMapper.addQuestions(questions);
 
         //把试题添加到创建人
-        questionsMapper.addMe(new PersonalBo(questions.getUserId().toString(),questions.getId().toString()));
+        questionsMapper.addMe(new PersonalBo(questions.getUserId().toString(), questions.getId().toString()));
         return null;
     }
 
@@ -162,12 +162,12 @@ public class QuestionsService {
         return questionsMapper.addMe(personal);
     }
 
-    public Integer delete(Long id,String userId,String userType) {
+    public Integer delete(Long id, String userId, String userType) {
         Integer count = 0;
-        if (Long.valueOf(userType) == 1){
+        if (Long.valueOf(userType) == 1) {
             count = questionsMapper.delete(id);
-        }else {
-            count =questionsMapper.deletePersonal(id,userId);
+        } else {
+            count = questionsMapper.deletePersonal(id, userId);
         }
         return count;
     }

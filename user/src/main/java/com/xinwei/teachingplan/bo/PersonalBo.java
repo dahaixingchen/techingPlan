@@ -11,26 +11,27 @@ import lombok.Data;
  **/
 @Data
 public class PersonalBo {
-    @ApiModelProperty(value = "个人id",required = true)
+    @ApiModelProperty(value = "个人id", required = true)
     private String userId;
 
-    @ApiModelProperty(value = "试题id",required = true)
+    @ApiModelProperty(value = "试题id", required = true)
     private String questionsId;
 
-    @ApiModelProperty(value = "教案id",required = true)
+    @ApiModelProperty(value = "教案id", required = true)
     private String teachId;
 
     @ApiModelProperty(value = "0表示查询全部，1表示在个人中心中查询")
     private Integer flag;
 
-    public PersonalBo(){}
+    public PersonalBo() {
+    }
 
-    public PersonalBo(String userId,String questionsId){
+    public PersonalBo(String userId, String questionsId) {
         this.userId = userId;
         this.questionsId = questionsId;
     }
 
-    public PersonalBo(String userId,String teachId,String questionsId){
+    public PersonalBo(String userId, String teachId, String questionsId) {
         this.userId = userId;
         this.teachId = teachId;
     }

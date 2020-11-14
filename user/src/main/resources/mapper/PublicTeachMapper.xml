@@ -2,50 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinwei.teachingplan.mapper.PublicTeachMapper">
 
-<!--    查询所有试题对应的年级-->
+    <!--    查询所有试题对应的年级-->
     <select id="grade" resultType="java.lang.String">
         select
         grade
         from teach
-        group  by grade
+        group by grade
     </select>
     <select id="course" resultType="java.lang.String">
         select
         course
         from teach
-        group  by course
+        group by course
     </select>
     <select id="year" resultType="java.lang.String">
         select
         year
         from teach
-        group  by year
+        group by year
     </select>
     <select id="teachTopic" resultType="java.lang.String">
         select
         teach_topic
         from teach
-        group  by teach_topic
+        group by teach_topic
     </select>
     <select id="menuQuery" resultType="com.xinwei.teachingplan.entity.MenuEntity">
         select
-            id,
-            name,
-            father_id fatherId
+        id,
+        name,
+        father_id fatherId
         from teach_menu
     </select>
     <select id="prepareLessonsTime" resultType="java.lang.String">
         select
         prepare_lessons_time
         from teach
-        group  by prepare_lessons_time
+        group by prepare_lessons_time
     </select>
     <select id="teachPTopic" resultType="java.lang.String">
         select
         grade
         from teach q
         inner join personal p
-            on q.id = p.teach_id
+        on q.id = p.teach_id
         where p.user_id = #{userId}
         group by grade
     </select>
@@ -54,7 +54,7 @@
         prepare_lessons_time
         from teach q
         inner join personal p
-            on q.id = p.teach_id
+        on q.id = p.teach_id
         where p.user_id = #{userId}
         group by prepare_lessons_time
     </select>

@@ -22,7 +22,7 @@ public class TeachPracticeBo {
     @ApiModelProperty(value = "教案试题的id集合", required = true)
     private String practiceQuestionIds;
 
-    @ApiModelProperty(value = "教案试题的id集合",required = true)
+    @ApiModelProperty(value = "教案试题的id集合", required = true)
     private Map<String, Object> practiceQuestionIds_detail;
 
     @ApiModelProperty(value = "家长签字", required = true)

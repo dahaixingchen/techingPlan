@@ -15,16 +15,16 @@ public class QuestionAnswerEntity {
     @ApiModelProperty(value = "id")
     private Long id;
 
-    @ApiModelProperty(value = "试题题干",required = true)
+    @ApiModelProperty(value = "试题题干", required = true)
     private String questionsStart;
 
-    @ApiModelProperty(value = "试题题干对应图片",required = true)
+    @ApiModelProperty(value = "试题题干对应图片", required = true)
     private String questionsStartImage;
 
-    @ApiModelProperty(value = "试题答案",required = true)
+    @ApiModelProperty(value = "试题答案", required = true)
     private String questionsAnswer;
 
-    @ApiModelProperty(value = "试题答案对应图片",required = true)
+    @ApiModelProperty(value = "试题答案对应图片", required = true)
     private String questionsAnswerImage;
 
     @ApiModelProperty(value = "试题分析")

@@ -15,9 +15,9 @@ public class QuestionBaseEntity {
     @ApiModelProperty(value = "id")
     private Long id;
 
-    @ApiModelProperty(value = "试题题干",required = true)
+    @ApiModelProperty(value = "试题题干", required = true)
     private String questionsStart;
 
-    @ApiModelProperty(value = "试题题干对应图片",required = true)
+    @ApiModelProperty(value = "试题题干对应图片", required = true)
     private String questionsStartImage;
 }

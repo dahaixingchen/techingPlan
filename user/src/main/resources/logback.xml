@@ -2,8 +2,7 @@
 <configuration>
 
 
-
-    <property name="LOG_HOME" value="/opt/user/logs" />
+    <property name="LOG_HOME" value="/opt/user/logs"/>
     <!--日志文件保留天数-->
     <property name="LOG_MAX_HISTORY" value="30"/>
 
@@ -15,7 +14,7 @@
     </appender>
 
     <!-- applcation的文件输出日志 (按照每天生成日志文件 )，对applcation文件日志的文件名需要根据具体的applcation来配置-->
-    <appender name="APP"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="APP" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
             <FileNamePattern>${LOG_HOME}/out.log.%d{yyyy-MM-dd}</FileNamePattern>
@@ -32,8 +31,8 @@
 
     <!--===============================  日志输出: 默认主业务日志 ======================================-->
     <root level="info">
-        <appender-ref ref="APP" />
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="APP"/>
+        <appender-ref ref="STDOUT"/>
     </root>
 
     <logger name="com.xinwei" level="debug"/>

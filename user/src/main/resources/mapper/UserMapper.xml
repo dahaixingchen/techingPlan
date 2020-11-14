@@ -5,13 +5,13 @@
 
     <insert id="addUser" parameterType="com.xinwei.teachingplan.bo.UserBo">
         insert into user(
-            name,
-            phone,
-            password
+        name,
+        phone,
+        password
         )values (
-            #{name},
-            #{phone},
-            #{password}
+        #{name},
+        #{phone},
+        #{password}
         )
     </insert>
     <update id="updatePassword">
@@ -21,16 +21,16 @@
     </update>
     <select id="doLogin" resultType="com.xinwei.teachingplan.bo.UserBo">
         select
-            id,
-            name,
-            phone,
-            user_type userType
+        id,
+        name,
+        phone,
+        user_type userType
         from user
         where password = #{password} and phone = #{phone} or name = #{name}
 
     </select>
 
-<!--    校验手机号是否重复-->
+    <!--    校验手机号是否重复-->
     <select id="queryPhone" resultType="com.xinwei.teachingplan.bo.UserBo">
         select
         phone

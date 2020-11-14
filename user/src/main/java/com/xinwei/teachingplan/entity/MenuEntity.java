@@ -14,16 +14,16 @@ import java.util.List;
  **/
 @Data
 public class MenuEntity {
-    @ApiModelProperty(value = "id",required = true)
+    @ApiModelProperty(value = "id", required = true)
     private Long id;
 
-    @ApiModelProperty(value = "类型名称",required = true)
+    @ApiModelProperty(value = "类型名称", required = true)
     private String name;
 
-    @ApiModelProperty(value = "父节点id",required = true)
+    @ApiModelProperty(value = "父节点id", required = true)
     private Long fatherId;
 
-    @ApiModelProperty(value = "试题答案",required = true)
+    @ApiModelProperty(value = "试题答案", required = true)
     private List<MenuEntity> ChildNode;
 
     public MenuEntity(Long id, String name, Long fatherId, List<MenuEntity> menuList) {

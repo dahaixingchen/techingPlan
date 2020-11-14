@@ -45,7 +45,7 @@ public class TeachController {
         String userId = request.getHeader("userId");
         teachBo.setUserId(userId);
         String message = teachService.addTeach(teachBo);
-        if (message != null){
+        if (message != null) {
             return ApiMessage.error(message);
         }
         return ApiMessage.success(MessageConstant.ADD_SUCCESS_MESSAGE);
@@ -82,7 +82,7 @@ public class TeachController {
     public ApiMessage<Integer> delete(String teachId) {
         String userId = request.getHeader("userId");
         String userType = request.getHeader("userType");
-        Integer count = teachService.delete(teachId,userId,userType);
+        Integer count = teachService.delete(teachId, userId, userType);
         return ApiMessage.success(MessageConstant.DELETE_SUCCESS_MESSAGE, "共删除数据 " + count + " 条");
     }
 
@@ -103,7 +103,7 @@ public class TeachController {
     @ApiOperation(value = "下载教案(在个人中心和教案模块都有此接口),成Word文档的形式")
     @GetMapping("/download")
     public void download(HttpServletRequest request, HttpServletResponse response, Long teachId) throws UnsupportedEncodingException {
-        wordAction.dowloadWord(teachId,request,response);
+        wordAction.dowloadWord(teachId, request, response);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentDispositionFormData("attachment", URLEncoder.encode("teachWord.doc", "utf-8"));
 //        return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);

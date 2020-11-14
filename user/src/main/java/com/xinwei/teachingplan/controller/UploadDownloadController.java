@@ -20,7 +20,7 @@ import java.io.*;
 @RequestMapping("v1/uploadDownload")
 public class UploadDownloadController {
     private static final Logger logger = LoggerFactory.getLogger(UploadDownloadController.class);
-//    @Value("${uploadDir}")
+    //    @Value("${uploadDir}")
     private String uploadDir = "D:\\";
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
@@ -56,11 +56,11 @@ public class UploadDownloadController {
     }
 
     //文件下载相关代码
-    @RequestMapping(value = "/downloadImage",method = RequestMethod.GET)
-    public String downloadImage(String imageName,HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "/downloadImage", method = RequestMethod.GET)
+    public String downloadImage(String imageName, HttpServletRequest request, HttpServletResponse response) {
         //String fileName = "123.JPG";
-        logger.debug("the imageName is : "+imageName);
-        String fileUrl = uploadDir+imageName;
+        logger.debug("the imageName is : " + imageName);
+        String fileUrl = uploadDir + imageName;
         if (fileUrl != null) {
             //当前是从该工程的WEB-INF//File//下获取文件(该目录可以在下面一行代码配置)然后下载到C:\\users\\downloads即本机的默认下载的目录
   /* String realPath = request.getServletContext().getRealPath(

@@ -1346,190 +1346,168 @@
                                 <w:gridCol w:w="8856"/>
                             </w:tblGrid>
                             <#list teachPointsList as teachPointsList >
-                            <w:tr>
-                                <w:tblPrEx>
-                                    <w:tblBorders>
-                                        <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                    </w:tblBorders>
-                                    <w:tblCellMar>
-                                        <w:top w:w="0" w:type="dxa"/>
-                                        <w:left w:w="108" w:type="dxa"/>
-                                        <w:bottom w:w="0" w:type="dxa"/>
-                                        <w:right w:w="108" w:type="dxa"/>
-                                    </w:tblCellMar>
-                                </w:tblPrEx>
-                                <w:trPr>
-                                    <w:trHeight w:val="2180" w:h-rule="atLeast"/>
-                                </w:trPr>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="9908" w:type="dxa"/>
-                                        <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="center"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>考点${teachPointsList.num}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="left"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>考点梳理：</w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:t>${teachPointsList.points}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="left"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="left"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:t>典例剖析：${teachPointsList.analyse}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="left"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="left"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>小试牛刀：</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="left"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:b w:val="off"/>
-                                                <w:sz w:val="21"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:tbl>
-                                        <w:tblPr>
-                                            <w:tblStyle w:val="a5"/>
-                                            <w:tblW w:w="8285" w:type="dxa"/>
-                                            <w:tblInd w:w="0" w:type="dxa"/>
-                                            <w:tblBorders>
-                                                <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                <w:tr>
+                                    <w:tblPrEx>
+                                        <w:tblBorders>
+                                            <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+                                            <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                    w:color="auto"/>
+                                            <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                      w:color="auto"/>
+                                            <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                     w:color="auto"/>
+                                            <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
                                                        w:color="auto"/>
-                                                <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                        w:color="auto"/>
-                                                <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                          w:color="auto"/>
-                                                <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                         w:color="auto"/>
-                                                <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                           w:color="auto"/>
-                                                <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                           w:color="auto"/>
-                                            </w:tblBorders>
-                                            <w:tblCellMar>
-                                                <w:top w:w="0" w:type="dxa"/>
-                                                <w:left w:w="108" w:type="dxa"/>
-                                                <w:bottom w:w="0" w:type="dxa"/>
-                                                <w:right w:w="108" w:type="dxa"/>
-                                            </w:tblCellMar>
-                                        </w:tblPr>
-                                        <w:tblGrid>
-                                            <w:gridCol w:w="8285"/>
-                                        </w:tblGrid>
-                                        <#list pointsQuestionIdList as pointsQuestionIdList >
-                                        <w:tr>
-                                            <w:tblPrEx>
+                                            <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                       w:color="auto"/>
+                                        </w:tblBorders>
+                                        <w:tblCellMar>
+                                            <w:top w:w="0" w:type="dxa"/>
+                                            <w:left w:w="108" w:type="dxa"/>
+                                            <w:bottom w:w="0" w:type="dxa"/>
+                                            <w:right w:w="108" w:type="dxa"/>
+                                        </w:tblCellMar>
+                                    </w:tblPrEx>
+                                    <w:trPr>
+                                        <w:trHeight w:val="2180" w:h-rule="atLeast"/>
+                                    </w:trPr>
+                                    <w:tc>
+                                        <w:tcPr>
+                                            <w:tcW w:w="9908" w:type="dxa"/>
+                                            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                        </w:tcPr>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="center"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>考点${teachPointsList.num}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="left"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>考点梳理：</w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:t>${teachPointsList.points}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="left"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="left"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:t>典例剖析：${teachPointsList.analyse}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="left"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="left"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>小试牛刀：</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="left"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:b w:val="off"/>
+                                                    <w:sz w:val="21"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:tbl>
+                                            <w:tblPr>
+                                                <w:tblStyle w:val="a5"/>
+                                                <w:tblW w:w="8285" w:type="dxa"/>
+                                                <w:tblInd w:w="0" w:type="dxa"/>
                                                 <w:tblBorders>
                                                     <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
                                                            w:color="auto"/>
@@ -1550,173 +1528,204 @@
                                                     <w:bottom w:w="0" w:type="dxa"/>
                                                     <w:right w:w="108" w:type="dxa"/>
                                                 </w:tblCellMar>
-                                            </w:tblPrEx>
-                                            <w:trPr>
-                                                <w:trHeight w:val="780" w:h-rule="atLeast"/>
-                                            </w:trPr>
-                                            <w:tc>
-                                                <w:tcPr>
-                                                    <w:tcW w:w="8285" w:type="dxa"/>
-                                                    <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                                </w:tcPr>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>题干：${pointsQuestionIdList.questionsStart}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>分析：${pointsQuestionIdList.questionsAnalyze}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>答案：${pointsQuestionIdList.questionsAnswer}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>解答：${pointsQuestionIdList.questionsExplain}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>点评：${pointsQuestionIdList.questionsRemark}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:fareast="宋体" w:hint="default"/>
-                                                            <w:color w:val="FF0000"/>
-                                                            <w:sz-cs w:val="21"/>
-                                                            <w:vertAlign w:val="baseline"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                            </w:tc>
-                                        </w:tr>
-                                        </#list>
-                                    </w:tbl>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:fareast="宋体" w:hint="default"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                </w:tc>
-                            </w:tr>
+                                            </w:tblPr>
+                                            <w:tblGrid>
+                                                <w:gridCol w:w="8285"/>
+                                            </w:tblGrid>
+                                            <#list pointsQuestionIdList as pointsQuestionIdList >
+                                                <w:tr>
+                                                    <w:tblPrEx>
+                                                        <w:tblBorders>
+                                                            <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                                   w:color="auto"/>
+                                                            <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                                    w:color="auto"/>
+                                                            <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                      w:space="0"
+                                                                      w:color="auto"/>
+                                                            <w:right w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                     w:space="0"
+                                                                     w:color="auto"/>
+                                                            <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                       w:space="0"
+                                                                       w:color="auto"/>
+                                                            <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                       w:space="0"
+                                                                       w:color="auto"/>
+                                                        </w:tblBorders>
+                                                        <w:tblCellMar>
+                                                            <w:top w:w="0" w:type="dxa"/>
+                                                            <w:left w:w="108" w:type="dxa"/>
+                                                            <w:bottom w:w="0" w:type="dxa"/>
+                                                            <w:right w:w="108" w:type="dxa"/>
+                                                        </w:tblCellMar>
+                                                    </w:tblPrEx>
+                                                    <w:trPr>
+                                                        <w:trHeight w:val="780" w:h-rule="atLeast"/>
+                                                    </w:trPr>
+                                                    <w:tc>
+                                                        <w:tcPr>
+                                                            <w:tcW w:w="8285" w:type="dxa"/>
+                                                            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                                        </w:tcPr>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>题干：${pointsQuestionIdList.questionsStart}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>分析：${pointsQuestionIdList.questionsAnalyze}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>答案：${pointsQuestionIdList.questionsAnswer}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>解答：${pointsQuestionIdList.questionsExplain}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>点评：${pointsQuestionIdList.questionsRemark}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:fareast="宋体" w:hint="default"/>
+                                                                    <w:color w:val="FF0000"/>
+                                                                    <w:sz-cs w:val="21"/>
+                                                                    <w:vertAlign w:val="baseline"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                    </w:tc>
+                                                </w:tr>
+                                            </#list>
+                                        </w:tbl>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:fareast="宋体" w:hint="default"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:vertAlign w:val="baseline"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                    </w:tc>
+                                </w:tr>
                             </#list>
                         </w:tbl>
                         <w:p>
@@ -1814,171 +1823,176 @@
                                 <w:gridCol w:w="8166"/>
                             </w:tblGrid>
                             <#list seniorQuestionList as seniorQuestionList >
-                            <w:tr>
-                                <w:tblPrEx>
-                                    <w:tblBorders>
-                                        <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                    </w:tblBorders>
-                                    <w:tblCellMar>
-                                        <w:top w:w="0" w:type="dxa"/>
-                                        <w:left w:w="108" w:type="dxa"/>
-                                        <w:bottom w:w="0" w:type="dxa"/>
-                                        <w:right w:w="108" w:type="dxa"/>
-                                    </w:tblCellMar>
-                                </w:tblPrEx>
-                                <w:trPr>
-                                    <w:trHeight w:val="1704" w:h-rule="atLeast"/>
-                                </w:trPr>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="8166" w:type="dxa"/>
-                                        <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>题干：${seniorQuestionList.questionsStart}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>分析：${seniorQuestionList.questionsAnalyze}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>答案：${seniorQuestionList.questionsAnswer}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>解答：${seniorQuestionList.questionsExplain}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>点评：${seniorQuestionList.questionsRemark}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:fareast="宋体" w:hint="default"/>
-                                                <w:color w:val="FF0000"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                </w:tc>
-                            </w:tr>
+                                <w:tr>
+                                    <w:tblPrEx>
+                                        <w:tblBorders>
+                                            <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+                                            <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                    w:color="auto"/>
+                                            <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                      w:color="auto"/>
+                                            <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                     w:color="auto"/>
+                                            <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                       w:color="auto"/>
+                                            <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                       w:color="auto"/>
+                                        </w:tblBorders>
+                                        <w:tblCellMar>
+                                            <w:top w:w="0" w:type="dxa"/>
+                                            <w:left w:w="108" w:type="dxa"/>
+                                            <w:bottom w:w="0" w:type="dxa"/>
+                                            <w:right w:w="108" w:type="dxa"/>
+                                        </w:tblCellMar>
+                                    </w:tblPrEx>
+                                    <w:trPr>
+                                        <w:trHeight w:val="1704" w:h-rule="atLeast"/>
+                                    </w:trPr>
+                                    <w:tc>
+                                        <w:tcPr>
+                                            <w:tcW w:w="8166" w:type="dxa"/>
+                                            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                        </w:tcPr>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>题干：${seniorQuestionList.questionsStart}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>分析：${seniorQuestionList.questionsAnalyze}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>答案：${seniorQuestionList.questionsAnswer}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>解答：${seniorQuestionList.questionsExplain}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>点评：${seniorQuestionList.questionsRemark}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:fareast="宋体" w:hint="default"/>
+                                                    <w:color w:val="FF0000"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:vertAlign w:val="baseline"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                    </w:tc>
+                                </w:tr>
                             </#list>
                         </w:tbl>
                         <w:p/>
@@ -2186,171 +2200,176 @@
                                 <w:gridCol w:w="10018"/>
                             </w:tblGrid>
                             <#list consolidateQuestionList as consolidateQuestionList>
-                            <w:tr>
-                                <w:tblPrEx>
-                                    <w:tblBorders>
-                                        <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                    </w:tblBorders>
-                                    <w:tblCellMar>
-                                        <w:top w:w="0" w:type="dxa"/>
-                                        <w:left w:w="108" w:type="dxa"/>
-                                        <w:bottom w:w="0" w:type="dxa"/>
-                                        <w:right w:w="108" w:type="dxa"/>
-                                    </w:tblCellMar>
-                                </w:tblPrEx>
-                                <w:trPr>
-                                    <w:trHeight w:val="1704" w:h-rule="atLeast"/>
-                                </w:trPr>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="10018" w:type="dxa"/>
-                                        <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>题干：${consolidateQuestionList.questionsStart}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>分析：${consolidateQuestionList.questionsAnalyze}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>答案：${consolidateQuestionList.questionsAnswer}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>解答：${consolidateQuestionList.questionsExplain}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>点评：${consolidateQuestionList.questionsRemark}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:fareast="宋体" w:hint="default"/>
-                                                <w:color w:val="FF0000"/>
-                                                <w:sz-cs w:val="21"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                </w:tc>
-                            </w:tr>
+                                <w:tr>
+                                    <w:tblPrEx>
+                                        <w:tblBorders>
+                                            <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+                                            <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                    w:color="auto"/>
+                                            <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                      w:color="auto"/>
+                                            <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                     w:color="auto"/>
+                                            <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                       w:color="auto"/>
+                                            <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                       w:color="auto"/>
+                                        </w:tblBorders>
+                                        <w:tblCellMar>
+                                            <w:top w:w="0" w:type="dxa"/>
+                                            <w:left w:w="108" w:type="dxa"/>
+                                            <w:bottom w:w="0" w:type="dxa"/>
+                                            <w:right w:w="108" w:type="dxa"/>
+                                        </w:tblCellMar>
+                                    </w:tblPrEx>
+                                    <w:trPr>
+                                        <w:trHeight w:val="1704" w:h-rule="atLeast"/>
+                                    </w:trPr>
+                                    <w:tc>
+                                        <w:tcPr>
+                                            <w:tcW w:w="10018" w:type="dxa"/>
+                                            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                        </w:tcPr>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>题干：${consolidateQuestionList.questionsStart}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>分析：${consolidateQuestionList.questionsAnalyze}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>答案：${consolidateQuestionList.questionsAnswer}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>解答：${consolidateQuestionList.questionsExplain}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>点评：${consolidateQuestionList.questionsRemark}</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:fareast="宋体" w:hint="default"/>
+                                                    <w:color w:val="FF0000"/>
+                                                    <w:sz-cs w:val="21"/>
+                                                    <w:vertAlign w:val="baseline"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                    </w:tc>
+                                </w:tr>
                             </#list>
                         </w:tbl>
                         <w:p>
@@ -2460,85 +2479,63 @@
                                 <w:gridCol w:w="10124"/>
                             </w:tblGrid>
                             <#list teachPracticeList as teachPracticeList>
-                            <w:tr>
-                                <w:tblPrEx>
-                                    <w:tblBorders>
-                                        <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                        <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-                                    </w:tblBorders>
-                                    <w:tblCellMar>
-                                        <w:top w:w="0" w:type="dxa"/>
-                                        <w:left w:w="108" w:type="dxa"/>
-                                        <w:bottom w:w="0" w:type="dxa"/>
-                                        <w:right w:w="108" w:type="dxa"/>
-                                    </w:tblCellMar>
-                                </w:tblPrEx>
-                                <w:trPr>
-                                    <w:trHeight w:val="2180" w:h-rule="atLeast"/>
-                                </w:trPr>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="9908" w:type="dxa"/>
-                                        <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="center"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>周${teachPracticeList.week}闯关习题</w:t>
-                                        </w:r>
-                                    </w:p>
-                                    <w:tbl>
-                                        <w:tblPr>
-                                            <w:tblStyle w:val="a5"/>
-                                            <w:tblW w:w="9898" w:type="dxa"/>
-                                            <w:tblInd w:w="0" w:type="dxa"/>
-                                            <w:tblBorders>
-                                                <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                <w:tr>
+                                    <w:tblPrEx>
+                                        <w:tblBorders>
+                                            <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+                                            <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                    w:color="auto"/>
+                                            <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                      w:color="auto"/>
+                                            <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                     w:color="auto"/>
+                                            <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
                                                        w:color="auto"/>
-                                                <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                        w:color="auto"/>
-                                                <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                          w:color="auto"/>
-                                                <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                         w:color="auto"/>
-                                                <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                           w:color="auto"/>
-                                                <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-                                                           w:color="auto"/>
-                                            </w:tblBorders>
-                                            <w:tblCellMar>
-                                                <w:top w:w="0" w:type="dxa"/>
-                                                <w:left w:w="108" w:type="dxa"/>
-                                                <w:bottom w:w="0" w:type="dxa"/>
-                                                <w:right w:w="108" w:type="dxa"/>
-                                            </w:tblCellMar>
-                                        </w:tblPr>
-                                        <w:tblGrid>
-                                            <w:gridCol w:w="9898"/>
-                                        </w:tblGrid>
-                                        <#list practiceQuestionIdList as practiceQuestionIdList>
-                                        <w:tr>
-                                            <w:tblPrEx>
+                                            <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                       w:color="auto"/>
+                                        </w:tblBorders>
+                                        <w:tblCellMar>
+                                            <w:top w:w="0" w:type="dxa"/>
+                                            <w:left w:w="108" w:type="dxa"/>
+                                            <w:bottom w:w="0" w:type="dxa"/>
+                                            <w:right w:w="108" w:type="dxa"/>
+                                        </w:tblCellMar>
+                                    </w:tblPrEx>
+                                    <w:trPr>
+                                        <w:trHeight w:val="2180" w:h-rule="atLeast"/>
+                                    </w:trPr>
+                                    <w:tc>
+                                        <w:tcPr>
+                                            <w:tcW w:w="9908" w:type="dxa"/>
+                                            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                        </w:tcPr>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="center"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>周${teachPracticeList.week}闯关习题</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:tbl>
+                                            <w:tblPr>
+                                                <w:tblStyle w:val="a5"/>
+                                                <w:tblW w:w="9898" w:type="dxa"/>
+                                                <w:tblInd w:w="0" w:type="dxa"/>
                                                 <w:tblBorders>
                                                     <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
                                                            w:color="auto"/>
@@ -2559,250 +2556,281 @@
                                                     <w:bottom w:w="0" w:type="dxa"/>
                                                     <w:right w:w="108" w:type="dxa"/>
                                                 </w:tblCellMar>
-                                            </w:tblPrEx>
-                                            <w:trPr>
-                                                <w:trHeight w:val="780" w:h-rule="atLeast"/>
-                                            </w:trPr>
-                                            <w:tc>
-                                                <w:tcPr>
-                                                    <w:tcW w:w="9898" w:type="dxa"/>
-                                                    <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                                </w:tcPr>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>题干：${practiceQuestionIdList.questionsStart}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>分析：${practiceQuestionIdList.questionsAnalyze}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>答案：${practiceQuestionIdList.questionsAnswer}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>解答：${practiceQuestionIdList.questionsExplain}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="default"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                    <w:r>
-                                                        <w:rPr>
-                                                            <w:rFonts w:hint="fareast"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                        <w:t>点评：${practiceQuestionIdList.questionsRemark}</w:t>
-                                                    </w:r>
-                                                </w:p>
-                                                <w:p>
-                                                    <w:pPr>
-                                                        <w:widowControl w:val="off"/>
-                                                        <w:jc w:val="both"/>
-                                                        <w:rPr>
-                                                            <w:rFonts w:fareast="宋体" w:hint="default"/>
-                                                            <w:color w:val="FF0000"/>
-                                                            <w:sz-cs w:val="21"/>
-                                                            <w:vertAlign w:val="baseline"/>
-                                                            <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                                        </w:rPr>
-                                                    </w:pPr>
-                                                </w:p>
-                                            </w:tc>
-                                        </w:tr>
-                                        </#list>
-                                    </w:tbl>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="both"/>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:widowControl w:val="off"/>
-                                            <w:jc w:val="center"/>
-                                            <w:rPr>
-                                                <w:rFonts w:fareast="宋体" w:hint="default"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:b/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t></w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                            </w:rPr>
-                                            <w:t></w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t></w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                            </w:rPr>
-                                            <w:t>家长签字：</w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:u w:val="single"/>
-                                            </w:rPr>
-                                            <w:t></w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:u w:val="single"/>
-                                                <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
-                                            </w:rPr>
-                                            <w:t>${teachPracticeList.signature}</w:t>
-                                        </w:r>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="fareast"/>
-                                                <w:sz w:val="28"/>
-                                                <w:sz-cs w:val="28"/>
-                                                <w:u w:val="single"/>
-                                            </w:rPr>
-                                            <w:t></w:t>
-                                        </w:r>
-                                    </w:p>
-                                </w:tc>
-                            </w:tr>
+                                            </w:tblPr>
+                                            <w:tblGrid>
+                                                <w:gridCol w:w="9898"/>
+                                            </w:tblGrid>
+                                            <#list practiceQuestionIdList as practiceQuestionIdList>
+                                                <w:tr>
+                                                    <w:tblPrEx>
+                                                        <w:tblBorders>
+                                                            <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                                   w:color="auto"/>
+                                                            <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
+                                                                    w:color="auto"/>
+                                                            <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                      w:space="0"
+                                                                      w:color="auto"/>
+                                                            <w:right w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                     w:space="0"
+                                                                     w:color="auto"/>
+                                                            <w:insideH w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                       w:space="0"
+                                                                       w:color="auto"/>
+                                                            <w:insideV w:val="single" w:sz="4" wx:bdrwidth="10"
+                                                                       w:space="0"
+                                                                       w:color="auto"/>
+                                                        </w:tblBorders>
+                                                        <w:tblCellMar>
+                                                            <w:top w:w="0" w:type="dxa"/>
+                                                            <w:left w:w="108" w:type="dxa"/>
+                                                            <w:bottom w:w="0" w:type="dxa"/>
+                                                            <w:right w:w="108" w:type="dxa"/>
+                                                        </w:tblCellMar>
+                                                    </w:tblPrEx>
+                                                    <w:trPr>
+                                                        <w:trHeight w:val="780" w:h-rule="atLeast"/>
+                                                    </w:trPr>
+                                                    <w:tc>
+                                                        <w:tcPr>
+                                                            <w:tcW w:w="9898" w:type="dxa"/>
+                                                            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                                        </w:tcPr>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>题干：${practiceQuestionIdList.questionsStart}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>分析：${practiceQuestionIdList.questionsAnalyze}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>答案：${practiceQuestionIdList.questionsAnswer}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>解答：${practiceQuestionIdList.questionsExplain}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="default"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                            <w:r>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:hint="fareast"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                                <w:t>点评：${practiceQuestionIdList.questionsRemark}</w:t>
+                                                            </w:r>
+                                                        </w:p>
+                                                        <w:p>
+                                                            <w:pPr>
+                                                                <w:widowControl w:val="off"/>
+                                                                <w:jc w:val="both"/>
+                                                                <w:rPr>
+                                                                    <w:rFonts w:fareast="宋体" w:hint="default"/>
+                                                                    <w:color w:val="FF0000"/>
+                                                                    <w:sz-cs w:val="21"/>
+                                                                    <w:vertAlign w:val="baseline"/>
+                                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                                </w:rPr>
+                                                            </w:pPr>
+                                                        </w:p>
+                                                    </w:tc>
+                                                </w:tr>
+                                            </#list>
+                                        </w:tbl>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="both"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:vertAlign w:val="baseline"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:widowControl w:val="off"/>
+                                                <w:jc w:val="center"/>
+                                                <w:rPr>
+                                                    <w:rFonts w:fareast="宋体" w:hint="default"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:vertAlign w:val="baseline"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:b/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:vertAlign w:val="baseline"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t></w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                </w:rPr>
+                                                <w:t></w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t></w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                </w:rPr>
+                                                <w:t>家长签字：</w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:u w:val="single"/>
+                                                </w:rPr>
+                                                <w:t></w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:u w:val="single"/>
+                                                    <w:lang w:val="EN-US" w:fareast="ZH-CN"/>
+                                                </w:rPr>
+                                                <w:t>${teachPracticeList.signature}</w:t>
+                                            </w:r>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="fareast"/>
+                                                    <w:sz w:val="28"/>
+                                                    <w:sz-cs w:val="28"/>
+                                                    <w:u w:val="single"/>
+                                                </w:rPr>
+                                                <w:t></w:t>
+                                            </w:r>
+                                        </w:p>
+                                    </w:tc>
+                                </w:tr>
                             </#list>
                         </w:tbl>
                         <w:p>

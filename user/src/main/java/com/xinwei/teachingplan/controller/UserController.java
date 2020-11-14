@@ -30,7 +30,7 @@ public class UserController {
     private UserService userService;
 
 
-    @ApiOperation(value="登录")
+    @ApiOperation(value = "登录")
     @PostMapping("/login")
     public ApiMessage<UserBo> login(@RequestBody UserBo userBo) {
         UserBo result = userService.doLogin(userBo);
@@ -41,7 +41,7 @@ public class UserController {
         }
     }
 
-    @ApiOperation(value="忘记密码", notes = "基本请求")
+    @ApiOperation(value = "忘记密码", notes = "基本请求")
     @PostMapping("/updatePassword")
     public ApiMessage<UserBo> updatePassword(@RequestBody UserBo user) {
         String message = userService.updatePassword(user);
@@ -54,11 +54,11 @@ public class UserController {
 
     @ApiOperation("创建账号")
     @PostMapping("/add-user")
-    public ApiMessage<String> addUser(@RequestBody UserBo user){
-        String  message = userService.addUser(user);
-        if (message != null && message.length() == 1 && Integer.parseInt(message) >= 1){
+    public ApiMessage<String> addUser(@RequestBody UserBo user) {
+        String message = userService.addUser(user);
+        if (message != null && message.length() == 1 && Integer.parseInt(message) >= 1) {
             return ApiMessage.success(message);
-        }else {
+        } else {
             return ApiMessage.error(message);
         }
     }
