@@ -12,6 +12,8 @@ import com.xinwei.teachingplan.util.PathUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +35,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/questions")
 public class QuestionsController {
+
+    Logger logger = LoggerFactory.getLogger(QuestionsController.class);
     @Autowired
     private QuestionsService questionsService;
 
@@ -46,6 +50,7 @@ public class QuestionsController {
     @PostMapping("/add-questions")
     public @ResponseBody
     ApiMessage addQuestions(HttpServletRequest request, QuestionsBo questions) {
+
         List<MultipartFile> questionsStartImages = ((MultipartHttpServletRequest) request).getFiles("questionsStartImages");
         List<MultipartFile> questionsAnswerImages = ((MultipartHttpServletRequest) request).getFiles("questionsAnswerImages");
         List<MultipartFile> questionsAnalyzeImages = ((MultipartHttpServletRequest) request).getFiles("questionsAnalyzeImages");
@@ -90,16 +95,16 @@ public class QuestionsController {
 
     //存储图片
     private String imageDeal(List<MultipartFile> files) throws FileNotFoundException {
-        String imagesPath = new String();
+        StringBuffer imagesPath = new StringBuffer();
         String path = imgPath + File.separator + "static" + File.separator + "questions_teach_imag";
-
+        logger.info("图片存储的位置："+ path);
         for (MultipartFile file : files) {
             String fileName = file.getOriginalFilename();
             if (file.isEmpty()) {
 //                return "false";
             } else {
                 File dest = new File(path + File.separator + fileName);
-                imagesPath += fileName + ",";
+                imagesPath.append("/img/").append(fileName).append(",");
                 if (!dest.getParentFile().exists()) { //判断文件父目录是否存在
                     dest.getParentFile().mkdir();
                 }
@@ -112,7 +117,7 @@ public class QuestionsController {
                 }
             }
         }
-        return imagesPath;
+        return imagesPath.toString();
     }
 
     @ApiOperation(value = "删除试题")
